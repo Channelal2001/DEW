@@ -1,3 +1,33 @@
+<script>
+export default {
+  data() {
+    return {
+    };
+  },
+    methods: {
+        async signup() {
+            const signupPromises=[];
+            console.log(ids);
+            for (let i = 0; i < ids.length; i++) {
+                signupPromises.push(
+                    fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/users', {
+                        method: 'POST',
+                    })
+                    .then((response) => {
+                        if (response.status === 200) {
+                            return response.json();
+                        } else {
+                            throw new Error('Failed to sign up');
+                        }
+                    })
+                );
+            }
+        },
+    }
+};
+    
+</script>
+
 <template>
     <div id="body_container">
         <header>
