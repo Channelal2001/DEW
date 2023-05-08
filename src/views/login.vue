@@ -16,7 +16,7 @@
                     </div>
                 </form>
             </section>
-            <section id="button">
+            <section href="/home" id="button">
                 <div>
                     <button type="submit"><a href="/home" id="button_text">Login</a></button>
                 </div>
