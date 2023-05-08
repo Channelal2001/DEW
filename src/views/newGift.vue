@@ -76,9 +76,6 @@
                             <p href="#" id="button-amazon">Amazon</p>
                         </div>
                     </div>
-
-
-
                 </div>
             </div>
         </section>
