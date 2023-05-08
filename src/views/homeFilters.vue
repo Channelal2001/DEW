@@ -77,7 +77,7 @@
     </header>
     <main>
       <section>
-        <div href="" class="filters">
+        <a href="/home" class="filters">
           <p>Filters</p>
           <svg
             id="icon-filter"
@@ -92,7 +92,7 @@
                     0 0 1 .128-.334L13.5 3.308V2h-11z "
             />
           </svg>
-        </div>
+        </a>
         <div class="filters-wrap">
           <p id="filters-text">Ends in:</p>
           <p id="filters-type-1">24h</p>
