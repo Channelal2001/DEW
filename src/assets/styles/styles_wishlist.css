@@ -1,789 +1,789 @@
-f #logo {
-    margin-left: 30px;
-    font-family: Inter, sans-serif;
-    font-size: 40px;
-    margin-top: 10px;
-    margin-bottom: 0px;
-    color: rgba(109, 183, 251, 1);
-    text-decoration: none;
-}
-
-#body_container {
-    background-color: rgba(242, 242, 242, 1);
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-footer {
-    background-color: rgba(217, 217, 217, 1);
-    bottom: 0;
-    height: 20px;
-    width: 100%;
-    margin-top: auto;
-}
-
-header {
-    margin-top: 0px;
-}
-
-.arrow {
-    padding-left: 30px;
-    width: 3%;
-}
-
-#menu {
-    margin-right: 60px;
-    align-self: flex-end;
-}
-
-.button-menu {
-    background-color: rgba(249, 249, 249, 1);
-    border: 1px solid rgb(35, 35, 35);
-    margin-left: 10px;
-    margin-right: 10px;
-    padding: 5px;
-    border-radius: 45px;
-    width: 20px;
-    height: 20px;
-    text-decoration: none;
-}
-
-.button-menu-new {
-    fill: rgb(255, 255, 255);
-    background-color: rgb(35, 35, 35);
-    border: 1px solid rgb(35, 35, 35);
-    margin-left: 10px;
-    margin-right: 10px;
-    padding: 5px;
-    border-radius: 45px;
-    width: 20px;
-    height: 20px;
-}
-
-.button-menu:hover {
-    fill: rgb(255, 255, 255);
-    background-color: rgb(35, 35, 35);
-    cursor: pointer;
-}
-
-.button-account {
-    background-color: rgba(249, 249, 249, 1);
-    border: 1px solid rgb(35, 35, 35);
-    margin-left: 10px;
-    margin-right: 10px;
-    padding: 5px;
-    border-radius: 45px;
-    width: 30px;
-    height: 30px;
-    text-decoration: none;
-    color: black;
-}
-
-.button-account:hover {
-    fill: rgb(255, 255, 255);
-    background-color: rgb(35, 35, 35);
-    cursor: pointer;
-}
-
-#navegation-section {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 5px;
-}
-
-#name-wishlist {
-    font-family: Inter, medium;
-    font-size: 35px;
-    padding-left: 65px;
-    margin: 0;
-}
-
-#description-wishlist {
-    font-family: Inter, regular;
-    font-size: 18px;
-    margin: 0;
-    padding-top: 5px;
-    padding-left: 65px;
-    color: rgb(69, 68, 68);
-}
-
-.chats-dashboard {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-bottom: 10px;
-}
-
-#message-emty {
-    text-align: center;
-    font-family: Inter, medium;
-    font-size: 14px;
-    margin-top: 30%;
-    color: rgba(139, 139, 139, 1);
-}
-
-#button-add-gift {
-    text-align: center;
-    background-color: rgba(163, 161, 161, 1);
-    font-family: Inter, medium;
-    font-size: 14px;
-    width: fit-content;
-    color: azure;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 8px;
-    padding-left: 8px;
-    margin-right: 10px;
-    border-radius: 20px;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-#button-add {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    width: 60vh;
-    text-decoration: none
-}
-
-#button-add-gift:hover {
-    text-align: center;
-    background-color: rgb(65, 65, 65);
-}
-
-#wishlist-product-list {
-    grid-column: 1;
-}
-
-#wishlist-information {
-    grid-column: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#wishlist-data-information {
-    background-color: rgba(255, 255, 255, 1);
-    justify-items: center;
-    width: 50vh;
-    padding-top: 35px;
-    padding-bottom: 35px;
-    align-self: center;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    border-radius: 20px;
-}
-
-.wishlist-data-information-moved {
-    background-color: rgba(255, 255, 255, 1);
-    width: fit-content;
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 5px;
-    border-radius: 20px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    width: 50vh;
-    font-family: Inter, medium;
-    font-size: 23px;
-}
-
-.wishlist-data-information-moved-message {
-    background-color: rgba(255, 255, 255, 1);
-    width: 50vh;
-    text-align: center;
-    margin-top: 5px;
-    margin-bottom: 30px;
-    border-radius: 20px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    font-family: Inter, medium;
-    font-size: 23px;
-}
-
-.wishlist-data-information-moved-message-error {
-    background-color: rgba(255, 255, 255, 1);
-    width: fit-content;
-    text-align: center;
-    margin-top: 5px;
-    margin-bottom: 30px;
-    border-radius: 20px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    width: 50vh;
-    font-family: Inter, medium;
-    font-size: 23px;
-}
-
-#information-wishlist-notification {
-    font-family: Inter, medium;
-    font-size: 18px;
-    text-align: center;
-    color: rgba(139, 139, 139, 1);
-}
-
-.image-icon-wishlist {
-    background-color: rgba(133, 220, 119, 1);
-    border-radius: 20px;
-    width: 89px;
-    padding-left: 10px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    padding-right: 10px;
-    align-self: center;
-    margin-top: 20px;
-    margin-bottom: 8px;
-}
-
-#information-wishlist {
-    text-align: center;
-}
-
-#date-start-text {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    font-family: Inter, medium;
-    font-size: 23px;
-    margin-top: 20px;
-    margin-bottom: 30px;
-    align-items: center;
-}
-
-#text-celebration {
-    margin: 8px;
-}
-
-.information-wishlist-updateble {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
-#information-wishlist-numbers {
-    font-family: inter, medium;
-    font-size: 23px;
-    margin: 0px;
-    color: rgba(95, 95, 95, 1);
-}
-
-#information-wishlist-text {
-    font-family: Inter, regular;
-    font-size: 20px;
-    margin: 0px;
-}
-
-.upload-image-wishlist-button {
-    align-self: center;
-    margin: 8px;
-}
-
-#information-wishlist-end-date {
-    font-family: Inter, regular;
-    font-size: 14px;
-    margin: 10px;
-    color: rgba(251, 251, 251, 1);
-    text-align: center;
-    background-color: rgba(127, 166, 240, 1);
-    border-radius: 45px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-left: 14px;
-    padding-right: 14px;
-    width: fit-content;
-    text-decoration: none;
-}
-
-.celebration-date-box {
-    background-color: white;
-    font-family: Inter, regular;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    width: 50vh;
-    border-radius: 20px;
-}
-
-#text-celebration-box {
-    color: black;
-    font-size: 28px;
-    margin-top: 10px;
-    margin-bottom: 5px;
-}
-
-#information-wishlist-numbers-box {
-    color: rgb(142, 141, 141);
-    font-size: 20px;
-    font-family: Inter, bold;
-    margin-top: 2px;
-    margin-bottom: 10px;
-}
-
-#button-add {
-    color: rgba(109, 183, 251, 1);
-    font-size: 18px;
-    font-family: Inter, medium;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-#svg-icon-cross {
-    fill: white;
-    background-color: rgba(224, 224, 224, 1);
-    border-radius: 50%;
-    padding: 5px;
-    width: 15px;
-    height: 15px;
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-bottom: 5px;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.buttons-navegation-new-gift {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.image-name-new-gift {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-#name-new-gift {
-    font-family: Inter, medium;
-    color: rgba(139, 139, 139, 1);
-    margin-left: 40px;
-    margin-bottom: 15px;
-    margin-top: 15px;
-    font-size: 35px;
-}
-
-#description-neuw-gift {
-    color: rgba(139, 139, 139, 1);
-    font-family: Inter, regular;
-    font-size: 18px;
-    padding-left: 15px;
-}
-
-.buttons-source {
-    display: flex;
-    flex-direction: column;
-}
-
-.buttons-source-gift {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.button-delete {
-    color: rgba(242, 91, 91, 1);
-    font-family: inter, medium;
-    font-size: 18px;
-    text-align: center;
-    margin-top: 30px;
-}
-
-#button-delete-text {
-    margin-bottom: 0px;
-    margin-top: 20px;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    text-decoration: none;
-    color: red;
-}
-
-.chat-user {
-    background-color: rgba(255, 255, 255, 1);
-    border-radius: 20px;
-    width: 50vh;
-    margin-left: 60px;
-    margin-top: 15px;
-    display: flex;
-    flex-direction: row;
-    padding: 5px;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.chat-user-moving-gift {
-    background-color: rgba(255, 255, 255, 1);
-    border-radius: 20px;
-    width: 50vh;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    display: flex;
-    flex-direction: row;
-    padding: 5px;
-    align-items: center;
-}
-
-.chat-user-moving {
-    background-color: rgba(220, 220, 220, 1);
-    border-radius: 20px;
-    width: 50vh;
-    margin-left: 60px;
-    margin-top: 15px;
-    display: flex;
-    flex-direction: row;
-    padding: 5px;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0px 1px 4px 0px rgb(96, 95, 95);
-}
-
-#image-user {
-    border-radius: 20px;
-    height: 85px;
-}
-
-#box-message-gift {
-    display: flex;
-    flex-direction: column;
-}
-
-#user-chat {
-    font-family: Inter, medium;
-    color: rgba(139, 139, 139, 1);
-    font-size: 23px;
-    margin: 0;
-    padding-left: 10px;
-}
-
-#message-text {
-    font-family: Inter, medium;
-    margin: 0;
-    margin-top: 5px;
-    color: rgba(139, 139, 139, 1);
-    font-size: 12px;
-    padding-left: 10px;
-}
-
-#notifications {
-    font-family: Inter, medium;
-    color: white;
-    background-color: rgba(77, 74, 239, 1);
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-left: 7px;
-    padding-right: 7px;
-    border-radius: 50px;
-    font-size: 16px;
-    margin-left: 20px;
-    margin-right: 20px;
-    align-items: flex-end;
-    text-decoration: none;
-}
-
-#notifications-reserved {
-    background-color: rgba(226, 148, 31, 1);
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-left: 7px;
-    padding-right: 7px;
-    border-radius: 50px;
-    font-size: 16px;
-    margin-left: 20px;
-    margin-right: 20px;
-    align-items: flex-end;
-    font-family: Inter, medium;
-    color: white;
-}
-
-#text-list-wishlist {
-    color: rgba(139, 139, 139, 1);
-    font-family: Inter, medium;
-    font-size: 23px;
-    text-align: center;
-}
-
-#name-wishlist-move {
-    color: black;
-    font-family: Inter, medium;
-    font-size: 20px;
-}
-
-#move-button {
-    color: rgba(109, 183, 251, 1);
-    font-family: inter, medium;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    text-decoration: none;
-}
-
-#lists {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
-
-#cancel-button {
-    background-color: rgba(163, 161, 161, 1);
-    color: rgba(251, 251, 251, 1);
-    font-family: inter, medium;
-    width: fit-content;
-    text-align: center;
-    padding-top: 7px;
-    padding-bottom: 7px;
-    padding-right: 12px;
-    padding-left: 12px;
-    border-radius: 45px;
-    align-self: center;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    text-decoration: none;
-}
-
-.wishlist-moving-info {
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(255, 255, 255, 1);
-    border-radius: 20px;
-    width: 50vh;
-    margin-top: 15px;
-}
-
-#navegation-gift {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
-
-#button-move {
-    color: rgba(139, 139, 139, 1);
-    font-family: inter, medium;
-    font-size: 18px;
-    text-decoration: none;
-}
-
-#button-delete {
-    color: rgba(242, 91, 91, 1);
-    font-family: inter, medium;
-    font-size: 18px;
-    text-decoration: none;
-}
-
-#text-link-gift {
-    font-family: inter, medium;
-    font-size: 16px;
-    color: rgba(28, 126, 216, 1);
-    padding-left: 15px
-}
-
-@media screen and (min-width: 1900px) {
-    #logo {
-        margin-left: 30px;
-        font-family: Inter, sans-serif;
-        font-size: 80px;
-        margin-top: 10px;
-        margin-bottom: 0px;
-        color: rgba(109, 183, 251, 1);
-    }
-    .arrow {
-        padding-left: 30px;
-        width: 2%;
-    }
-    #information-wishlist-notification {
-        font-family: Inter, medium;
-        font-size: 24px;
-        text-align: center;
-        color: rgba(139, 139, 139, 1);
-    }
-    #button-add-gift {
-        text-align: center;
-        background-color: rgba(163, 161, 161, 1);
-        font-family: Inter, medium;
-        font-size: 18px;
-        width: fit-content;
-        color: azure;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        padding-right: 8px;
-        padding-left: 8px;
-        margin-right: 10px;
-        border-radius: 20px;
-        cursor: pointer;
-    }
-    #notifications {
-        font-family: Inter, medium;
-        color: white;
-        background-color: rgba(77, 74, 239, 1);
-        padding-top: 3px;
-        padding-bottom: 3px;
-        padding-left: 7px;
-        padding-right: 7px;
-        border-radius: 50px;
-        font-size: 20px;
-        margin-left: 20px;
-        margin-right: 20px;
-        align-items: flex-end;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    #logo {
-        margin-left: 30px;
-        font-family: Inter, sans-serif;
-        font-size: 30px;
-        margin-top: 10px;
-        margin-bottom: 0px;
-        color: rgba(109, 183, 251, 1);
-    }
-    .arrow {
-        padding-left: 10px;
-        width: 4%;
-    }
-    #menu {
-        margin-right: 10px;
-        align-self: flex-end;
-    }
-    #navegation-section {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        margin-top: 5px;
-        margin-bottom: 20px;
-    }
-    #name-wishlist {
-        font-family: Inter, medium;
-        font-size: 35px;
-        text-align: center;
-        margin: 0;
-        padding-left: 0px;
-    }
-    #description-wishlist {
-        font-family: Inter, regular;
-        font-size: 18px;
-        margin: 0;
-        padding-top: 5px;
-        text-align: center;
-        color: rgb(69, 68, 68);
-        padding-left: 0px;
-    }
-    .chats-dashboard {
-        display: flex;
-        flex-direction: column;
-        grid-template-columns: 0fr 0fr;
-        margin-bottom: 10px;
-    }
-    #button-add {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        width: 60vh;
-    }
-    #button-add-gift {
-        text-align: center;
-        background-color: rgba(163, 161, 161, 1);
-        font-family: Inter, medium;
-        font-size: 18px;
-        width: fit-content;
-        color: azure;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        padding-right: 10px;
-        padding-left: 10px;
-        margin-right: 10px;
-        border-radius: 20px;
-        cursor: pointer;
-    }
-    .chat-user-moving {
-        background-color: rgba(220, 220, 220, 1);
-        border-radius: 20px;
-        width: 50vh;
-        margin-left: 5%;
-        margin-top: 15px;
-        display: flex;
-        flex-direction: row;
-        padding: 5px;
-        align-items: center;
-        justify-content: space-between;
-        box-shadow: 0px 1px 4px 0px rgb(96, 95, 95);
-    }
-    .chat-user {
-        background-color: rgba(255, 255, 255, 1);
-        border-radius: 20px;
-        width: 50vh;
-        margin-left: 5%;
-        margin-top: 15px;
-        display: flex;
-        flex-direction: row;
-        padding: 5px;
-        align-items: center;
-        justify-content: space-between;
-    }
-    #user-chat {
-        font-family: Inter, medium;
-        color: rgba(139, 139, 139, 1);
-        font-size: 16px;
-        margin: 0;
-        padding-left: 10px;
-    }
-    .wishlist-data-information-moved-message-error {
-        background-color: rgba(255, 255, 255, 1);
-        width: fit-content;
-        text-align: center;
-        margin-top: 5px;
-        margin-bottom: 30px;
-        border-radius: 20px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        padding-left: 0px;
-        padding-right: 0px;
-        width: 50vh;
-        font-family: Inter, medium;
-        font-size: 23px;
-    }
-    .celebration-date-box {
-        background-color: white;
-        font-family: Inter, regular;
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        width: 50vh;
-        padding-left: 0px;
-        padding-right: 0px;
-        border-radius: 20px;
-        margin-top: 30px;
-    }
-    #wishlist-data-information {
-        background-color: rgba(255, 255, 255, 1);
-        justify-items: center;
-        width: 50vh;
-        padding-top: 35px;
-        padding-bottom: 35px;
-        align-self: center;
-        margin-top: 15px;
-        margin-bottom: 10px;
-        border-radius: 20px;
-    }
-    .image-name-new-gift {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        margin-left: 5%;
-    }
-}
+ #logo {
+     margin-left: 30px;
+     font-family: Inter, sans-serif;
+     font-size: 40px;
+     margin-top: 10px;
+     margin-bottom: 0px;
+     color: rgba(109, 183, 251, 1);
+     text-decoration: none;
+ }
+ 
+ #body_container {
+     background-color: rgba(242, 242, 242, 1);
+     margin: 0;
+     display: flex;
+     flex-direction: column;
+     min-height: 100vh;
+ }
+ 
+ footer {
+     background-color: rgba(217, 217, 217, 1);
+     bottom: 0;
+     height: 20px;
+     width: 100%;
+     margin-top: auto;
+ }
+ 
+ header {
+     margin-top: 0px;
+ }
+ 
+ .arrow {
+     padding-left: 30px;
+     width: 3%;
+ }
+ 
+ #menu {
+     margin-right: 60px;
+     align-self: flex-end;
+ }
+ 
+ .button-menu {
+     background-color: rgba(249, 249, 249, 1);
+     border: 1px solid rgb(35, 35, 35);
+     margin-left: 10px;
+     margin-right: 10px;
+     padding: 5px;
+     border-radius: 45px;
+     width: 20px;
+     height: 20px;
+     text-decoration: none;
+ }
+ 
+ .button-menu-new {
+     fill: rgb(255, 255, 255);
+     background-color: rgb(35, 35, 35);
+     border: 1px solid rgb(35, 35, 35);
+     margin-left: 10px;
+     margin-right: 10px;
+     padding: 5px;
+     border-radius: 45px;
+     width: 20px;
+     height: 20px;
+ }
+ 
+ .button-menu:hover {
+     fill: rgb(255, 255, 255);
+     background-color: rgb(35, 35, 35);
+     cursor: pointer;
+ }
+ 
+ .button-account {
+     background-color: rgba(249, 249, 249, 1);
+     border: 1px solid rgb(35, 35, 35);
+     margin-left: 10px;
+     margin-right: 10px;
+     padding: 5px;
+     border-radius: 45px;
+     width: 30px;
+     height: 30px;
+     text-decoration: none;
+     color: black;
+ }
+ 
+ .button-account:hover {
+     fill: rgb(255, 255, 255);
+     background-color: rgb(35, 35, 35);
+     cursor: pointer;
+ }
+ 
+ #navegation-section {
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: space-between;
+     margin-top: 5px;
+ }
+ 
+ #name-wishlist {
+     font-family: Inter, medium;
+     font-size: 35px;
+     padding-left: 65px;
+     margin: 0;
+ }
+ 
+ #description-wishlist {
+     font-family: Inter, regular;
+     font-size: 18px;
+     margin: 0;
+     padding-top: 5px;
+     padding-left: 65px;
+     color: rgb(69, 68, 68);
+ }
+ 
+ .chats-dashboard {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     margin-bottom: 10px;
+ }
+ 
+ #message-emty {
+     text-align: center;
+     font-family: Inter, medium;
+     font-size: 14px;
+     margin-top: 30%;
+     color: rgba(139, 139, 139, 1);
+ }
+ 
+ #button-add-gift {
+     text-align: center;
+     background-color: rgba(163, 161, 161, 1);
+     font-family: Inter, medium;
+     font-size: 14px;
+     width: fit-content;
+     color: azure;
+     padding-top: 5px;
+     padding-bottom: 5px;
+     padding-right: 8px;
+     padding-left: 8px;
+     margin-right: 10px;
+     border-radius: 20px;
+     cursor: pointer;
+     text-decoration: none;
+ }
+ 
+ #button-add {
+     display: flex;
+     flex-direction: row;
+     justify-content: flex-end;
+     width: 60vh;
+     text-decoration: none
+ }
+ 
+ #button-add-gift:hover {
+     text-align: center;
+     background-color: rgb(65, 65, 65);
+ }
+ 
+ #wishlist-product-list {
+     grid-column: 1;
+ }
+ 
+ #wishlist-information {
+     grid-column: 2;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+ }
+ 
+ #wishlist-data-information {
+     background-color: rgba(255, 255, 255, 1);
+     justify-items: center;
+     width: 50vh;
+     padding-top: 35px;
+     padding-bottom: 35px;
+     align-self: center;
+     margin-top: 15px;
+     margin-bottom: 5px;
+     border-radius: 20px;
+ }
+ 
+ .wishlist-data-information-moved {
+     background-color: rgba(255, 255, 255, 1);
+     width: fit-content;
+     text-align: center;
+     margin-top: 30px;
+     margin-bottom: 5px;
+     border-radius: 20px;
+     padding-top: 5px;
+     padding-bottom: 5px;
+     width: 50vh;
+     font-family: Inter, medium;
+     font-size: 23px;
+ }
+ 
+ .wishlist-data-information-moved-message {
+     background-color: rgba(255, 255, 255, 1);
+     width: 50vh;
+     text-align: center;
+     margin-top: 5px;
+     margin-bottom: 30px;
+     border-radius: 20px;
+     padding-top: 5px;
+     padding-bottom: 5px;
+     font-family: Inter, medium;
+     font-size: 23px;
+ }
+ 
+ .wishlist-data-information-moved-message-error {
+     background-color: rgba(255, 255, 255, 1);
+     width: fit-content;
+     text-align: center;
+     margin-top: 5px;
+     margin-bottom: 30px;
+     border-radius: 20px;
+     padding-top: 5px;
+     padding-bottom: 5px;
+     width: 50vh;
+     font-family: Inter, medium;
+     font-size: 23px;
+ }
+ 
+ #information-wishlist-notification {
+     font-family: Inter, medium;
+     font-size: 18px;
+     text-align: center;
+     color: rgba(139, 139, 139, 1);
+ }
+ 
+ .image-icon-wishlist {
+     background-color: rgba(133, 220, 119, 1);
+     border-radius: 20px;
+     width: 89px;
+     padding-left: 10px;
+     padding-top: 8px;
+     padding-bottom: 8px;
+     padding-right: 10px;
+     align-self: center;
+     margin-top: 20px;
+     margin-bottom: 8px;
+ }
+ 
+ #information-wishlist {
+     text-align: center;
+ }
+ 
+ #date-start-text {
+     display: flex;
+     flex-direction: column;
+     text-align: center;
+     font-family: Inter, medium;
+     font-size: 23px;
+     margin-top: 20px;
+     margin-bottom: 30px;
+     align-items: center;
+ }
+ 
+ #text-celebration {
+     margin: 8px;
+ }
+ 
+ .information-wishlist-updateble {
+     display: flex;
+     flex-direction: row;
+     justify-content: space-evenly;
+ }
+ 
+ #information-wishlist-numbers {
+     font-family: inter, medium;
+     font-size: 23px;
+     margin: 0px;
+     color: rgba(95, 95, 95, 1);
+ }
+ 
+ #information-wishlist-text {
+     font-family: Inter, regular;
+     font-size: 20px;
+     margin: 0px;
+ }
+ 
+ .upload-image-wishlist-button {
+     align-self: center;
+     margin: 8px;
+ }
+ 
+ #information-wishlist-end-date {
+     font-family: Inter, regular;
+     font-size: 14px;
+     margin: 10px;
+     color: rgba(251, 251, 251, 1);
+     text-align: center;
+     background-color: rgba(127, 166, 240, 1);
+     border-radius: 45px;
+     padding-top: 2px;
+     padding-bottom: 2px;
+     padding-left: 14px;
+     padding-right: 14px;
+     width: fit-content;
+     text-decoration: none;
+ }
+ 
+ .celebration-date-box {
+     background-color: white;
+     font-family: Inter, regular;
+     align-items: center;
+     display: flex;
+     flex-direction: column;
+     width: 50vh;
+     border-radius: 20px;
+ }
+ 
+ #text-celebration-box {
+     color: black;
+     font-size: 28px;
+     margin-top: 10px;
+     margin-bottom: 5px;
+ }
+ 
+ #information-wishlist-numbers-box {
+     color: rgb(142, 141, 141);
+     font-size: 20px;
+     font-family: Inter, bold;
+     margin-top: 2px;
+     margin-bottom: 10px;
+ }
+ 
+ #button-add {
+     color: rgba(109, 183, 251, 1);
+     font-size: 18px;
+     font-family: Inter, medium;
+     cursor: pointer;
+     -webkit-user-select: none;
+     -ms-user-select: none;
+     user-select: none;
+ }
+ 
+ #svg-icon-cross {
+     fill: white;
+     background-color: rgba(224, 224, 224, 1);
+     border-radius: 50%;
+     padding: 5px;
+     width: 15px;
+     height: 15px;
+     margin-top: 10px;
+     margin-left: 10px;
+     margin-bottom: 5px;
+     cursor: pointer;
+     -webkit-user-select: none;
+     -ms-user-select: none;
+     user-select: none;
+ }
+ 
+ .buttons-navegation-new-gift {
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     align-items: center;
+ }
+ 
+ .image-name-new-gift {
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+ }
+ 
+ #name-new-gift {
+     font-family: Inter, medium;
+     color: rgba(139, 139, 139, 1);
+     margin-left: 40px;
+     margin-bottom: 15px;
+     margin-top: 15px;
+     font-size: 35px;
+ }
+ 
+ #description-neuw-gift {
+     color: rgba(139, 139, 139, 1);
+     font-family: Inter, regular;
+     font-size: 18px;
+     padding-left: 15px;
+ }
+ 
+ .buttons-source {
+     display: flex;
+     flex-direction: column;
+ }
+ 
+ .buttons-source-gift {
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     align-items: center;
+ }
+ 
+ .button-delete {
+     color: rgba(242, 91, 91, 1);
+     font-family: inter, medium;
+     font-size: 18px;
+     text-align: center;
+     margin-top: 30px;
+ }
+ 
+ #button-delete-text {
+     margin-bottom: 0px;
+     margin-top: 20px;
+     cursor: pointer;
+     -webkit-user-select: none;
+     -ms-user-select: none;
+     user-select: none;
+     text-decoration: none;
+     color: red;
+ }
+ 
+ .chat-user {
+     background-color: rgba(255, 255, 255, 1);
+     border-radius: 20px;
+     width: 50vh;
+     margin-left: 60px;
+     margin-top: 15px;
+     display: flex;
+     flex-direction: row;
+     padding: 5px;
+     align-items: center;
+     justify-content: space-between;
+ }
+ 
+ .chat-user-moving-gift {
+     background-color: rgba(255, 255, 255, 1);
+     border-radius: 20px;
+     width: 50vh;
+     margin-top: 15px;
+     margin-bottom: 5px;
+     display: flex;
+     flex-direction: row;
+     padding: 5px;
+     align-items: center;
+ }
+ 
+ .chat-user-moving {
+     background-color: rgba(220, 220, 220, 1);
+     border-radius: 20px;
+     width: 50vh;
+     margin-left: 60px;
+     margin-top: 15px;
+     display: flex;
+     flex-direction: row;
+     padding: 5px;
+     align-items: center;
+     justify-content: space-between;
+     box-shadow: 0px 1px 4px 0px rgb(96, 95, 95);
+ }
+ 
+ #image-user {
+     border-radius: 20px;
+     height: 85px;
+ }
+ 
+ #box-message-gift {
+     display: flex;
+     flex-direction: column;
+ }
+ 
+ #user-chat {
+     font-family: Inter, medium;
+     color: rgba(139, 139, 139, 1);
+     font-size: 23px;
+     margin: 0;
+     padding-left: 10px;
+ }
+ 
+ #message-text {
+     font-family: Inter, medium;
+     margin: 0;
+     margin-top: 5px;
+     color: rgba(139, 139, 139, 1);
+     font-size: 12px;
+     padding-left: 10px;
+ }
+ 
+ #notifications {
+     font-family: Inter, medium;
+     color: white;
+     background-color: rgba(77, 74, 239, 1);
+     padding-top: 3px;
+     padding-bottom: 3px;
+     padding-left: 7px;
+     padding-right: 7px;
+     border-radius: 50px;
+     font-size: 16px;
+     margin-left: 20px;
+     margin-right: 20px;
+     align-items: flex-end;
+     text-decoration: none;
+ }
+ 
+ #notifications-reserved {
+     background-color: rgba(226, 148, 31, 1);
+     padding-top: 3px;
+     padding-bottom: 3px;
+     padding-left: 7px;
+     padding-right: 7px;
+     border-radius: 50px;
+     font-size: 16px;
+     margin-left: 20px;
+     margin-right: 20px;
+     align-items: flex-end;
+     font-family: Inter, medium;
+     color: white;
+ }
+ 
+ #text-list-wishlist {
+     color: rgba(139, 139, 139, 1);
+     font-family: Inter, medium;
+     font-size: 23px;
+     text-align: center;
+ }
+ 
+ #name-wishlist-move {
+     color: black;
+     font-family: Inter, medium;
+     font-size: 20px;
+ }
+ 
+ #move-button {
+     color: rgba(109, 183, 251, 1);
+     font-family: inter, medium;
+     cursor: pointer;
+     -webkit-user-select: none;
+     -ms-user-select: none;
+     user-select: none;
+     text-decoration: none;
+ }
+ 
+ #lists {
+     display: flex;
+     flex-direction: row;
+     justify-content: space-around;
+     align-items: center;
+ }
+ 
+ #cancel-button {
+     background-color: rgba(163, 161, 161, 1);
+     color: rgba(251, 251, 251, 1);
+     font-family: inter, medium;
+     width: fit-content;
+     text-align: center;
+     padding-top: 7px;
+     padding-bottom: 7px;
+     padding-right: 12px;
+     padding-left: 12px;
+     border-radius: 45px;
+     align-self: center;
+     cursor: pointer;
+     -webkit-user-select: none;
+     -ms-user-select: none;
+     user-select: none;
+     text-decoration: none;
+ }
+ 
+ .wishlist-moving-info {
+     display: flex;
+     flex-direction: column;
+     background-color: rgba(255, 255, 255, 1);
+     border-radius: 20px;
+     width: 50vh;
+     margin-top: 15px;
+ }
+ 
+ #navegation-gift {
+     display: flex;
+     flex-direction: row;
+     justify-content: space-around;
+     align-items: center;
+ }
+ 
+ #button-move {
+     color: rgba(139, 139, 139, 1);
+     font-family: inter, medium;
+     font-size: 18px;
+     text-decoration: none;
+ }
+ 
+ #button-delete {
+     color: rgba(242, 91, 91, 1);
+     font-family: inter, medium;
+     font-size: 18px;
+     text-decoration: none;
+ }
+ 
+ #text-link-gift {
+     font-family: inter, medium;
+     font-size: 16px;
+     color: rgba(28, 126, 216, 1);
+     padding-left: 15px
+ }
+ 
+ @media screen and (min-width: 1900px) {
+     #logo {
+         margin-left: 30px;
+         font-family: Inter, sans-serif;
+         font-size: 80px;
+         margin-top: 10px;
+         margin-bottom: 0px;
+         color: rgba(109, 183, 251, 1);
+     }
+     .arrow {
+         padding-left: 30px;
+         width: 2%;
+     }
+     #information-wishlist-notification {
+         font-family: Inter, medium;
+         font-size: 24px;
+         text-align: center;
+         color: rgba(139, 139, 139, 1);
+     }
+     #button-add-gift {
+         text-align: center;
+         background-color: rgba(163, 161, 161, 1);
+         font-family: Inter, medium;
+         font-size: 18px;
+         width: fit-content;
+         color: azure;
+         padding-top: 5px;
+         padding-bottom: 5px;
+         padding-right: 8px;
+         padding-left: 8px;
+         margin-right: 10px;
+         border-radius: 20px;
+         cursor: pointer;
+     }
+     #notifications {
+         font-family: Inter, medium;
+         color: white;
+         background-color: rgba(77, 74, 239, 1);
+         padding-top: 3px;
+         padding-bottom: 3px;
+         padding-left: 7px;
+         padding-right: 7px;
+         border-radius: 50px;
+         font-size: 20px;
+         margin-left: 20px;
+         margin-right: 20px;
+         align-items: flex-end;
+     }
+ }
+ 
+ @media screen and (max-width: 600px) {
+     #logo {
+         margin-left: 30px;
+         font-family: Inter, sans-serif;
+         font-size: 30px;
+         margin-top: 10px;
+         margin-bottom: 0px;
+         color: rgba(109, 183, 251, 1);
+     }
+     .arrow {
+         padding-left: 10px;
+         width: 4%;
+     }
+     #menu {
+         margin-right: 10px;
+         align-self: flex-end;
+     }
+     #navegation-section {
+         display: flex;
+         flex-direction: row;
+         align-items: center;
+         justify-content: space-between;
+         margin-top: 5px;
+         margin-bottom: 20px;
+     }
+     #name-wishlist {
+         font-family: Inter, medium;
+         font-size: 35px;
+         text-align: center;
+         margin: 0;
+         padding-left: 0px;
+     }
+     #description-wishlist {
+         font-family: Inter, regular;
+         font-size: 18px;
+         margin: 0;
+         padding-top: 5px;
+         text-align: center;
+         color: rgb(69, 68, 68);
+         padding-left: 0px;
+     }
+     .chats-dashboard {
+         display: flex;
+         flex-direction: column;
+         grid-template-columns: 0fr 0fr;
+         margin-bottom: 10px;
+     }
+     #button-add {
+         display: flex;
+         flex-direction: row;
+         justify-content: center;
+         width: 60vh;
+     }
+     #button-add-gift {
+         text-align: center;
+         background-color: rgba(163, 161, 161, 1);
+         font-family: Inter, medium;
+         font-size: 18px;
+         width: fit-content;
+         color: azure;
+         padding-top: 5px;
+         padding-bottom: 5px;
+         padding-right: 10px;
+         padding-left: 10px;
+         margin-right: 10px;
+         border-radius: 20px;
+         cursor: pointer;
+     }
+     .chat-user-moving {
+         background-color: rgba(220, 220, 220, 1);
+         border-radius: 20px;
+         width: 50vh;
+         margin-left: 5%;
+         margin-top: 15px;
+         display: flex;
+         flex-direction: row;
+         padding: 5px;
+         align-items: center;
+         justify-content: space-between;
+         box-shadow: 0px 1px 4px 0px rgb(96, 95, 95);
+     }
+     .chat-user {
+         background-color: rgba(255, 255, 255, 1);
+         border-radius: 20px;
+         width: 50vh;
+         margin-left: 5%;
+         margin-top: 15px;
+         display: flex;
+         flex-direction: row;
+         padding: 5px;
+         align-items: center;
+         justify-content: space-between;
+     }
+     #user-chat {
+         font-family: Inter, medium;
+         color: rgba(139, 139, 139, 1);
+         font-size: 16px;
+         margin: 0;
+         padding-left: 10px;
+     }
+     .wishlist-data-information-moved-message-error {
+         background-color: rgba(255, 255, 255, 1);
+         width: fit-content;
+         text-align: center;
+         margin-top: 5px;
+         margin-bottom: 30px;
+         border-radius: 20px;
+         padding-top: 5px;
+         padding-bottom: 5px;
+         padding-left: 0px;
+         padding-right: 0px;
+         width: 50vh;
+         font-family: Inter, medium;
+         font-size: 23px;
+     }
+     .celebration-date-box {
+         background-color: white;
+         font-family: Inter, regular;
+         align-items: center;
+         display: flex;
+         flex-direction: column;
+         width: 50vh;
+         padding-left: 0px;
+         padding-right: 0px;
+         border-radius: 20px;
+         margin-top: 30px;
+     }
+     #wishlist-data-information {
+         background-color: rgba(255, 255, 255, 1);
+         justify-items: center;
+         width: 50vh;
+         padding-top: 35px;
+         padding-bottom: 35px;
+         align-self: center;
+         margin-top: 15px;
+         margin-bottom: 10px;
+         border-radius: 20px;
+     }
+     .image-name-new-gift {
+         display: flex;
+         flex-direction: row;
+         align-items: center;
+         margin-left: 5%;
+     }
+ }
