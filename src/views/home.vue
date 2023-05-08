@@ -9,7 +9,7 @@
                   <input type="text" name="search" placeholder="Search..">
                 </div>
                 <div id="menu">
-                <a href="/wishlist">
+                <a href="/newWishlist">
                     <svg
                     herf=""
                     class="button-menu"

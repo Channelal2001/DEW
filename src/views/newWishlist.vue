@@ -36,9 +36,9 @@
         </section>
         <section class="chats-dashboard">
             <div id="wishlist-product-list">
-                <div id="button-add">
-                    <p href="" id="button-add-gift">Add gift</p>
-                </div>
+                <a href="/newGift" id="button-add">
+                    <p  id="button-add-gift">Add gift</p>
+                </a>
 
                 <p id="message-emty">Add the first gift</p>
             </div>
