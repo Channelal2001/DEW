@@ -1,0 +1,99 @@
+<template>
+    <div id="body_container">
+        <header>
+        <div>
+            <a href="/home" id="logo"><strong>Social</strong>Gift</a>
+        </div>
+    </header>
+    <main>
+        <section id="navegation-section">
+            <div class="arrow"> <img href="#" width="30" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAABaElEQVR4nO3auUoEURCF4d9xG30FA5cX0FAwFYwFQ3GJNJtAMDUSBBcwNzA2MHTER9EncEBxCdQZdKShbyKo1dCDbdX5oNKGc6Fv3Q1ERERERESkZ/qBKWCYgDaBB6ALtIGjSAOxmwf/WgcEsPNN+KxegCEc2/4hfKoxnGoYwt8CfTi0AXwYBmANh1aBd0P4QxxaAjqG8Mc4tGgMf+Lxv18AXg3hT4Eazszn/fy38Gf5UtiVOeDZEP4cGMCZWeDJEL7pcc0/A9wbwl8BdZyZBu4M4dt5u9v7g8o2XyvAaNnhJ4GWIXxV6gaYKHMALisQqmhlc1ApRowLnapVu6x5qJ5/rPvP6q3MLtSsQKCidUHgSfAaGCdoG1zuRRtMQi+EktBL4ST0ZigJvR1OQh+IJKGPxJLQh6JJ6GPxohcj6zjWMAxAy/N8QPTLUev1+CCBH0jsE8gW8Bj1iUxSi/xISkREREREhKr5BGvcPBacCGFQAAAAAElFTkSuQmCC
+            "></div>
+            <div id="menu">
+                <a href="/wishlist">
+                    <svg herf="" class="button-menu" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M 16.9375 1.0625 L 3.875 14.125 L 1.0742188 22.925781 L 9.875 20.125 L 22.9375 7.0625 C 22.9375 7.0625 22.8375 4.9615 20.9375 3.0625 C 19.0375 1.1625 16.9375 1.0625 16.9375 1.0625 z M 17.3125 2.6875 C 18.3845 2.8915 19.237984 3.3456094 19.896484 4.0214844 C 20.554984 4.6973594 21.0185 5.595 21.3125 6.6875 L 19.5 8.5 L 15.5 4.5 L 16.9375 3.0625 L 17.3125 2.6875 z M 4.9785156 15.126953 C 4.990338 15.129931 6.1809555 15.430955 7.375 16.625 C 8.675 17.825 8.875 18.925781 8.875 18.925781 L 8.9179688 18.976562 L 5.3691406 20.119141 L 3.8730469 18.623047 L 4.9785156 15.126953 z"></path>
+                    </svg>
+                </a>
+                <svg herf="" class="button-chat" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 64 64">
+                    <path d="M32,10c13.785,0,25,8.951,25,19.954S45.785,49.907,32,49.907c-0.646,0-1.311-0.022-1.983-0.065	c-7.369,5.504-13.411,6.251-13.672,6.281c-0.076,0.009-0.152,0.013-0.228,0.013c-0.7,0-1.356-0.368-1.72-0.979	c-0.402-0.678-0.369-1.528,0.084-2.172c0.023-0.033,1.966-2.8,4.003-6.234C11.346,43.104,7,36.827,7,29.954	C7,18.951,18.215,10,32,10z M32,45.907c11.579,0,21-7.157,21-15.954S43.579,14,32,14s-21,7.157-21,15.954	c0,5.86,4.242,11.243,11.071,14.046c0.529,0.217,0.939,0.65,1.128,1.19c0.189,0.54,0.138,1.135-0.142,1.634	c-0.749,1.343-1.521,2.635-2.236,3.787c2.061-0.888,4.615-2.27,7.363-4.401c0.398-0.31,0.9-0.458,1.4-0.412	C30.409,45.871,31.222,45.907,32,45.907z"></path>
+                </svg>
+                <a href="/notification">
+                    <svg herf="" class="button-menu" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 64 64">
+                        <path d="M 32 10 C 29.662 10 28.306672 11.604938 27.638672 13.085938 C 24.030672 13.809937 17.737984 16.956187 16.958984 24.742188 C 16.665984 29.334188 16.1185 37.883781 13.0625 39.300781 C 12.8505 39.398781 12.655234 39.533219 12.490234 39.699219 C 12.235234 39.954219 10 42.294 10 46 C 10 47.104 10.896 48 12 48 L 25.257812 48 C 25.652433 51.372928 28.522752 54 32 54 C 35.477248 54 38.347567 51.372928 38.742188 48 L 52 48 C 53.104 48 54 47.104 54 46 C 54 42.294 51.764766 39.954219 51.509766 39.699219 C 51.344766 39.534219 51.1495 39.397828 50.9375 39.298828 C 47.8825 37.881828 47.333203 29.333922 47.033203 24.669922 C 46.258203 16.945922 39.966375 13.806984 36.359375 13.083984 C 35.692375 11.603984 34.338 10 32 10 z M 32 14 C 32.603 14 32.766719 14.619859 32.886719 15.255859 C 33.063719 16.190859 33.884422 16.914062 34.857422 16.914062 C 34.931422 16.914063 42.311828 17.650047 43.048828 24.998047 C 43.557828 32.932047 44.389891 40.250797 48.837891 42.716797 C 49.024891 42.956797 49.333937 43.401 49.585938 44 L 14.414062 44 C 14.667063 43.397 14.976203 42.95375 15.158203 42.71875 C 19.609203 40.25475 20.442312 32.935313 20.945312 25.070312 C 21.688313 17.650312 29.068578 16.914062 29.142578 16.914062 C 30.099578 16.914062 30.934375 16.156391 31.109375 15.275391 C 31.232375 14.660391 31.396 14 32 14 z M 29.335938 48 L 34.664062 48 C 34.319789 49.152328 33.262739 50 32 50 C 30.737261 50 29.680211 49.152328 29.335938 48 z"></path>
+                    </svg>
+                </a>
+                <a href="/accountManager">
+                    <svg herf="" class="button-account" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                    </svg>
+                </a>
+            </div>
+        </section>
+        <section>
+            <p id="messages-text">Messages</p>
+        </section>
+        <section class="chats-dashboard">
+            <div id="chat-open">
+                <div id="search-bar">
+                    <div>
+                        <h4>Search...</h4>
+                    </div>
+                    <div id="icon-search">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 30 30">
+                        <path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z"></path>
+                    </svg>
+                    </div>
+                </div>
+                <div class="messages-box">
+                    <div class="chat-user">
+                        <img id="image-user" src="/src/assets/images/chat-image-user.png " alt="image-chat-user ">
+                        <div id="box-message-chat">
+                            <p id="user-chat">Alessandro Sadney</p>
+                            <p id="message-text">Hi! I’m some grateful for your present!!!!</p>
+                        </div>
+                        <p id="notifications">2</p>
+                    </div>
+                    <div class="chat-user">
+                        <img id="image-user" src="/src/assets/images/chat-image-user.png " alt="image-chat-user ">
+                        <div id="box-message-chat">
+                            <p id="user-chat">Alessandro Sadney</p>
+                            <p id="message-text">Hi! I’m some grateful for your present!!!!</p>
+                        </div>
+                        <p id="notifications">2</p>
+                    </div>
+                    <div class="chat-user">
+                        <img id="image-user" src="/src/assets/images/chat-image-user.png " alt="image-chat-user ">
+                        <div id="box-message-chat">
+                            <p id="user-chat">Alessandro Sadney</p>
+                            <p id="message-text">Hi! I’m some grateful for your present!!!!</p>
+                        </div>
+                        <p id="notifications">2</p>
+                    </div>
+                </div>
+            </div>
+            <section class="chat-open">
+                <div id="name-user-chat">
+                    <p id="user-name">Alessandro Sadany</p>
+                </div>
+                <div class="messages">
+
+                </div>
+                <div id="text-imput">
+                    <p id="text-imput-chat">Type your message here...</p>
+                    <div href="#" id="icon-send-back">
+                        <svg id="icon-send " xmlns="http://www.w3.org/2000/svg " width="16 " height="16 " fill="currentColor " class="bi bi-send " viewBox="0 0 16 16 "> <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643
+                        7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z " fill="white "></path> </svg>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+    </main>
+    <footer></footer>
+    </div>
+</template>
+
+<style scoped>
+@import '../assets/styles/styles_chat.css';
+</style>

@@ -1,0 +1,499 @@
+             #logo {
+                 margin-left: 30px;
+                 font-family: Inter, sans-serif;
+                 font-size: 40px;
+                 margin-top: 10px;
+                 margin-bottom: 0px;
+                 color: rgba(109, 183, 251, 1);
+                 text-decoration: none;
+             }
+             
+             #body_container {
+                 background-color: rgba(242, 242, 242, 1);
+                 margin: 0;
+                 display: flex;
+                 flex-direction: column;
+                 min-height: 100vh;
+             }
+             
+             footer {
+                 background-color: rgba(217, 217, 217, 1);
+                 bottom: 0;
+                 height: 20px;
+                 width: 100%;
+                 margin-top: auto;
+             }
+             
+             header {
+                 margin-top: 0px;
+             }
+             
+             .arrow {
+                 padding-left: 30px;
+             }
+             
+             #menu {
+                 margin-right: 60px;
+                 align-self: flex-end;
+             }
+             
+             .button-menu {
+                 background-color: rgba(249, 249, 249, 1);
+                 border: 1px solid rgb(35, 35, 35);
+                 margin-left: 10px;
+                 margin-right: 10px;
+                 padding: 5px;
+                 border-radius: 45px;
+                 width: 20px;
+                 height: 20px;
+             }
+             
+             .button-menu-new {
+                 fill: rgb(255, 255, 255);
+                 background-color: rgb(35, 35, 35);
+                 border: 1px solid rgb(35, 35, 35);
+                 margin-left: 10px;
+                 margin-right: 10px;
+                 padding: 5px;
+                 border-radius: 45px;
+                 width: 20px;
+                 height: 20px;
+             }
+             
+             .button-menu:hover {
+                 fill: rgb(255, 255, 255);
+                 background-color: rgb(35, 35, 35);
+                 cursor: pointer;
+             }
+             
+             .button-account {
+                 background-color: rgba(249, 249, 249, 1);
+                 border: 1px solid rgb(35, 35, 35);
+                 margin-left: 10px;
+                 margin-right: 10px;
+                 padding: 5px;
+                 border-radius: 45px;
+                 width: 30px;
+                 height: 30px;
+                 color: black;
+             }
+             
+             .button-account:hover {
+                 fill: rgb(255, 255, 255);
+                 background-color: rgb(35, 35, 35);
+                 cursor: pointer;
+             }
+             
+             #navegation-section {
+                 display: flex;
+                 flex-direction: row;
+                 align-items: center;
+                 justify-content: space-between;
+                 margin-top: 5px;
+             }
+             
+             #name-wishlist {
+                 font-family: Inter, medium;
+                 font-size: 35px;
+                 padding-left: 65px;
+                 margin: 0;
+             }
+             
+             #description-wishlist {
+                 font-family: Inter, regular;
+                 font-size: 18px;
+                 margin: 0;
+                 padding-top: 5px;
+                 padding-left: 65px;
+                 color: rgb(69, 68, 68);
+             }
+             
+             .chats-dashboard {
+                 display: grid;
+                 grid-template-columns: 1fr 1fr;
+             }
+             
+             #message-emty {
+                 text-align: center;
+                 font-family: Inter, medium;
+                 font-size: 14px;
+                 margin-top: 30%;
+                 color: rgba(139, 139, 139, 1);
+             }
+             
+             #button-add-gift {
+                 text-align: center;
+                 background-color: rgba(163, 161, 161, 1);
+                 font-family: Inter, medium;
+                 font-size: 14px;
+                 width: fit-content;
+                 color: azure;
+                 padding-top: 5px;
+                 padding-bottom: 5px;
+                 padding-right: 8px;
+                 padding-left: 8px;
+                 margin-right: 10px;
+                 border-radius: 20px;
+                 cursor: pointer;
+             }
+             
+             #button-add {
+                 display: flex;
+                 flex-direction: row;
+                 justify-content: flex-end;
+                 width: 60vh;
+                 text-decoration: none;
+                 color: black;
+             }
+             
+             #button-add-gift:hover {
+                 text-align: center;
+                 background-color: rgb(65, 65, 65);
+             }
+             
+             #wishlist-product-list {
+                 grid-column: 1;
+             }
+             
+             #wishlist-information {
+                 grid-column: 2;
+                 display: flex;
+                 flex-direction: column;
+                 align-items: center;
+             }
+             
+             #wishlist-data-information {
+                 background-color: rgba(255, 255, 255, 1);
+                 justify-items: center;
+                 width: 50%;
+                 padding-top: 15px;
+                 padding-bottom: 15px;
+                 padding-left: 20px;
+                 padding-right: 20px;
+                 align-self: center;
+                 margin-top: 30px;
+                 margin-bottom: 80px;
+                 border-radius: 20px;
+             }
+             
+             .image-icon-wishlist {
+                 background-color: rgba(133, 220, 119, 1);
+                 border-radius: 20px;
+                 width: 89px;
+                 padding-left: 10px;
+                 padding-top: 8px;
+                 padding-bottom: 8px;
+                 padding-right: 10px;
+                 align-self: center;
+                 margin-top: 20px;
+                 margin-bottom: 8px;
+             }
+             
+             #information-wishlist {
+                 text-align: center;
+             }
+             
+             #date-start-text {
+                 display: flex;
+                 flex-direction: column;
+                 text-align: center;
+                 font-family: Inter, medium;
+                 font-size: 23px;
+                 margin-top: 20px;
+                 margin-bottom: 30px;
+                 align-items: center;
+             }
+             
+             #text-celebration {
+                 margin: 8px;
+             }
+             
+             .information-wishlist-updateble {
+                 display: flex;
+                 flex-direction: row;
+                 justify-content: space-evenly;
+             }
+             
+             #information-wishlist-numbers {
+                 font-family: Inter, regular;
+                 font-size: 23px;
+                 margin: 0px;
+             }
+             
+             #information-wishlist-text {
+                 font-family: Inter, regular;
+                 font-size: 20px;
+                 margin: 0px;
+             }
+             
+             .upload-image-wishlist-button {
+                 align-self: center;
+                 margin: 8px;
+             }
+             
+             #information-wishlist-end-date {
+                 font-family: Inter, regular;
+                 font-size: 14px;
+                 margin: 10px;
+                 color: rgba(251, 251, 251, 1);
+                 text-align: center;
+                 background-color: rgba(127, 166, 240, 1);
+                 border-radius: 45px;
+                 padding-top: 2px;
+                 padding-bottom: 2px;
+                 padding-left: 14px;
+                 padding-right: 14px;
+                 width: fit-content;
+             }
+             
+             .celebration-date-box {
+                 background-color: white;
+                 font-family: Inter, regular;
+                 align-items: center;
+                 display: flex;
+                 flex-direction: column;
+                 width: 50vh;
+                 padding-left: 68px;
+                 padding-right: 68px;
+                 border-radius: 20px;
+             }
+             
+             #text-celebration-box {
+                 color: black;
+                 font-size: 28px;
+                 margin-top: 10px;
+                 margin-bottom: 5px;
+             }
+             
+             #information-wishlist-numbers-box {
+                 color: rgb(142, 141, 141);
+                 font-size: 20px;
+                 font-family: Inter, bold;
+                 margin-top: 2px;
+                 margin-bottom: 10px;
+             }
+             
+             #button-add {
+                 color: rgba(109, 183, 251, 1);
+                 font-size: 18px;
+                 font-family: Inter, medium;
+                 cursor: pointer;
+                 -webkit-user-select: none;
+                 -ms-user-select: none;
+                 user-select: none;
+             }
+             
+             #svg-icon-cross {
+                 fill: white;
+                 background-color: rgba(224, 224, 224, 1);
+                 border-radius: 50%;
+                 padding: 5px;
+                 width: 15px;
+                 height: 15px;
+                 cursor: pointer;
+             }
+             
+             .buttons-navegation-new-gift {
+                 display: flex;
+                 flex-direction: row;
+                 justify-content: space-between;
+                 align-items: center;
+             }
+             
+             .image-name-new-gift {
+                 display: flex;
+                 flex-direction: row;
+                 align-items: center;
+             }
+             
+             #name-new-gift {
+                 font-family: Inter, medium;
+                 color: rgba(139, 139, 139, 1);
+                 margin-left: 40px;
+                 margin-bottom: 15px;
+                 margin-top: 15px;
+                 font-size: 35px;
+             }
+             
+             #description-neuw-gift {
+                 color: rgba(139, 139, 139, 1);
+                 font-family: Inter, regular;
+                 font-size: 18px;
+                 padding-left: 15px;
+             }
+             
+             .buttons-source {
+                 display: flex;
+                 flex-direction: column;
+                 text-align: center;
+                 font-family: Inter, medium;
+             }
+             
+             .buttons-source-gift {
+                 display: flex;
+                 flex-direction: row;
+                 justify-content: space-between;
+                 align-items: center;
+                 font-family: Inter, medium;
+             }
+             
+             #button-add-link {
+                 color: rgba(251, 251, 251, 1);
+                 background-color: rgba(109, 183, 251, 1);
+                 padding-top: 5px;
+                 padding-bottom: 5px;
+                 padding-left: 10px;
+                 padding-right: 10px;
+                 border-radius: 45px;
+                 margin-top: 5px;
+                 cursor: pointer;
+                 -webkit-user-select: none;
+                 -ms-user-select: none;
+                 user-select: none;
+             }
+             
+             #button-mercado-expres {
+                 color: rgba(251, 251, 251, 1);
+                 background-color: rgba(219, 182, 51, 1);
+                 padding-top: 5px;
+                 padding-bottom: 5px;
+                 padding-left: 10px;
+                 padding-right: 10px;
+                 border-radius: 45px;
+                 margin-top: 5px;
+                 cursor: pointer;
+                 -webkit-user-select: none;
+                 -ms-user-select: none;
+                 user-select: none;
+             }
+             
+             #button-amazon {
+                 color: rgba(251, 251, 251, 1);
+                 background-color: rgba(107, 112, 116, 1);
+                 padding-top: 5px;
+                 padding-bottom: 5px;
+                 padding-left: 10px;
+                 padding-right: 10px;
+                 border-radius: 45px;
+                 margin-top: 5px;
+                 cursor: pointer;
+                 -webkit-user-select: none;
+                 -ms-user-select: none;
+                 user-select: none;
+             }
+             
+             @media screen and (max-width: 600px) {
+                 .chats-dashboard {
+                     display: flex;
+                     flex-direction: column;
+                     grid-template-rows: 0fr 0fr;
+                 }
+                 #wishlist-product-list {
+                     grid-row: 0;
+                 }
+                 #wishlist-information {
+                     grid-column: 0;
+                     grid-row: 0;
+                     display: flex;
+                     flex-direction: column;
+                     align-items: center;
+                 }
+                 #wishlist-product-list {
+                     grid-column: 0;
+                     grid-row: 0;
+                 }
+                 #name-wishlist {
+                     font-family: Inter, medium;
+                     font-size: 35px;
+                     padding-left: 65px;
+                     margin: 0;
+                     text-align: center;
+                 }
+                 #description-wishlist {
+                     font-family: Inter, regular;
+                     font-size: 18px;
+                     margin: 0;
+                     padding-top: 5px;
+                     padding-left: 65px;
+                     color: rgb(69, 68, 68);
+                     text-align: center;
+                 }
+                 #menu {
+                     margin-right: 20px;
+                     align-self: flex-end;
+                 }
+                 #navegation-section {
+                     display: flex;
+                     flex-direction: row;
+                     align-items: center;
+                     justify-content: space-between;
+                     margin-top: 5px;
+                     margin-bottom: 20px;
+                 }
+                 .celebration-date-box {
+                     background-color: white;
+                     font-family: Inter, regular;
+                     align-items: center;
+                     display: flex;
+                     flex-direction: column;
+                     width: 50vh;
+                     padding-left: 0px;
+                     padding-right: 0px;
+                     border-radius: 20px;
+                     align-self: center;
+                     margin-top: 10px;
+                     margin-bottom: 10px;
+                 }
+                 #button-add {
+                     display: flex;
+                     flex-direction: row;
+                     justify-content: right;
+                     width: 60vh;
+                     margin-right: 20px;
+                 }
+                 #wishlist-data-information {
+                     background-color: rgba(255, 255, 255, 1);
+                     justify-items: center;
+                     width: 75%;
+                     padding-top: 15px;
+                     padding-bottom: 15px;
+                     padding-left: 20px;
+                     padding-right: 20px;
+                     align-self: center;
+                     margin-top: 30px;
+                     margin-bottom: 80px;
+                     border-radius: 20px;
+                 }
+                 #svg-icon-cross {
+                     fill: white;
+                     background-color: rgba(224, 224, 224, 1);
+                     border-radius: 50%;
+                     padding: 8px;
+                     width: 20px;
+                     /*height: 20px;*/
+                     cursor: pointer;
+                 }
+                 #button-add-gift {
+                     text-align: center;
+                     background-color: rgba(163, 161, 161, 1);
+                     font-family: Inter, medium;
+                     font-size: 14px;
+                     width: fit-content;
+                     color: azure;
+                     padding-top: 5px;
+                     padding-bottom: 5px;
+                     padding-right: 8px;
+                     padding-left: 8px;
+                     margin-right: 50px;
+                     border-radius: 20px;
+                     cursor: pointer;
+                 }
+                 #message-emty {
+                     text-align: center;
+                     font-family: Inter, medium;
+                     font-size: 14px;
+                     margin-top: 5px;
+                     margin-bottom: 20px;
+                     color: rgba(139, 139, 139, 1);
+                 }
+             }

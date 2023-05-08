@@ -1,0 +1,74 @@
+<template>
+    <div id="body_container">
+        <header>
+        <div>
+            <a href="/home" id="logo"><strong>Social</strong>Gift</a>
+        </div>
+    </header>
+    <section class="messages-mobile">
+        <div class="arrow"> <img href="#" width="30" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAABaElEQVR4nO3auUoEURCF4d9xG30FA5cX0FAwFYwFQ3GJNJtAMDUSBBcwNzA2MHTER9EncEBxCdQZdKShbyKo1dCDbdX5oNKGc6Fv3Q1ERERERESkZ/qBKWCYgDaBB6ALtIGjSAOxmwf/WgcEsPNN+KxegCEc2/4hfKoxnGoYwt8CfTi0AXwYBmANh1aBd0P4QxxaAjqG8Mc4tGgMf+Lxv18AXg3hT4Eazszn/fy38Gf5UtiVOeDZEP4cGMCZWeDJEL7pcc0/A9wbwl8BdZyZBu4M4dt5u9v7g8o2XyvAaNnhJ4GWIXxV6gaYKHMALisQqmhlc1ApRowLnapVu6x5qJ5/rPvP6q3MLtSsQKCidUHgSfAaGCdoG1zuRRtMQi+EktBL4ST0ZigJvR1OQh+IJKGPxJLQh6JJ6GPxohcj6zjWMAxAy/N8QPTLUev1+CCBH0jsE8gW8Bj1iUxSi/xISkREREREhKr5BGvcPBacCGFQAAAAAElFTkSuQmCC
+            "></div>
+        <p id="messages-text">Messages</p>
+    </section>
+    <section class="chats-dashboard">
+
+        <div id="search-bar">
+            <div>
+                <h4>Search...</h4>
+            </div>
+            <a href="" id="icon-search">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 30 30">
+                    <path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z"></path>
+                </svg>
+            </a>
+        </div>
+        <div class="messages-box">
+            <div class="chat-user">
+                <img id="image-user" src=" images/chat-image-user.png " alt="image-chat-user ">
+                <div id="box-message-chat">
+                    <p id="user-chat">Alessandro Sadney</p>
+                    <p id="message-text">Hi! I’m some grateful for your present!!!!</p>
+                </div>
+                <p id="notifications">2</p>
+            </div>
+            <div class="chat-user">
+                <img id="image-user" src=" images/chat-image-user.png " alt="image-chat-user ">
+                <div id="box-message-chat">
+                    <p id="user-chat">Alessandro Sadney</p>
+                    <p id="message-text">Hi! I’m some grateful for your present!!!!</p>
+                </div>
+                <p id="notifications">2</p>
+            </div>
+            <div class="chat-user">
+                <img id="image-user" src=" images/chat-image-user.png " alt="image-chat-user ">
+                <div id="box-message-chat">
+                    <p id="user-chat">Alessandro Sadney</p>
+                    <p id="message-text">Hi! I’m some grateful for your present!!!!</p>
+                </div>
+                <p id="notifications">2</p>
+            </div>
+            <div class="chat-user">
+                <img id="image-user" src=" images/chat-image-user.png " alt="image-chat-user ">
+                <div id="box-message-chat">
+                    <p id="user-chat">Alessandro Sadney</p>
+                    <p id="message-text">Hi! I’m some grateful for your present!!!!</p>
+                </div>
+                <p id="notifications">2</p>
+            </div>
+            <div class="chat-user">
+                <img id="image-user" src=" images/chat-image-user.png " alt="image-chat-user ">
+                <div id="box-message-chat">
+                    <p id="user-chat">Alessandro Sadney</p>
+                    <p id="message-text">Hi! I’m some grateful for your present!!!!</p>
+                </div>
+                <p id="notifications">2</p>
+            </div>
+        </div>
+    </section>
+    <footer></footer>
+    </div>
+</template>
+
+<style scoped>
+@import '../assets/styles/styles_chat-mobile.css';
+</style>
