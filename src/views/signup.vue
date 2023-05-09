@@ -10,7 +10,7 @@ export default {
             const lastname = document.getElementById('lastname').value;
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-            const image = "https://balandrau.salle.url.edu/i3/repositoryimages/photo/47601a8b-dc7f-41a2-a53b-19d2e8f54cd0.png";
+            const image = document.getElementById('url').value;
             const user = {
                 name: name,
                 last_name: lastname,
