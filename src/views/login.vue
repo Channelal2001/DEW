@@ -1,9 +1,3 @@
-<!--.then((data) => {
-                const token = data.accessToken;
-                localStorage.setItem('token', token);
-            }).catch((error) => {
-                console.error('Error:', error);
-            });-->
 <script>
     export default {
   data() {
