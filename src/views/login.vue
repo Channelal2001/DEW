@@ -4,7 +4,56 @@
             }).catch((error) => {
                 console.error('Error:', error);
             });-->
-
+<script>
+    export default {
+  data() {
+    return {
+    };
+  },
+  methods: {
+    async signin() {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const user = {
+            email: email,
+            password: password,
+        }
+        fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/login', {
+            method: 'POST',
+            headers: {
+                'accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(user),
+        })
+        .then((response) => {
+            if (response.status === 200) {
+                alert('Authenticated user');
+                return response.json();
+            } else {
+                switch(response.status) {
+                    case 400:
+                        alert('Bad request');
+                        break;
+                    case 401:
+                        alert('Wrong username and password combination');
+                        break;
+                    case 406:
+                        alert('Missing parameters');
+                        break;
+                }
+            }
+        })
+        .then((data) => {
+            const token = data.accessToken;
+            localStorage.setItem('token', token);
+        }).catch((error) => {
+            console.error('Error:', error);
+        });
+    }
+  }
+}
+</script>
 <template>
      <div id="body_container" >
         <header style="height:100px;padding-top: 5rem;">
@@ -25,7 +74,7 @@
             </section>
             <section href="/home" id="button">
                 <div>
-                    <button type="submit"><a href="/home" id="button_text">Login</a></button>
+                    <button @click="signin"><a href="#" id="button_text">Login</a></button>
                 </div>
             </section>
             <a href="/forgotPassword" id="text-forgot">Forgot your password?</a>
