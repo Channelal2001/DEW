@@ -6,22 +6,45 @@ export default {
   },
     methods: {
         async signup() {
-            const signupPromises=[];
-            console.log(ids);
-            for (let i = 0; i < ids.length; i++) {
-                signupPromises.push(
-                    fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/users', {
-                        method: 'POST',
-                    })
-                    .then((response) => {
-                        if (response.status === 200) {
-                            return response.json();
-                        } else {
-                            throw new Error('Failed to sign up');
-                        }
-                    })
-                );
+            const name = document.getElementById('name').value;
+            const lastname = document.getElementById('lastname').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const image = "https://balandrau.salle.url.edu/i3/repositoryimages/photo/47601a8b-dc7f-41a2-a53b-19d2e8f54cd0.png";
+            const user = {
+                name: name,
+                last_name: lastname,
+                email: email,
+                password: password,
+                image: image,
             }
+            
+            fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(user),
+            })
+            .then((response) => {
+                if (response.status === 201) {
+                    alert('User created');
+                    return response.json();
+                } else {
+                    switch(response.status) {
+                        case 400:
+                            alert('Bad request');
+                        case 406:
+                            alert('Missing parameters');
+                        case 409:
+                            alert('The email adress has already been previously registered');
+                        case 500:
+                            alert('User not created');
+                        case 502:
+                            alert('Internal server error');
+                    }
+                }
+            })
         },
     }
 };
@@ -57,7 +80,7 @@ export default {
             </section>
             <section>
                 <div id="button">
-                    <button type=" submit "><a href="uploadImage" id="button_text">Sign up</a></button>
+                    <button @click="signup"><a href="#" id="button_text">Sign up</a></button>
                 </div>
             </section>
         </main>
