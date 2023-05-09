@@ -1,47 +1,53 @@
 <script>
+import divideTokenVue from '../components/divideToken.vue';
+
 export default {
   data() {
     return {
     };
   },
-  methods: {
-    async getUserData() {
-        const userPromises = [];
-        userPromises.push(
-            fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${id}', {
-                method: 'GET',
-                headers: {
-                    'accept': 'application/json',
-                    Authorization: 'Bearer ${token}',
-                },
-            })
-            .then((response) => {
-                if (response.status === 200) {
-                    alert('User found');
-                    return response.json();
-                } else {
-                    switch(response.status) {
-                        case 204:
-                            alert('User not found');
-                            break;
-                        case 400:
-                            alert('Bad request');
-                            break;
-                        case 401:
-                            alert('Unauthorized');
-                            break;
-                        case 406:
-                            alert('Missing parameters');
-                            break;
-                        case 502:
-                            alert('Internal server error');
-                            break;
-                    }
-                }
-            })
-        )
+  mounted() {
+    const token = localStorage.getItem('token');
+    const id = divideTokenVue.methods.divideToken(token);
+    console.log(id);
+    fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${id}`, {
+        method: 'GET',
+        headers: {
+            'accept': 'application/json',
+            Authorization: `Bearer ${token}`,
+        },
+    })
+    .then((response) => {
+        if (response.status === 200) {
+            alert('User found');
+            return response.json();
+        } else {
+            switch(response.status) {
+                case 204:
+                    alert('User not found');
+                    break;
+                case 400:
+                    alert('Bad request');
+                    break;
+                case 401:
+                    alert('Unauthorized');
+                    break;
+                case 406:
+                    alert('Missing parameters');
+                    break;
+                case 502:
+                    alert('Internal server error');
+                    break;
+            }
+        }
+    })
+    .then((data) => {
+        document.getElementById('name').innerHTML = data.name;
+        document.getElementById('last-name').innerHTML = data.last_name;
+        document.getElementById('email').innerHTML = data.email;
+        document.getElementById('password').innerHTML = data.password;
+    })
     }
-  }
 }
 </script>
 
@@ -68,26 +74,30 @@ export default {
                     </div>
                 </section>
                 <section class="info">
-                    <div class="data ">
+                    <div class="data">
                         <h4><b>Name:</b></h4>
+                        <div id="name"></div>
                     </div>
                     <div id="space"> <button href="" class="button-edit"> Edit</button></div>
                 </section>
                 <section class="info">
                     <div class="data">
                         <h4>Last name: </h4>
+                        <div id="last-name"></div>
                     </div>
                     <div id="space"> <button href="" class="button-edit"> Edit</button></div>
                 </section>
                 <section class="info">
                     <div class="data">
                         <h4>Email: </h4>
+                        <div id="email"></div>
                     </div>
                     <div id="space"> <button href="" class="button-edit"> Edit</button></div>
                 </section>
                 <section class="info">
                     <div class="data">
                         <h4>Password: </h4>
+                        <div id="password"></div>
                     </div>
                     <div id="space"> <button href="" class="button-edit"> Edit</button></div>
                 </section>
