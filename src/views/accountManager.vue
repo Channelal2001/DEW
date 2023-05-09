@@ -45,7 +45,7 @@ export default {
         document.getElementById('name').innerHTML = data.name;
         document.getElementById('last-name').innerHTML = data.last_name;
         document.getElementById('email').innerHTML = data.email;
-        document.getElementById('password').innerHTML = data.password;
+        document.getElementsByClassName('image')[0].src = data.image;
     })
     }
 }
@@ -67,7 +67,7 @@ export default {
             <div id="account-data-user">
                 <section id="user" style="display:flex;flex-direction: column;align-items:center;">
                     <div class="image-container">
-                        <img class="image " src="/src/assets/images/person-icon.png ">
+                        <img class="image" src="">
                     </div>
                     <div>
                         <button class="button-edit-image"> Edit</button>
