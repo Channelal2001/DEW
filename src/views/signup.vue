@@ -62,8 +62,18 @@ export default {
             <p class="signup-title"><strong>Social</strong>Gift</p>
         </header>
         <main style="height:calc(100vh - 220px);background:rgb(109, 183, 251);align-items: center;justify-items: center;">
+           
+            <div style="text-align:center">
+            <img class="image" src="/src/assets/images/person-icon.png" width="240 " alt="person-image">
+        </div>
+        <div>
+            <form class="url-image">
+            <label for="url">Image url</label>
+            <input type="text" id="url" name="url" required />
+            </form>
+        </div>
             <section class="signup-form">
-                <form>
+                <form class="sign-data-data">
                     <div class="form-group">
                         <label for="name">Name:</label>
                         <input type="text" id="name" name="name" required />

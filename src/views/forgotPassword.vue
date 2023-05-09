@@ -5,7 +5,7 @@
         </header>
         <main>
             <section class="signup-form">
-                <form>
+                <form class="sign-data-data">
                     <div class="form-group">
                         <label for="name">Name:</label>
                         <input type="text" id="name" name="name" required />

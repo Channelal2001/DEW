@@ -56,7 +56,7 @@ export default {
         </header>
         <main style="height:calc(100vh - 110px);background:rgb(109, 183, 251);align-items: center;justify-items: center;">
             <section class="signup-form" >
-                <form>
+                <form class="sign-data-data">
                     <div class="form-group">
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="email" required />
