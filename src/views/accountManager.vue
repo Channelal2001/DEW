@@ -1,3 +1,50 @@
+<script>
+export default {
+  data() {
+    return {
+    };
+  },
+  methods: {
+    async getUserData() {
+        const userPromises = [];
+        userPromises.push(
+            fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${id}', {
+                method: 'GET',
+                headers: {
+                    'accept': 'application/json',
+                    Authorization: 'Bearer ${token}',
+                },
+            })
+            .then((response) => {
+                if (response.status === 200) {
+                    alert('User found');
+                    return response.json();
+                } else {
+                    switch(response.status) {
+                        case 204:
+                            alert('User not found');
+                            break;
+                        case 400:
+                            alert('Bad request');
+                            break;
+                        case 401:
+                            alert('Unauthorized');
+                            break;
+                        case 406:
+                            alert('Missing parameters');
+                            break;
+                        case 502:
+                            alert('Internal server error');
+                            break;
+                    }
+                }
+            })
+        )
+    }
+  }
+}
+</script>
+
 <template>
     <div id="body_container">
         <header>
