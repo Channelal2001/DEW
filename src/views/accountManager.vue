@@ -67,7 +67,7 @@ export default {
             <div id="account-data-user">
                 <section id="user" style="display:flex;flex-direction: column;align-items:center;">
                     <div class="image-container">
-                        <img class="image" src="">
+                        <img class="image">
                     </div>
                     <div>
                         <button class="button-edit-image"> Edit</button>
