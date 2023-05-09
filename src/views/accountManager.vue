@@ -6,6 +6,37 @@ export default {
     return {
     };
   },
+  methods: {
+    async deleteUser() {
+        const token = localStorage.getItem('token');
+        fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/users', {
+            method: 'DELETE',
+            headers: {
+                'accept': 'application/json',
+                Authorization: `Bearer ${token}`,
+            },
+        })
+        .then((response) => {
+            if (response.status === 200) {
+                alert('User deleted');
+                window.location.href = "/";
+                return response.json();
+            } else {
+                switch(response.status) {
+                    case 401:
+                        alert('Unauthorized');
+                        break;
+                    case 500:
+                        alert('User not deleted');
+                        break;
+                    case 502:
+                        alert('Internal server error');
+                        break;
+                }
+            }
+        })
+    }
+},
   mounted() {
     const token = localStorage.getItem('token');
     const id = divideTokenVue.methods.divideToken(token);
@@ -19,7 +50,6 @@ export default {
     })
     .then((response) => {
         if (response.status === 200) {
-            alert('User found');
             return response.json();
         } else {
             switch(response.status) {
@@ -106,7 +136,7 @@ export default {
                 </section>
             </div>
             <section id="delete">
-                <a href="/" class="button-delete">Delete account</a>
+                <button @click="deleteUser" href="#" class="button-delete">Delete account</button>
             </section>
         </main>
         <footer></footer>
