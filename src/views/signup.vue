@@ -34,14 +34,19 @@ export default {
                     switch(response.status) {
                         case 400:
                             alert('Bad request');
+                            break;
                         case 406:
                             alert('Missing parameters');
+                            break;
                         case 409:
                             alert('The email adress has already been previously registered');
+                            break;
                         case 500:
                             alert('User not created');
+                            break;
                         case 502:
                             alert('Internal server error');
+                            break;
                     }
                 }
             })
