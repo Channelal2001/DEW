@@ -22,7 +22,6 @@ export default {
         })
         .then((response) => {
             if (response.status === 200) {
-                alert('Authenticated user');
                 window.location.href = "/home";
                 return response.json();
             } else {

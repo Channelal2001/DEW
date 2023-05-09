@@ -28,7 +28,7 @@ export default {
             })
             .then((response) => {
                 if (response.status === 201) {
-                    alert('User created');
+                    window.location.href = "/";
                     return response.json();
                 } else {
                     switch(response.status) {
