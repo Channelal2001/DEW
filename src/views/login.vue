@@ -1,3 +1,10 @@
+<!--.then((data) => {
+                const token = data.accessToken;
+                localStorage.setItem('token', token);
+            }).catch((error) => {
+                console.error('Error:', error);
+            });-->
+
 <template>
      <div id="body_container" >
         <header style="height:100px;padding-top: 5rem;">
