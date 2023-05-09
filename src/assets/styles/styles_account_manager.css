@@ -163,7 +163,7 @@ header {
 .data {
     background-color: rgb(246, 249, 252);
     color: black;
-    font-family: inter, medium;
+    font-family: inter, sans-serif;
     border-top-left-radius: 45px;
     border-top-right-radius: 45px;
     border-bottom-left-radius: 45px;
@@ -173,6 +173,26 @@ header {
     padding-left: 15px;
     padding-right: 15px;
     width: 200px;
+}
+
+#name {
+    color: black;
+    font-family: inter, sans-serif;
+}
+
+#last-name {
+    color: black;
+    font-family: inter, sans-serif;
+}
+
+#email {
+    color: black;
+    font-family: inter, sans-serif;
+}
+
+#password {
+    color: black;
+    font-family: inter, sans-serif;
 }
 
 .button-edit {
