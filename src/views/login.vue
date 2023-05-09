@@ -41,6 +41,7 @@ export default {
         .then((data) => {
             const token = data.accessToken;
             localStorage.setItem('token', token);
+            localStorage.setItem('password', password);
         }).catch((error) => {
             console.error('Error:', error);
         });
