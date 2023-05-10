@@ -44,6 +44,7 @@
 
       if (x.style.display === "none") {
           x.style.display = "block";
+       
       } else {
           x.style.display = "none";
 
@@ -63,7 +64,7 @@
                   <input type="text" name="search" placeholder="Search..">
                 </div>
                 <div id="menu">
-                  <button class="unstyle" @click= "showfriends" styel="cursor: pointer">
+                  <button class="unstyle" @click= "showfriends" >
                     <svg
                     herf=""
                     class="button-menu"
