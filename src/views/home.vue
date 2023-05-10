@@ -1,14 +1,56 @@
 <script>
-    function showfriends() {
-        var x = document.getElementById("friends");
+  export default {
+  data() {
+    return {
+    };
+  },
+  methods: {
+    async getFriends() {
+      const token = localStorage.getItem('token');
+      fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends', {
+          method: 'GET',
+          headers: {
+              'accept': 'application/json',
+              Authorization: `Bearer ${token}`,
+          },
+      })
+      .then((response) => {
+          if (response.status === 200) {
+              return response.json();
+          } else {
+              switch(response.status) {
+                case 401:
+                    alert('Unauthorized');
+                    break;
+                case 500:
+                    alert('Error getting friends');
+                    break;
+                case 502:
+                    alert('Internal Server Error');
+                    break;
+              }
+          }
+      })
+      .then((data) => {
+        //Modificar aquests camps perquè siguin els que volem mostrar
+          document.getElementById('name').innerHTML = data.name;
+          document.getElementById('last-name').innerHTML = data.last_name;
+          document.getElementById('email').innerHTML = data.email;
+          document.getElementsByClassName('image')[0].src = data.image;
+      })
+    },
+  }
+}
+function showfriends() {
+  var x = document.getElementById("friends");
 
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
+  if (x.style.display === "none") {
+      x.style.display = "block";
+  } else {
+      x.style.display = "none";
 
-        }
-    }
+  }
+}
 </script>
 <template>
     <div id="body_container">

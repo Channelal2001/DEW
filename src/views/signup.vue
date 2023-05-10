@@ -45,7 +45,7 @@ export default {
                             alert('User not created');
                             break;
                         case 502:
-                            alert('Internal server error');
+                            alert('Internal Server Error');
                             break;
                     }
                 }
