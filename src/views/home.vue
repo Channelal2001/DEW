@@ -103,7 +103,14 @@
         </header>
         <main>
           <div id="friends">
-            <p>hola que tal</p>
+            <h4>Friends</h4>
+            <div class="menu-friend">
+            <p id="text-fiend">Followers</p>
+            <p id="text-fiend-number">10</p>
+            <p id="text-fiend">Following</p>
+            <p id="text-fiend-number">5</p>
+            </div>
+            
           </div>
 
         <section>
