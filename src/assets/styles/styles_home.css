@@ -1,9 +1,24 @@
     /* Pantalles de movil*/
     
     #friends {
-        background-color: red;
-        display: block;
+        background-color: rgb(251, 247, 238);
+        justify-content: center;
+        text-align: center;
+        position: absolute;
         font-family: inter, medium;
+        left: 50%;
+    }
+    
+    #text-fiend {
+        margin-right: 1rem;
+        margin-left: 1rem;
+    }
+    
+    .menu-friend {
+        display: flex;
+        flex-direction: row;
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
     
     @media screen and (max-width: 425px) {
