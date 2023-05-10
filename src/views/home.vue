@@ -2,11 +2,13 @@
   export default {
   data() {
     return {
+      friends: []
     };
   },
   methods: {
     async getFriends() {
       const token = localStorage.getItem('token');
+      let vm = this;
       fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends', {
           method: 'GET',
           headers: {
@@ -32,11 +34,8 @@
           }
       })
       .then((data) => {
-        //Modificar aquests camps perquè siguin els que volem mostrar
-          document.getElementById('name').innerHTML = data.name;
-          document.getElementById('last-name').innerHTML = data.last_name;
-          document.getElementById('email').innerHTML = data.email;
-          document.getElementsByClassName('image')[0].src = data.image;
+        console.log(data);
+        vm.friends = data;
       })
     },
     showfriends() {
@@ -47,7 +46,6 @@
        
       } else {
           x.style.display = "none";
-
       }
     }
   }
@@ -147,25 +145,11 @@
         <main>
           <div id="friends">
             <h3 id="title-text-friend">Friends</h3>
-           
-            <div class="content-friend">
-                <div id="followers">
-                  <div class="content-friends-title">
-                    <p id="text-fiend"><b>Followers</b></p>
-                    <p id="text-fiend-number">10</p>
-                  </div>
-                  <p id="text-dat-friend">pepe perez</p>
-                  <p id="text-dat-friend">jaime perez</p>
-                  
-                </div>
-                <div id="following">
-                  <div class="content-friends-title">
-                    <p id="text-fiend"><b>Following</b></p>
-                    <p id="text-fiend-number">5</p>
-                  </div>
-                  <p id="text-dat-friend">jaime perez</p>
-                  <p id="text-dat-friend">pepe perez</p>
-                </div>
+            <div v-for="friend in friends" :key="friend.id" class="content-friend">
+                  <p>{{ friend.name }}</p>
+                  <p>{{ friend.last_name }}</p>
+                  <p>{{ friend.email }}</p>
+                  <!--<p>{{ friend.image }}</p>-->
               </div>
           </div>
 
