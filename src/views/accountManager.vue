@@ -94,7 +94,7 @@ export default {
                 </div>
             </a>
             <div class="save"> 
-                <a href="/home" class="button-save ">Save</a>
+                <a href="javascript:history.back()" class="button-save ">Save</a>
             </div>
         </header>
         <main>
