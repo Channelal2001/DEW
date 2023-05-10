@@ -342,6 +342,9 @@
         height: 20px;
         text-decoration: none;
     }
+    .unstyle {
+        all: unset;
+    }
     .button-menu:hover {
         fill: rgb(255, 255, 255);
         background-color: rgb(35, 35, 35);

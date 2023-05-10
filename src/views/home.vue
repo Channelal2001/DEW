@@ -63,7 +63,7 @@
                   <input type="text" name="search" placeholder="Search..">
                 </div>
                 <div id="menu">
-                  <button @click= "showfriends" styel="cursor: pointer">
+                  <button class="unstyle" @click= "showfriends" styel="cursor: pointer">
                     <svg
                     herf=""
                     class="button-menu"
