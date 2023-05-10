@@ -79,6 +79,7 @@ export default {
         document.getElementById('last-name').innerHTML = data.last_name;
         document.getElementById('email').innerHTML = data.email;
         document.getElementsByClassName('image')[0].src = data.image;
+        document.getElementById('password').innerHTML = "********";
     })
     }
 }
