@@ -44,7 +44,6 @@ export default {
   mounted() {
     const token = localStorage.getItem('token');
     const id = divideTokenVue.methods.divideToken(token);
-    console.log(id);
     fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${id}`, {
         method: 'GET',
         headers: {
@@ -70,7 +69,7 @@ export default {
                     alert('Missing parameters');
                     break;
                 case 502:
-                    alert('Internal server error');
+                    alert('Internal Server Error');
                     break;
             }
         }
