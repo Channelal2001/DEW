@@ -3,6 +3,7 @@
     #friends {
         background-color: red;
         display: block;
+        font-family: inter, medium;
     }
     
     @media screen and (max-width: 425px) {
