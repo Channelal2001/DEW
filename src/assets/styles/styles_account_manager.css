@@ -6,6 +6,12 @@
     margin: 0;
 }
 
+.data-user {
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+}
+
 header {
     display: flex;
     flex-direction: row;
@@ -169,30 +175,47 @@ header {
     border-bottom-left-radius: 45px;
     border-bottom-right-radius: 45px;
     margin-top: 10px;
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
     padding-left: 15px;
     padding-right: 15px;
     width: 200px;
 }
 
 #name {
-    color: black;
+    color: rgb(191, 191, 191);
     font-family: inter, sans-serif;
+    text-align: center;
+    justify-content: center;
+    align-self: center;
+    margin-left: 1rem;
 }
 
 #last-name {
-    color: black;
+    color: rgb(191, 191, 191);
     font-family: inter, sans-serif;
+    text-align: center;
+    justify-content: center;
+    align-self: center;
+    margin-left: 1rem;
 }
 
 #email {
-    color: black;
+    color: rgb(191, 191, 191);
     font-family: inter, sans-serif;
+    text-align: center;
+    justify-content: center;
+    align-self: center;
+    margin-left: 1rem;
 }
 
 #password {
-    color: black;
+    color: rgb(191, 191, 191);
     font-family: inter, sans-serif;
+    text-align: center;
+    justify-content: center;
+    align-self: center;
+    margin-left: 1rem;
 }
 
 .button-edit {
