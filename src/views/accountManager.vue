@@ -35,6 +35,10 @@ export default {
                 }
             }
         })
+    },
+    async logout() {
+        localStorage.removeItem('token');
+        window.location.href = "/";
     }
 },
   mounted() {
@@ -90,7 +94,7 @@ export default {
                 </div>
             </a>
             <div class="save"> 
-                <a href="/home" class="button-save ">Save</a>
+                <a href="javascript:history.back()" class="button-save ">Save</a>
             </div>
         </header>
         <main>
@@ -132,7 +136,7 @@ export default {
                     <div id="space"> <button href="" class="button-edit"> Edit</button></div>
                 </section>
                 <section id="sign-out">
-                    <a href="/" class="button-sign-out">Sign out</a>
+                    <button @click="logout" href="#" class="button-sign-out">Sign out</button>
                 </section>
             </div>
             <section id="delete">
