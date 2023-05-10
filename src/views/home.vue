@@ -1,3 +1,15 @@
+<script>
+    function showfriends() {
+        var x = document.getElementById("friends");
+
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+
+        }
+    }
+</script>
 <template>
     <div id="body_container">
         <header>
@@ -9,7 +21,7 @@
                   <input type="text" name="search" placeholder="Search..">
                 </div>
                 <div id="menu">
-                  <a href="/newWishlist">
+                  <a onclick= "showfriends()">
                     <svg
                     herf=""
                     class="button-menu"
@@ -90,7 +102,11 @@
             </section>
         </header>
         <main>
-            <section>
+          <div id="friends">
+            <p>hola que tal</p>
+          </div>
+
+        <section>
         <a href="/homeFilters" class="filters">
           <p>Filters</p>
           <svg
