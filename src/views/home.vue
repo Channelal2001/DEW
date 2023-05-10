@@ -146,22 +146,22 @@
         <main>
           <div id="friends">
             <h3 id="title-text-friend">Friends</h3>
-            <div class="menu-friend">
-              <div class="content-friends-title">
-                <p id="text-fiend"><b>Followers</b></p>
-                <p id="text-fiend-number">10</p>
-              </div>
-              <div class="content-friends-title">
-                <p id="text-fiend"><b>Following</b></p>
-                <p id="text-fiend-number">5</p>
-              </div>
-            </div>
+           
             <div class="content-friend">
                 <div id="followers">
+                  <div class="content-friends-title">
+                    <p id="text-fiend"><b>Followers</b></p>
+                    <p id="text-fiend-number">10</p>
+                  </div>
                   <p id="text-dat-friend">pepe perez</p>
                   <p id="text-dat-friend">jaime perez</p>
+                  
                 </div>
                 <div id="following">
+                  <div class="content-friends-title">
+                    <p id="text-fiend"><b>Following</b></p>
+                    <p id="text-fiend-number">5</p>
+                  </div>
                   <p id="text-dat-friend">jaime perez</p>
                   <p id="text-dat-friend">pepe perez</p>
                 </div>
