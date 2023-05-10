@@ -145,23 +145,25 @@ function showfriends() {
         </header>
         <main>
           <div id="friends">
-            <h3>Friends</h3>
+            <h3 id="title-text-friend">Friends</h3>
             <div class="menu-friend">
               <div class="content-friends-title">
-                <p id="text-fiend">Followers</p>
+                <p id="text-fiend"><b>Followers</b></p>
                 <p id="text-fiend-number">10</p>
               </div>
               <div class="content-friends-title">
-                <p id="text-fiend">Following</p>
+                <p id="text-fiend"><b>Following</b></p>
                 <p id="text-fiend-number">5</p>
               </div>
             </div>
-            <div class="contnet-friend">
+            <div class="content-friend">
                 <div id="followers">
-                  <p id="text-fiend">pepe perez</p>
+                  <p id="text-dat-friend">pepe perez</p>
+                  <p id="text-dat-friend">jaime perez</p>
                 </div>
                 <div id="following">
-                  <p id="text-fiend">jaime perez</p>
+                  <p id="text-dat-friend">jaime perez</p>
+                  <p id="text-dat-friend">pepe perez</p>
                 </div>
               </div>
           </div>
