@@ -103,14 +103,25 @@
         </header>
         <main>
           <div id="friends">
-            <h4>Friends</h4>
+            <h3>Friends</h3>
             <div class="menu-friend">
-            <p id="text-fiend">Followers</p>
-            <p id="text-fiend-number">10</p>
-            <p id="text-fiend">Following</p>
-            <p id="text-fiend-number">5</p>
+              <div class="content-friends-title">
+                <p id="text-fiend">Followers</p>
+                <p id="text-fiend-number">10</p>
+              </div>
+              <div class="content-friends-title">
+                <p id="text-fiend">Following</p>
+                <p id="text-fiend-number">5</p>
+              </div>
             </div>
-            
+            <div class="contnet-friend">
+                <div id="followers">
+                  <p id="text-fiend">pepe perez</p>
+                </div>
+                <div id="following">
+                  <p id="text-fiend">jaime perez</p>
+                </div>
+              </div>
           </div>
 
         <section>

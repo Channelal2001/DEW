@@ -1,18 +1,36 @@
     /* Pantalles de movil*/
     
     #friends {
-        background-color: rgb(251, 247, 238);
-        justify-content: center;
+        background-color: rgb(255, 255, 255);
         text-align: center;
         position: absolute;
         font-family: inter, medium;
-        left: 50%;
+        right: 15%;
+        border-radius: 45px;
     }
     
     #text-fiend {
         margin-right: 1rem;
         margin-left: 1rem;
     }
+    
+    .content-friends-title {
+        display: flex;
+        flex-direction: row;
+        margin-left: 3rem;
+        margin-right: 3rem;
+    }
+    
+    .content-friends {
+        display: grid;
+        grid-template-columns: 3rem 3rem;
+    }
+    
+    #followers {
+        columns: 1;
+    }
+    
+    #following {}
     
     .menu-friend {
         display: flex;
