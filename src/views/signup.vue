@@ -28,7 +28,7 @@ export default {
             })
             .then((response) => {
                 if (response.status === 201) {
-                    window.location.href = "/";
+                    window.location.href = "/login";
                     return response.json();
                 } else {
                     switch(response.status) {
