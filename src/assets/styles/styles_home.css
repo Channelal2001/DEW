@@ -2,7 +2,7 @@
 
 #friends {
     background-color: rgb(255, 255, 255);
-    width: 40rem;
+    width: 30rem;
     position: absolute;
     font-family: inter, medium;
     margin-top: 1rem;
@@ -13,12 +13,13 @@
 #title-text-friend {
     text-align: center;
     font-size: 20px;
-    margin-top: 10px;
+    margin-top: 2rem;
 }
 
 #text-dat-friend {
     margin-bottom: 5px;
-    margin-top: 5px;
+    margin-top: 10px;
+    text-align: center;
 }
 
 #text-fiend {
@@ -43,7 +44,7 @@
 #followers {
     display: flex;
     flex-direction: column;
-    margin-bottom: 5px;
+    margin-bottom: 2rem;
 }
 
 #following {
@@ -56,6 +57,7 @@
     flex-direction: row;
     margin-left: 1rem;
     margin-right: 1rem;
+    justify-content: center;
 }
 
 @media screen and (max-width: 425px) {
