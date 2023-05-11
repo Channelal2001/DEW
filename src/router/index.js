@@ -23,119 +23,114 @@ import chatMobileMessages from '../views/chatMobileMessages.vue'
 import chatMobileChatOpen from '../views/chatMobileChatOpen.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'landingPage',
-      component: landingPage
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: login
-    },
-    {
-      path: '/forgotPassword',
-      name: 'forgotPassword',
-      component: forgotPassword
-    },
-    {
-      path: '/signup',
-      name: 'signup',
-      component: signup
-    },
-    {
-      path: '/uploadImage',
-      name: 'uploadImage',
-      component: uploadImage
-    },
-    {
-      path: '/home',
-      name: 'home',
-      component: home
-    },
-    {
-      path: '/accountManager',
-      name: 'accountManager',
-      component: accountManager
-    },
-    {
-      path: '/notification',
-      name: 'notification',
-      component: notification
-    },
-    {
-      path: '/chat',
-      name: 'chat',
-      component: chat
-    },
-    {
-      path: '/wishlist',
-      name: 'wishlist',
-      component: wishlist
-    },
-    {
-      path: '/search',
-      name: 'search',
-      component: search
-    },
-    {
-      path: '/viewProfile',
-      name: 'viewProfile',
-      component: viewProfile
-    },
-    {
-      path: '/homeFilters',
-      name: 'homeFilters',
-      component: homeFilters
-    },
-    {
-      path: '/newGift',
-      name: 'newGift',
-      component: newGift
-    },
-    {
-      path: '/newWishlist',
-      name: 'newWishlist',
-      component: newWishlist
-    },
-    {
-      path: '/wishlistGift',
-      name: 'wishlistGift',
-      component: wishlistGift
-    },
-    {
-      path: '/wishlistGiftReserved',
-      name: 'wishlistGiftReserved',
-      component: wishlistGiftReserved
-    },
-    {
-      path: '/wishlistMoving',
-      name: 'wishlistMoving',
-      component: wishlistMoving
-    },
-    {
-      path: '/wishlistMoved',
-      name: 'wishlistMoved',
-      component: wishlistMoved
-    },
-    {
-      path: '/wishlistErrorMessage',
-      name: 'wishlistErrorMessage',
-      component: wishlistErrorMessage
-    },
-    {
-      path: '/chatMobileMessages',
-      name: 'chatMobileMessages',
-      component: chatMobileMessages
-    },
-    {
-      path: '/chatMobileChatOpen',
-      name: 'chatMobileChatOpen',
-      component: chatMobileChatOpen
-    }
-  ]
+    history: createWebHistory(
+        import.meta.env.BASE_URL),
+    routes: [{
+            path: '/',
+            name: 'landingPage',
+            component: landingPage
+        },
+        {
+            path: '/login',
+            name: 'login',
+            component: login
+        },
+        {
+            path: '/forgotPassword',
+            name: 'forgotPassword',
+            component: forgotPassword
+        },
+        {
+            path: '/signup',
+            name: 'signup',
+            component: signup
+        },
+        {
+            path: '/uploadImage',
+            name: 'uploadImage',
+            component: uploadImage
+        },
+        {
+            path: '/home',
+            name: 'home',
+            component: home
+        },
+        {
+            path: '/accountManager',
+            name: 'accountManager',
+            component: accountManager
+        },
+        {
+            path: '/chat',
+            name: 'chat',
+            component: chat
+        },
+        {
+            path: '/wishlist',
+            name: 'wishlist',
+            component: wishlist
+        },
+        {
+            path: '/search',
+            name: 'search',
+            component: search
+        },
+        {
+            path: '/viewProfile',
+            name: 'viewProfile',
+            component: viewProfile
+        },
+        {
+            path: '/homeFilters',
+            name: 'homeFilters',
+            component: homeFilters
+        },
+        {
+            path: '/newGift',
+            name: 'newGift',
+            component: newGift
+        },
+        {
+            path: '/newWishlist',
+            name: 'newWishlist',
+            component: newWishlist
+        },
+        {
+            path: '/wishlistGift',
+            name: 'wishlistGift',
+            component: wishlistGift
+        },
+        {
+            path: '/wishlistGiftReserved',
+            name: 'wishlistGiftReserved',
+            component: wishlistGiftReserved
+        },
+        {
+            path: '/wishlistMoving',
+            name: 'wishlistMoving',
+            component: wishlistMoving
+        },
+        {
+            path: '/wishlistMoved',
+            name: 'wishlistMoved',
+            component: wishlistMoved
+        },
+        {
+            path: '/wishlistErrorMessage',
+            name: 'wishlistErrorMessage',
+            component: wishlistErrorMessage
+        },
+        {
+            path: '/chatMobileMessages',
+            name: 'chatMobileMessages',
+            component: chatMobileMessages
+        },
+        {
+            path: '/chatMobileChatOpen',
+            name: 'chatMobileChatOpen',
+            component: chatMobileChatOpen
+        }
+    ]
 })
 
 export default router

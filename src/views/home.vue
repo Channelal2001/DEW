@@ -261,6 +261,12 @@
             </div>
           </div>
         </div>
+        <div class="filters-wrap">
+          <p id="filters-text">Ends in:</p>
+          <p id="filters-type-1">24h</p>
+          <p id="filters-type-2">7 days</p>
+          <p id="filters-type-3">1 month</p>
+        </div>
 
         <section>
         <a href="/homeFilters" class="filters">
