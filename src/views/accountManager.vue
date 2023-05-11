@@ -40,8 +40,6 @@ export default {
         localStorage.removeItem('token');
         window.location.href = "/";
     },
-    
-
 },
   mounted() {
     const token = localStorage.getItem('token');
@@ -85,6 +83,11 @@ export default {
     })
     }
 }
+function myFunction() {
+  document.getElementById("myP").contentEditable = true;
+  
+}
+
 </script>
 
 <template>
@@ -106,36 +109,40 @@ export default {
                         <img class="image">
                     </div>
                     <div>
-                        <button class="button-edit-image"> Edit</button>
+                        <button class="button-edit-image" onclick="myFunction()"> Edit</button>
                     </div>
                 </section>
                 <section class="info">
                     <div class="data">
                         <h4><b>Name:</b></h4>
-                        <div id="name"></div>
+                        <div  id="name"></div>
                     </div>
-                    <div id="space"> <button href="" class="button-edit"> Edit</button></div>
+                    <div id="space"> 
+                        <button  class="button-edit" onclick="myFunction()"> Edit</button></div>
                 </section>
                 <section class="info">
                     <div class="data">
                         <h4>Last name: </h4>
-                        <div id="last-name"></div>
+                        <div contentEditable="true" id="last-name"></div>
                     </div>
-                    <div id="space"> <button href="" class="button-edit"> Edit</button></div>
+                    <div id="space">
+                        <button  class="button-edit" onclick="habilitarEdicion()"> Edit</button></div>
                 </section>
                 <section class="info">
                     <div class="data">
                         <h4>Email: </h4>
                         <div id="email"></div>
                     </div>
-                    <div id="space"> <button href="" class="button-edit"> Edit</button></div>
+                    <div id="space">
+                        <button  class="button-edit" onclick="habilitarEdicion()"> Edit</button></div>
                 </section>
                 <section class="info">
                     <div class="data">
                         <h4>Password: </h4>
                         <div id="password"></div>
                     </div>
-                    <div id="space"> <button href="" class="button-edit"> Edit</button></div>
+                    <div id="space">
+                        <button  class="button-edit" onclick="habilitarEdicion()"> Edit</button></div>
                 </section>
                 <section id="sign-out">
                     <button @click="logout" href="#" class="button-sign-out">Sign out</button>
@@ -144,6 +151,7 @@ export default {
             <section id="delete">
                 <button @click="deleteUser" href="#" class="button-delete">Delete account</button>
             </section>
+            
         </main>
         <footer></footer>
     </div>
