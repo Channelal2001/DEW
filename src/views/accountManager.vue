@@ -41,9 +41,7 @@ export default {
         window.location.href = "/";
     },
     
-    document.getElementById("editar").addEventListener("click", function() {
-        document.getElementById("texto").readOnly = false;
-    }),
+
 },
   mounted() {
     const token = localStorage.getItem('token');
