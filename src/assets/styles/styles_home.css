@@ -1,5 +1,82 @@
 /* Pantalles de movil*/
 
+#notification-tab {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 62px;
+    right: 0px;
+    width: 193px;
+    height: 497px;
+    background-color: white;
+    z-index: 999;
+    border-radius: 20px;
+}
+
+#svg-icon-cross {
+    position: absolute;
+    right: 0;
+    margin-top: 10px;
+    margin-right: 10px;
+    fill: white;
+    background-color: rgba(224, 224, 224, 1);
+    border-radius: 50%;
+    padding: 5px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+.text {
+    margin: 0;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.tab-part {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.profile-image {
+    background-color: rgba(249, 249, 249, 1);
+    border: 1px solid rgb(35, 35, 35);
+    margin: 10px;
+    padding: 5px;
+    border-radius: 45px;
+    width: 30px;
+    height: 30px;
+    color: black;
+}
+
+.tick {
+    margin-right: 0px;
+}
+
+.cross {
+    margin-right: 10px;
+}
+
+.tick-cross {
+    display: flex;
+    margin-right: 10px;
+}
+
+.gift {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
 #friends {
     background-color: rgb(255, 255, 255);
     width: 30rem;
