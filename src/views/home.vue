@@ -39,11 +39,10 @@
       })
     },
     showfriends() {
-      var x = document.getElementById("friends");
+      var x = document.getElementById("hide");
 
       if (x.style.display === "none") {
           x.style.display = "block";
-       
       } else {
           x.style.display = "none";
       }
@@ -143,15 +142,17 @@
             </section>
         </header>
         <main>
-          <div id="friends">
-            <h3 id="title-text-friend">Friends</h3>
-            <div v-for="friend in friends" :key="friend.id" class="content-friend">
-                  <p>{{ friend.name }}</p>
-                  <p>{{ friend.last_name }}</p>
-                  <p>{{ friend.email }}</p>
-                  <!--<p>{{ friend.image }}</p>-->
-              </div>
-          </div>
+          <div id="hide">
+            <div id="friends">
+              <h3 id="title-text-friend">Friends</h3>
+              <div v-for="friend in friends" :key="friend.id" class="content-friend">
+                    <p>{{ friend.name }}</p>
+                    <p>{{ friend.last_name }}</p>
+                    <p>{{ friend.email }}</p>
+                    <!--<p>{{ friend.image }}</p>-->
+                </div>
+            </div>
+        </div>
 
         <section>
         <a href="/homeFilters" class="filters">
