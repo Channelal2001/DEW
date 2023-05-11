@@ -18,7 +18,7 @@
             </section>
             <section>
                 <div id="button">
-                    <button type=" submit "><a href="/login" id="button_text">Send</a></button>
+                    <button type="submit"><a href="/login" id="button_text">Send</a></button>
                 </div>
             </section>
 
