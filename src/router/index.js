@@ -10,7 +10,7 @@ import chat from '../views/chat.vue'
 import wishlist from '../views/wishlist.vue'
 import search from '../views/search.vue'
 import viewProfile from '../views/viewProfile.vue'
-import homeFilters from '../views/homeFilters.vue'
+
 import newGift from '../views/newGift.vue'
 import newWishlist from '../views/newWishlist.vue'
 import wishlistGift from '../views/wishlistGift.vue'
@@ -79,11 +79,7 @@ const router = createRouter({
             name: 'viewProfile',
             component: viewProfile
         },
-        {
-            path: '/homeFilters',
-            name: 'homeFilters',
-            component: homeFilters
-        },
+
         {
             path: '/newGift',
             name: 'newGift',
