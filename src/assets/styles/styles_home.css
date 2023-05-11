@@ -102,6 +102,10 @@
     display: none;
 }
 
+#hide-filters {
+    display: none;
+}
+
 #title-text-friend {
     text-align: center;
     font-size: 20px;
