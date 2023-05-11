@@ -627,6 +627,7 @@
         margin-left: 10px;
         margin-right: 10px;
         text-align: center;
+        align-self: center;
     }
     #filters-type-2 {
         color: rgba(70, 70, 70, 1);
@@ -642,6 +643,7 @@
         margin-left: 10px;
         margin-right: 10px;
         text-align: center;
+        align-self: center;
     }
     #filters-type-3 {
         color: rgba(70, 70, 70, 1);
@@ -657,6 +659,7 @@
         margin-left: 10px;
         margin-right: 10px;
         text-align: center;
+        align-self: center;
     }
     #filters-text {
         color: rgba(70, 70, 70, 1);
