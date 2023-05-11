@@ -1,16 +1,15 @@
 /* Pantalles de movil*/
 
 #notification-tab {
+    font-family: inter, medium;
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 62px;
-    right: 0px;
-    width: 193px;
-    height: 497px;
+    right: 5%;
+    width: auto;
     background-color: white;
-    z-index: 999;
     border-radius: 20px;
+    padding: 1rem;
 }
 
 #svg-icon-cross {
@@ -77,6 +76,10 @@
     justify-content: center;
 }
 
+#text-notifiaction-gift {
+    margin-left: 10px;
+}
+
 #friends {
     background-color: rgb(255, 255, 255);
     width: 30rem;
@@ -92,6 +95,10 @@
 }
 
 #hide {
+    display: none;
+}
+
+#hide-notifications {
     display: none;
 }
 
