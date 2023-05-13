@@ -173,11 +173,19 @@
             <div id="friends">
               <h3 id="title-text-friend">Friends</h3>
               <div v-for="friend in friends" :key="friend.id" class="content-friend">
-                    <p>{{ friend.name }}</p>
-                    <p>{{ friend.last_name }}</p>
-                    <p>{{ friend.email }}</p>
-                    <img :src="friend.image">
+                  <div id="content-notification-friend">
+                    <div id="name-surname-friend">
+                      <p id="text-firend-info">{{ friend.name }}</p>
+                      <p id="text-firend-info">{{ friend.last_name }}</p>
+                    </div>
+                    <div >
+                      <p id="email-friend">{{ friend.email }}</p>
+                    </div>
+                  </div>
+                  <div >
+                    <img id="image-friend-info" :src="friend.image">
                     <!--<p>{{ friend.image }}</p>-->
+                  </div>
                 </div>
             </div>
           </div>
