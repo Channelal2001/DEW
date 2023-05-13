@@ -1,3 +1,60 @@
+<script>
+    export default {
+    data() {
+        return {
+        friends: []
+        };
+    },
+    methods: {
+        async createWishlist() {
+            const name = document.getElementById('name-wishlist').value;
+            const description = document.getElementById('description-wishlist').value;
+            const endDate = document.getElementById('information-wishlist-numbers').value;
+            const wishlist = {
+                name: name,
+                description: description,
+                end_date: endDate,
+            }
+            const token = localStorage.getItem('token');
+            fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends', {
+                method: 'POST',
+                headers: {
+                    'accept': 'application/json',
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(wishlist),
+            })
+            .then((response) => {
+                if (response.status === 201) {
+                    window.location.href = "/wishlist";
+                    alert('Wishlist created');
+                    return response.json();
+                } else {
+                    switch(response.status) {
+                        case 400:
+                            alert('Bad request');
+                            break;
+                        case 406:
+                            alert('Missing parameters');
+                            break;
+                        case 409:
+                            alert('The wishlist has already been pre-registered');
+                            return;
+                        case 500:
+                            alert('The wishlist has not been created');
+                            break;
+                        case 502:
+                            alert('Internal Server Error');
+                            break;
+                    }
+                }
+            })
+        }
+    },
+    }
+</script>
+
 <template>
     <div id="body_container">
         <header>
@@ -51,10 +108,8 @@
                         
                     </div>
                     <div class="save">
-                        <a  href="/wishlist" id="information-wishlist-end-date">Save</a>
+                        <button @click="createWishlist" href="#" id="information-wishlist-end-date">Save</button>
                     </div>
-
-
                 </div>
             </div>
         </section>
