@@ -184,7 +184,6 @@
                   </div>
                   <div >
                     <img id="image-friend-info" :src="friend.image">
-                    <!--<p>{{ friend.image }}</p>-->
                   </div>
                 </div>
             </div>
