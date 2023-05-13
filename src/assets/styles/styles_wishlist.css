@@ -264,12 +264,19 @@
      justify-content: space-evenly;
  }
  
- #information-wishlist-numbers {
+ #information-wishlist-end-date {
      font-family: inter, medium;
      font-size: 23px;
      margin: 0px;
      color: rgba(95, 95, 95, 1);
  }
+
+ #information-wishlist-numbers {
+    font-family: inter, medium;
+    font-size: 23px;
+    margin: 0px;
+    color: rgba(95, 95, 95, 1);
+}
  
  #information-wishlist-text {
      font-family: Inter, regular;
@@ -282,7 +289,7 @@
      margin: 8px;
  }
  
- #information-wishlist-end-date {
+ #information-wishlist-save-button {
      font-family: Inter, regular;
      font-size: 14px;
      color: rgba(251, 251, 251, 1);

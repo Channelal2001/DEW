@@ -7,16 +7,16 @@
     },
     methods: {
         async createWishlist() {
-            const name = document.getElementById('name-wishlist').value;
-            const description = document.getElementById('description-wishlist').value;
-            const endDate = document.getElementById('information-wishlist-numbers').value;
+            const name = document.getElementById('name-wishlist').innerHTML;
+            const description = document.getElementById('description-wishlist').innerHTML;
+            const endDate = document.getElementById('information-wishlist-end-date').innerHTML;
             const wishlist = {
                 name: name,
                 description: description,
                 end_date: endDate,
             }
             const token = localStorage.getItem('token');
-            fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends', {
+            fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/wishlists', {
                 method: 'POST',
                 headers: {
                     'accept': 'application/json',
@@ -93,7 +93,7 @@
                     <div id="date-start-text">
                         <p id="text-celebration">Celebration day in</p>
                         <p id="instruction">Please use the hyphen to separate</p>
-                        <div contentEditable="true" id="information-wishlist-numbers">10-10-23</div>
+                        <div contentEditable="true" id="information-wishlist-end-date">10-10-23</div>
                     </div>
 
                     <div class="information-wishlist-updateble">
@@ -108,7 +108,7 @@
                         
                     </div>
                     <div class="save">
-                        <button @click="createWishlist" href="#" id="information-wishlist-end-date">Save</button>
+                        <button @click="createWishlist" href="#" id="information-wishlist-save-button">Save</button>
                     </div>
                 </div>
             </div>
