@@ -38,6 +38,7 @@ export default {
     },
     async logout() {
         localStorage.removeItem('token');
+        localStorage.removeItem('wishlistID');
         window.location.href = "/";
     },
 },

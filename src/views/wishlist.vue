@@ -35,6 +35,46 @@ export default {
             }
         })
     }
+  },
+  mounted() {
+    const token = localStorage.getItem('token');
+    const wishlistID = localStorage.getItem('wishlistID');
+    fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/wishlists/${wishlistID}`, {
+        method: 'GET',
+        headers: {
+            'accept': 'application/json',
+            Authorization: `Bearer ${token}`,
+        },
+    })
+    .then((response) => {
+        if (response.status === 200) {
+            return response.json();
+        } else {
+            switch(response.status) {
+                case 204:
+                    alert('Wishlist not found');
+                    break;
+                case 400:
+                    alert('Bad request');
+                    break;
+                case 401:
+                    alert('Unauthorized');
+                    break;
+                case 406:
+                    alert('Missing parameters');
+                    break;
+                case 502:
+                    alert('Internal Server Error');
+                    break;
+            }
+        }
+    })
+    .then((data) => {
+        document.getElementById('name-wishlist').innerHTML = data.name;
+        document.getElementById('description-wishlist').innerHTML = data.description;
+        document.getElementById('information-wishlist-ending-date').innerHTML = data.end_date;
+        document.getElementById('information-wishlist-creation-date').innerHTML = data.creation_date;
+    })
   }
 }
 </script>
@@ -79,7 +119,7 @@ export default {
                 <div id="wishlist-data-information">
                     <div id="date-start-text">
                         <p id="text-celebration">Celebration day in</p>
-                        <p id="information-wishlist-numbers-box">15/12/23</p>
+                        <p id="information-wishlist-ending-date">15/12/23</p>
                     </div>
 
                     <div class="information-wishlist-updateble">
@@ -89,7 +129,7 @@ export default {
                         </div>
                         <div id="information-wishlist">
                             <p id="information-wishlist-text">Created</p>
-                            <p id="information-wishlist-numbers">11/12/23</p>
+                            <p id="information-wishlist-creation-date">11/12/23</p>
                         </div>
                     </div>
                     <div class="button-delete">

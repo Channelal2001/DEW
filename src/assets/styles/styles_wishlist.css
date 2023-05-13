@@ -277,7 +277,14 @@
     margin: 0px;
     color: rgba(95, 95, 95, 1);
 }
- 
+
+#information-wishlist-creation-date {
+    font-family: inter, medium;
+    font-size: 23px;
+    margin: 0px;
+    color: rgba(95, 95, 95, 1);
+}
+
  #information-wishlist-text {
      font-family: Inter, regular;
      font-size: 20px;
@@ -328,7 +335,7 @@
      margin-bottom: 5px;
  }
  
- #information-wishlist-numbers-box {
+ #information-wishlist-ending-date {
      color: rgb(142, 141, 141);
      font-size: 20px;
      font-family: Inter, bold;
@@ -427,7 +434,9 @@
      -ms-user-select: none;
      user-select: none;
      text-decoration: none;
-     color: red;
+     color: white;
+     background-color: red;
+     border-radius: 45px;
  }
  
  .chat-user {
