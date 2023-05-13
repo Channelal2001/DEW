@@ -284,7 +284,6 @@
     }
     .present-cover {
         margin-left: 40%;
-        background-image: url(/src/assets/images/andrea-party.jpg);
         background-repeat: no-repeat;
         height: 179px;
         width: 125px;
@@ -303,6 +302,9 @@
         text-align: center;
         font-family: inter, medium;
         border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
     }
     .text-title-present {
         color: rgba(0, 0, 0, 1);
@@ -325,6 +327,8 @@
         font-size: 8px;
         padding: 4px 7px;
         text-decoration: none;
+        width: fit-content;
+        align-self: center;
     }
     .button_share:hover {
         fill: rgb(255, 255, 255);
@@ -486,8 +490,6 @@
         margin-left: 3px;
     }
     .present-cover {
-        margin-left: 40%;
-        background-image: url(/src/assets/images/andrea-party.jpg);
         background-repeat: no-repeat;
         height: 358px;
         width: 250px;
@@ -501,11 +503,14 @@
     }
     .text-present {
         background-color: rgba(235, 235, 235, 1);
-        height: fit-content;
+        height: 20rem;
         width: 100%;
         text-align: center;
         font-family: inter, medium;
         border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
     }
     .text-title-present {
         color: rgba(0, 0, 0, 1);
@@ -528,6 +533,8 @@
         font-size: 14px;
         padding: 8px 15px;
         text-decoration: none;
+        width: fit-content;
+        align-self: center;
     }
     .button_share:hover {
         fill: rgb(255, 255, 255);
