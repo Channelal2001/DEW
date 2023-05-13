@@ -74,6 +74,7 @@ export default {
         document.getElementById('description-wishlist').innerHTML = data.description;
         document.getElementById('information-wishlist-ending-date').innerHTML = data.end_date;
         document.getElementById('information-wishlist-creation-date').innerHTML = data.creation_date;
+        document.getElementById('information-wishlist-numbers').innerHTML = data.gifts.length;
     })
   }
 }
