@@ -50,6 +50,10 @@
                     }
                 }
             })
+            .then((data) => {
+            const wishlistID = data.id;
+            localStorage.setItem('wishlistID', wishlistID);
+        })
         }
     },
     }

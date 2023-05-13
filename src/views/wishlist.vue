@@ -1,3 +1,44 @@
+<script>
+export default {
+  data() {
+    return {
+    };
+  },
+  methods: {
+    async deleteWishlist() {
+        const token = localStorage.getItem('token');
+        const wishlistID = localStorage.getItem('wishlistID');
+        fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/wishlists/${wishlistID}`, {
+            method: 'DELETE',
+            headers: {
+                'accept': 'application/json',
+                Authorization: `Bearer ${token}`,
+            },
+        })
+        .then((response) => {
+            if (response.status === 200) {
+                alert('Wishlist removed');
+                window.location.href = "/newWishlist";
+                return response.json();
+            } else {
+                switch(response.status) {
+                    case 401:
+                        alert('Unauthorized');
+                        break;
+                    case 500:
+                        alert('The wishlist has not deleted');
+                        break;
+                    case 502:
+                        alert('Internal server error');
+                        break;
+                }
+            }
+        })
+    }
+  }
+}
+</script>
+
 <template>
     <div id="body_container">
         <header>
@@ -52,7 +93,7 @@
                         </div>
                     </div>
                     <div class="button-delete">
-                        <a href="/newWishlist" id="button-delete-text">Delete</a>
+                        <button @click="deleteWishlist" href="#" id="button-delete-text">Delete</button>
                     </div>
                 </div>
 
