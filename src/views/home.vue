@@ -177,7 +177,6 @@
                     <p>{{ friend.last_name }}</p>
                     <p>{{ friend.email }}</p>
                     <img :src="friend.image">
-                    <!--<p>{{ friend.image }}</p>-->
                 </div>
             </div>
           </div>
