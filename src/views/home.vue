@@ -5,39 +5,39 @@
       friends: []
     };
   },
+  mounted() {
+    const token = localStorage.getItem('token');
+    let vm = this;
+    fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends', {
+        method: 'GET',
+        headers: {
+            'accept': 'application/json',
+            Authorization: `Bearer ${token}`,
+        },
+    })
+    .then((response) => {
+        if (response.status === 200) {
+            return response.json();
+        } else {
+            switch(response.status) {
+              case 401:
+                  alert('Unauthorized');
+                  break;
+              case 500:
+                  alert('Error getting friends');
+                  break;
+              case 502:
+                  alert('Internal Server Error');
+                  break;
+            }
+        }
+    })
+    .then((data) => {
+      console.log(data);
+      vm.friends = data;
+    })
+  },
   methods: {
-    async getFriends() {
-      const token = localStorage.getItem('token');
-      let vm = this;
-      fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends', {
-          method: 'GET',
-          headers: {
-              'accept': 'application/json',
-              Authorization: `Bearer ${token}`,
-          },
-      })
-      .then((response) => {
-          if (response.status === 200) {
-              return response.json();
-          } else {
-              switch(response.status) {
-                case 401:
-                    alert('Unauthorized');
-                    break;
-                case 500:
-                    alert('Error getting friends');
-                    break;
-                case 502:
-                    alert('Internal Server Error');
-                    break;
-              }
-          }
-      })
-      .then((data) => {
-        console.log(data);
-        vm.friends = data;
-      })
-    },
     showfriends() {
       var x = document.getElementById("hide");
 
@@ -176,6 +176,7 @@
                     <p>{{ friend.name }}</p>
                     <p>{{ friend.last_name }}</p>
                     <p>{{ friend.email }}</p>
+                    <img :src="friend.image">
                     <!--<p>{{ friend.image }}</p>-->
                 </div>
             </div>
