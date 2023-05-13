@@ -19,8 +19,8 @@
             </div>
         </section>
         <section>
-            <p id="name-wishlist">Name for the Wishlist</p>
-            <p id="description-wishlist">Name for the Wishlist</p>
+            <div contentEditable="true" id="name-wishlist">Name for the Wishlist</div>
+            <div contentEditable="true" id="description-wishlist">Name for the Wishlist</div>
         </section>
         <section class="chats-dashboard">
             <div id="wishlist-product-list">
@@ -43,7 +43,8 @@
                 <div id="wishlist-data-information">
                     <div id="date-start-text">
                         <p id="text-celebration">Celebration day in</p>
-                        <a href="/wishlist" id="information-wishlist-end-date">Add an end day</a>
+                        <p id="instruction">Please use the hyphen to separate</p>
+                        <div contentEditable="true" id="information-wishlist-numbers">10-10-23</div>
                     </div>
 
                     <div class="information-wishlist-updateble">
@@ -55,6 +56,10 @@
                             <p id="information-wishlist-text">Created</p>
                             <p id="information-wishlist-numbers">11/12/23</p>
                         </div>
+                        
+                    </div>
+                    <div class="save">
+                        <a  href="/wishlist" id="information-wishlist-end-date">Save</a>
                     </div>
 
 
