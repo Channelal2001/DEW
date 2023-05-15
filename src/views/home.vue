@@ -1,13 +1,15 @@
 <script>
+  import divideTokenVue from '../components/divideToken.vue';
   export default {
   data() {
     return {
-      friends: []
+      friends: [],
+      wishlists: [],
+      requests: [],
     };
   },
   mounted() {
     const token = localStorage.getItem('token');
-    let vm = this;
     fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends', {
         method: 'GET',
         headers: {
@@ -32,9 +34,62 @@
             }
         }
     })
-    .then((data) => {
-      console.log(data);
-      vm.friends = data;
+    .then((friendsData) => {
+      this.friends = friendsData;
+    })
+
+    const id = divideTokenVue.methods.divideToken(token);
+    fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${id}/wishlists`, {
+        method: 'GET',
+        headers: {
+            'accept': 'application/json',
+            Authorization: `Bearer ${token}`,
+        },
+    })
+    .then((response) => {
+        if (response.status === 200) {
+            return response.json();
+        } else {
+            switch(response.status) {
+              case 401:
+                  alert('Unauthorized');
+                  break;
+              case 500:
+                  alert('Error getting wishlists');
+                  break;
+            }
+        }
+    })
+    .then((wishlistsData) => {
+      this.wishlists = wishlistsData;
+    })
+
+    fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends/requests', {
+        method: 'GET',
+        headers: {
+            'accept': 'application/json',
+            Authorization: `Bearer ${token}`,
+        },
+    })
+    .then((response) => {
+        if (response.status === 200) {
+            return response.json();
+        } else {
+            switch(response.status) {
+              case 401:
+                  alert('Unauthorized');
+                  break;
+              case 500:
+                  alert('Error getting friend requests');
+                  break;
+              case 502:
+                  alert('Internal Server Error');
+                  break;
+            }
+        }
+    })
+    .then((requestsData) => {
+      this.requests = requestsData;
     })
   },
   methods: {
@@ -193,65 +248,28 @@
               <button class="unstyle" @click= "hidenotifications">
                 <svg id="svg-icon-cross" viewBox="0 0 20 20">
                   <path  d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
-              </svg>
-            </button>
+                </svg>
+              </button>
               <p class="text"><b>New Requests</b></p>
-              <div class="tab-part">
+              <div v-for="request in requests" :key="requests.id" class="tab-part">
                 <div class="profile">
-                  <svg
-                    herf=""
-                    class="profile-image"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="8"
-                    height="8"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"
-                    />
-                  </svg>
-                  <p>Alessandro Sadany</p>
+                  <img id="image-friend-info" :src="request.image">
+                  <p>{{ request.name }}</p>
                 </div>
                 <div class="tick">
-                  <svg width="10" height="7.5" viewBox="0 0 10 7.5" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0.5,4.5 l2.5,2.5 l7.5,-7.5" style="stroke:green; stroke-width:1; fill:none;"/>
-                  </svg>
+                  <button>
+                    <svg width="10" height="7.5" viewBox="0 0 10 7.5" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0.5,4.5 l2.5,2.5 l7.5,-7.5" style="stroke:green; stroke-width:1; fill:none;"/>
+                    </svg>
+                  </button>
                 </div>
                 <div class="cross">
-                  <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
-                    <line x1="0" y1="0" x2="10" y2="10" style="stroke:red; stroke-width:1;"/>
-                    <line x1="10" y1="0" x2="0" y2="10" style="stroke:red; stroke-width:1;"/>
-                  </svg>
-                </div>
-              </div>
-              <div class="tab-part">
-                <div class="profile">
-                  <svg
-                    herf=""
-                    class="profile-image"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="8"
-                    height="8"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"
-                    />
-                  </svg>
-                  <p>Alessandro Sadany</p>
-                </div>
-                <div class="tick">
-                  <svg width="10" height="7.5" viewBox="0 0 10 7.5" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0.5,4.5 l2.5,2.5 l7.5,-7.5" style="stroke:green; stroke-width:1; fill:none;"/>
-                  </svg>
-                </div>
-                <div class="cross">
-                  <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
-                    <line x1="0" y1="0" x2="10" y2="10" style="stroke:red; stroke-width:1;"/>
-                    <line x1="10" y1="0" x2="0" y2="10" style="stroke:red; stroke-width:1;"/>
-                  </svg>
+                  <button>
+                    <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+                      <line x1="0" y1="0" x2="10" y2="10" style="stroke:red; stroke-width:1;"/>
+                      <line x1="10" y1="0" x2="0" y2="10" style="stroke:red; stroke-width:1;"/>
+                    </svg>
+                  </button>
                 </div>
               </div>
               <svg viewBox="0 0 290 1">
@@ -466,12 +484,14 @@
           </a>
         </div>
       </section>
+
+      <!-- My Wishlists-->
       <section>
         <div id="title-slider">
           <p><b>My Wishlist</b></p>
         </div>
       </section>
-
+      
       <section id="slider">
         <div id="icon-left">
           <a href="">
@@ -482,7 +502,23 @@
             </svg>
           </a>
         </div>
-        <div id="slider-wishlists">
+        <div v-for="wishlist in wishlists" :key="wishlist.id" id="slider-wishlists">
+          <article>
+            <div class="present-cover">
+              <div class="text-present">
+                <div class="text-title-present">
+                  <p>{{ wishlist.name }}</p>
+                </div>
+                <div class="text-time-present">
+                  <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day in:</b></p>
+                  <p style="margin-top: 0"> {{ wishlist.end_date }}</p>
+                </div>
+                <a href="" class="button_share">Share</a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <!--<div id="slider-wishlists">
           <article>
             <div class="present-cover">
               <div class="text-present">
@@ -540,7 +576,7 @@
               </div>
             </div>
           </article>
-        </div>
+        </div>-->
         <div id="icon-right">
           <a href="">
             <svg class="svg-icon" viewBox="0 0 20 20">
