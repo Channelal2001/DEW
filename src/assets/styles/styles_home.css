@@ -101,6 +101,8 @@
 
 .cross {
     margin-right: 10px;
+    all: unset;
+    cursor: pointer;
 }
 
 .tick-cross {
