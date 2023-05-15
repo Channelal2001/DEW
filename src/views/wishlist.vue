@@ -5,6 +5,49 @@ export default {
     };
   },
   methods: {
+    async editWishlist() {
+        const name = document.getElementById('name-wishlist').innerHTML;
+        const description = document.getElementById('description-wishlist').innerHTML;
+        const endDate = document.getElementById('information-wishlist-end-date').innerHTML;
+        const creationDate = document.getElementById('information-wishlist-creation-date').innerHTML;
+        const wishlist = {
+            name: name,
+            description: description,
+            end_date: endDate,
+            creation_date: creationDate,
+        }
+        const token = localStorage.getItem('token');
+        fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/wishlists`, {
+            method: 'PUT',
+            headers: {
+                'accept': 'application/json',
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(wishlist),
+        })
+        .then((response) => {
+            if (response.status === 201) {
+                alert('Wishlist edited');
+                return response.json();
+            } else {
+                switch(response.status) {
+                    case 400:
+                        alert('Bad request');
+                        break;
+                    case 401:
+                        alert('Unauthorized');
+                        break;
+                    case 406:
+                        alert('Missing parameters');
+                        break;
+                    case 410:
+                        alert('No wishlist has been edited');
+                        return;
+                }
+            }
+        })
+    },
     async deleteWishlist() {
         const token = localStorage.getItem('token');
         const wishlistID = localStorage.getItem('wishlistID');
@@ -54,6 +97,14 @@ export default {
           x.style.display = "none";
       }
     },
+    hideFirstGiftMessage(numberOfItems) {
+        var x = document.getElementById("message-empty");
+        if (numberOfItems > 0) {
+            x.display = "none";
+        } else {
+            x.display = "block";
+        }
+    },
   },
   mounted() {
     const token = localStorage.getItem('token');
@@ -88,14 +139,14 @@ export default {
             }
         }
     })
-    .then((data) => {
-        document.getElementById('name-wishlist').innerHTML = data.name;
-        document.getElementById('description-wishlist').innerHTML = data.description;
-        document.getElementById('information-wishlist-ending-date').innerHTML = data.end_date;
-        document.getElementById('information-wishlist-creation-date').innerHTML = data.creation_date;
-        document.getElementById('information-wishlist-numbers').innerHTML = data.gifts.length;
+    .then((wishlistData) => {
+        document.getElementById('name-wishlist').innerHTML = wishlistData.name;
+        document.getElementById('description-wishlist').innerHTML = wishlistData.description;
+        document.getElementById('information-wishlist-ending-date').innerHTML = wishlistData.end_date.substring(0, 10);
+        document.getElementById('information-wishlist-creation-date').innerHTML = wishlistData.creation_date.substring(0, 10);
+        document.getElementById('information-wishlist-numbers').innerHTML = wishlistData.gifts.length;
     })
-  }
+    }
 }
 </script>
 
@@ -123,13 +174,13 @@ export default {
             </div>
         </section>
         <section>
-            <p id="name-wishlist">Name for the Wishlist</p>
-            <p id="description-wishlist">Name for the Wishlist</p>
+            <p contentEditable="true" id="name-wishlist">Name for the Wishlist</p>
+            <p contentEditable="true" id="description-wishlist">Name for the Wishlist</p>
         </section>
         <section class="chats-dashboard">
             <div id="wishlist-product-list">
                 <div id="button-add">
-                    <p  @click= "hideWhislistInfo" id="button-add-gift">Add gift</p>
+                    <p @click= "hideWhislistInfo" id="button-add-gift">Add gift</p>
                 </div>
 
                 <p id="message-emty">Add the first gift</p>
@@ -138,7 +189,7 @@ export default {
                 <div id="wishlist-data-information">
                     <div id="date-start-text">
                         <p id="text-celebration">Celebration day in</p>
-                        <p id="information-wishlist-ending-date">15/12/23</p>
+                        <p contentEditable="true" id="information-wishlist-ending-date">15/12/23</p>
                     </div>
 
                     <div class="information-wishlist-updateble">
@@ -148,13 +199,13 @@ export default {
                         </div>
                         <div id="information-wishlist">
                             <p id="information-wishlist-text">Created</p>
-                            <p id="information-wishlist-creation-date">11/12/23</p>
+                            <p contentEditable="true" id="information-wishlist-creation-date">11/12/23</p>
                         </div>
                     </div>
                     <div class="button-delete">
                         <button @click="deleteWishlist" href="#" id="button-delete-text">Delete</button>
                         
-                        <button  id="information-wishlist-save-button">Save</button>
+                        <button @click="editWishlist" id="information-wishlist-save-button">Save</button>
                     
                     </div>
                 </div>
