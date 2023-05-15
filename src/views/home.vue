@@ -291,7 +291,7 @@
                   <img id="image-friend-info" :src="request.image">
                   <p>{{ request.name }}</p>
                 </div>
-                <button @click="acceptRequest" class="tick">
+                <button @click="acceptRequest(request.id)" class="tick">
                   <svg width="10" height="7.5" viewBox="0 0 10 7.5" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0.5,4.5 l2.5,2.5 l7.5,-7.5" style="stroke:green; stroke-width:1; fill:none;"/>
                   </svg>
