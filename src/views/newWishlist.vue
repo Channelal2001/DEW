@@ -105,11 +105,7 @@
                             <p id="information-wishlist-text">Items</p>
                             <p id="information-wishlist-numbers">0</p>
                         </div>
-                        <div id="information-wishlist">
-                            <p id="information-wishlist-text">Created</p>
-                            <p id="information-wishlist-numbers">11/12/23</p>
-                        </div>
-                        
+                   
                     </div>
                     <div class="save">
                         <button @click="createWishlist" href="#" id="information-wishlist-save-button">Save</button>

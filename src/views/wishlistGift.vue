@@ -81,7 +81,6 @@
                 </div>
 
                 <div id="wishlist-data-information">
-
                     <div>
                         <div class="image-name-new-gift">
                             <svg href="#" class="image-icon-wishlist" viewBox="0 0 20 20">
