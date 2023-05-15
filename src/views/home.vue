@@ -93,12 +93,11 @@
     })
   },
   methods: {
-    async acceptRequest() {
-      fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends(${id})`, {  //Pensar d'on treure l'id de l'usuari
+    async acceptRequest(id) {
+      fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends/${id}`, {  //Pensar d'on treure l'id de l'usuari
           method: 'PUT',
           headers: {
               'accept': 'application/json',
-              'Content-Type': 'application/json',
           },
       })
       .then((response) => {
@@ -127,10 +126,6 @@
                     break;
               }
           }
-      })
-      .then((data) => {
-          const token = data.accessToken;
-          localStorage.setItem('token', token);
       })
     },
     showfriends() {
@@ -291,13 +286,13 @@
                 </svg>
               </button>
               <p class="text"><b>New Requests</b></p>
-              <div v-for="request in requests" :key="requests.id" class="tab-part">
+              <div v-for="request in requests" :key="request.id" class="tab-part">
                 <div class="profile">
                   <img id="image-friend-info" :src="request.image">
                   <p>{{ request.name }}</p>
                 </div>
                 <div class="tick">
-                  <button  @click="acceptRequest">
+                  <button @click="acceptRequest">
                     <svg width="10" height="7.5" viewBox="0 0 10 7.5" xmlns="http://www.w3.org/2000/svg">
                       <path d="M0.5,4.5 l2.5,2.5 l7.5,-7.5" style="stroke:green; stroke-width:1; fill:none;"/>
                     </svg>
