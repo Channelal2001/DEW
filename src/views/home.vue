@@ -93,11 +93,13 @@
     })
   },
   methods: {
-    async acceptRequest(id) {
-      fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends/${id}`, {  //Pensar d'on treure l'id de l'usuari
+    async acceptRequest(userID) {
+      const token = localStorage.getItem('token');
+      fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends/${userID}`, {
           method: 'PUT',
           headers: {
               'accept': 'application/json',
+              Authorization: `Bearer ${token}`,
           },
       })
       .then((response) => {
@@ -120,6 +122,40 @@
                     break;
                   case 500:
                     alert('Error accepting friend request');
+                    break;
+                  case 502:
+                    alert('Internal Server Error');
+                    break;
+              }
+          }
+      })
+    },
+    async removeRequest(userID) {
+      const token = localStorage.getItem('token');
+      fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends/${userID}`, {
+          method: 'DELETE',
+          headers: {
+              'accept': 'application/json',
+              Authorization: `Bearer ${token}`,
+          },
+      })
+      .then((response) => {
+          if (response.status === 200) {
+              alert('Friend request removed');
+              return response.json();
+          } else {
+              switch(response.status) {
+                  case 400:
+                    alert('Bad request');
+                    break;
+                  case 401:
+                    alert('Unauthorized');
+                    break;
+                  case 406:
+                    alert('Missing parameters');
+                    break;
+                  case 500:
+                    alert('Friend request not removed');
                     break;
                   case 502:
                     alert('Internal Server Error');
@@ -163,7 +199,11 @@
       } else {
           x.style.display = "none";
       }
-    }
+    },
+    editWishlist(wishlistID) {
+      localStorage.setItem('wishlistID', wishlistID);
+      window.location.href = "/wishlist";
+    },
   }
 }
 </script>
@@ -296,7 +336,7 @@
                     <path d="M0.5,4.5 l2.5,2.5 l7.5,-7.5" style="stroke:green; stroke-width:1; fill:none;"/>
                   </svg>
                 </button>
-                <button class="cross">
+                <button @click="removeRequest(request.id)" class="cross">
                   <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
                     <line x1="0" y1="0" x2="10" y2="10" style="stroke:red; stroke-width:1;"/>
                     <line x1="10" y1="0" x2="0" y2="10" style="stroke:red; stroke-width:1;"/>
@@ -545,6 +585,7 @@
                   <p style="margin-top: 0"> {{ wishlist.end_date }}</p>
                 </div>
                 <a href="" class="button_share">Share</a>
+                <button @click="editWishlist(wishlist.id)" class="button_share">Edit</button>
               </div>
             </div>
           </article>
