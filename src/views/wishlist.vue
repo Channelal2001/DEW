@@ -124,7 +124,7 @@ export default {
         </section>
         <section>
             <p id="name-wishlist">Name for the Wishlist</p>
-            <p id="description-wishlist">Name for the Wishlist</p>
+            <p id="description-wishlist">Description for the Wishlist</p>
         </section>
         <section class="chats-dashboard">
             <div id="wishlist-product-list">
