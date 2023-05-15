@@ -95,6 +95,8 @@
 
 .tick {
     margin-right: 0px;
+    all: unset;
+    cursor: pointer;
 }
 
 .cross {
