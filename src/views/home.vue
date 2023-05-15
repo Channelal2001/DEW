@@ -291,21 +291,17 @@
                   <img id="image-friend-info" :src="request.image">
                   <p>{{ request.name }}</p>
                 </div>
-                <div class="tick">
-                  <button @click="acceptRequest">
-                    <svg width="10" height="7.5" viewBox="0 0 10 7.5" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M0.5,4.5 l2.5,2.5 l7.5,-7.5" style="stroke:green; stroke-width:1; fill:none;"/>
-                    </svg>
-                  </button>
-                </div>
-                <div class="cross">
-                  <button>
-                    <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
-                      <line x1="0" y1="0" x2="10" y2="10" style="stroke:red; stroke-width:1;"/>
-                      <line x1="10" y1="0" x2="0" y2="10" style="stroke:red; stroke-width:1;"/>
-                    </svg>
-                  </button>
-                </div>
+                <button @click="acceptRequest" class="tick">
+                  <svg width="10" height="7.5" viewBox="0 0 10 7.5" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.5,4.5 l2.5,2.5 l7.5,-7.5" style="stroke:green; stroke-width:1; fill:none;"/>
+                  </svg>
+                </button>
+                <button class="cross">
+                  <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="0" y1="0" x2="10" y2="10" style="stroke:red; stroke-width:1;"/>
+                    <line x1="10" y1="0" x2="0" y2="10" style="stroke:red; stroke-width:1;"/>
+                  </svg>
+                </button>
               </div>
               <svg viewBox="0 0 290 1">
                 <line x1="0" y1="0.5" x2="290" y2="0.5" stroke="#CCCCCC" stroke-width="1" />
