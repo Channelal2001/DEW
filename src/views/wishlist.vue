@@ -2,6 +2,7 @@
 export default {
   data() {
     return {
+        gifts: [],
     };
   },
   methods: {
@@ -145,8 +146,9 @@ export default {
         document.getElementById('information-wishlist-ending-date').innerHTML = wishlistData.end_date.substring(0, 10);
         document.getElementById('information-wishlist-creation-date').innerHTML = wishlistData.creation_date.substring(0, 10);
         document.getElementById('information-wishlist-numbers').innerHTML = wishlistData.gifts.length;
+        this.gifts = wishlistData.gifts;
     })
-    }
+  }
 }
 </script>
 
@@ -182,7 +184,14 @@ export default {
                 <div id="button-add">
                     <p @click= "hideWhislistInfo" id="button-add-gift">Add gift</p>
                 </div>
-
+                <div v-for="gift in gifts" :key="gift.id" class="chat-user-moving">
+                    <img id="image-user" src="/src/assets/images/chat-image-user.png " alt="image-chat-user ">
+                    <div id="box-message-gift">
+                        <p id="user-chat">iPhone 14 Pro ultra</p>
+                        <p id="message-text">Description</p>
+                    </div>
+                    <a href="/wishlistGiftReserved" id="notifications">Reserve</a>
+                </div>
                 <p id="message-emty">Add the first gift</p>
             </div>
             <div id="wishlist-information">

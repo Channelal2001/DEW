@@ -86,7 +86,6 @@ export default {
 }
 function myFunction() {
   document.getElementById("myP").contentEditable = true;
-  
 }
 
 </script>
@@ -119,7 +118,7 @@ function myFunction() {
                         <div  id="name"></div>
                     </div>
                     <div id="space"> 
-                        <button  class="button-edit" onclick="myFunction()"> Edit</button></div>
+                        <button class="button-edit" onclick="myFunction()"> Edit</button></div>
                 </section>
                 <section class="info">
                     <div class="data">
