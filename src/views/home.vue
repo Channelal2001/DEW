@@ -4,7 +4,8 @@
   data() {
     return {
       friends: [],
-      wishlists: [],
+      myWishlists: [],
+      friendsWishlists: [],
       requests: [],
     };
   },
@@ -60,8 +61,8 @@
             }
         }
     })
-    .then((wishlistsData) => {
-      this.wishlists = wishlistsData;
+    .then((myWishlistsData) => {
+      this.myWishlists = myWishlistsData;
     })
 
     fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends/requests', {
@@ -203,6 +204,9 @@
     editWishlist(wishlistID) {
       localStorage.setItem('wishlistID', wishlistID);
       window.location.href = "/wishlist";
+    },
+    formatDate(date) {
+      return date.substring(0, 10);
     },
   }
 }
@@ -504,46 +508,6 @@
               </div>
             </div>
           </article>
-          <article>
-            <div class="present-cover">
-              <div class="text-present">
-                <div class="text-title-present">
-                  <p>Andrea's Party</p>
-                </div>
-                <div class="text-time-present">
-                  <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day in:</b></p>
-                  <p style="margin-top: 0">10days</p>
-                </div>
-              </div>
-            </div>
-          </article>
-          <article>
-            <div class="present-cover">
-              <div class="text-present">
-                <div class="text-title-present">
-                  <p>Andrea's Party</p>
-                </div>
-                <div class="text-time-present">
-                  <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day in:</b></p>
-                  <p style="margin-top: 0">10days</p>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article>
-            <div class="present-cover">
-              <div class="text-present">
-                <div class="text-title-present">
-                  <p>Andrea's Party</p>
-                </div>
-                <div class="text-time-present">
-                  <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day in:</b></p>
-                  <p style="margin-top: 0">10days</p>
-                </div>
-              </div>
-            </div>
-          </article>
         </div>
         <div id="icon-right">
           <a href="">
@@ -573,19 +537,19 @@
             </svg>
           </a>
         </div>
-        <div v-for="wishlist in wishlists" :key="wishlist.id" id="slider-wishlists">
+        <div v-for="myWishlist in myWishlists" :key="myWishlist.id" id="slider-wishlists">
           <article>
             <div class="present-cover">
               <div class="text-present">
                 <div class="text-title-present">
-                  <p>{{ wishlist.name }}</p>
+                  <p>{{ myWishlist.name }}</p>
                 </div>
                 <div class="text-time-present">
                   <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day in:</b></p>
-                  <p style="margin-top: 0"> {{ wishlist.end_date }}</p>
+                  <p style="margin-top: 0"> {{ formatDate(myWishlist.end_date) }}</p>
                 </div>
                 <a href="" class="button_share">Share</a>
-                <button @click="editWishlist(wishlist.id)" class="button_share">Edit</button>
+                <button @click="editWishlist(myWishlist.id)" class="button_share">Edit</button>
               </div>
             </div>
           </article>

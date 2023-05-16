@@ -81,7 +81,7 @@
         </section>
         <section>
             <div contentEditable="true" id="name-wishlist">Name for the Wishlist</div>
-            <div contentEditable="true" id="description-wishlist">Name for the Wishlist</div>
+            <div contentEditable="true" id="description-wishlist">Description for the Wishlist</div>
         </section>
         <section class="chats-dashboard">
             <div id="wishlist-product-list">

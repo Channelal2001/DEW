@@ -1,4 +1,6 @@
 <script>
+import divideTokenVue from '../components/divideToken.vue';
+
 export default {
   data() {
     return {
@@ -7,18 +9,22 @@ export default {
   },
   methods: {
     async editWishlist() {
+        const wishlistID = localStorage.getItem('wishlistID');
+        const token = localStorage.getItem('token');
         const name = document.getElementById('name-wishlist').innerHTML;
         const description = document.getElementById('description-wishlist').innerHTML;
-        const endDate = document.getElementById('information-wishlist-end-date').innerHTML;
+        const userID = divideTokenVue.methods.divideToken(token);
         const creationDate = document.getElementById('information-wishlist-creation-date').innerHTML;
+        const endDate = document.getElementById('information-wishlist-ending-date').innerHTML;
         const wishlist = {
             name: name,
             description: description,
-            end_date: endDate,
+            user_id: userID,
+            gifts: this.gifts,
             creation_date: creationDate,
+            end_date: endDate,
         }
-        const token = localStorage.getItem('token');
-        fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/wishlists`, {
+        fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/wishlists/${wishlistID}`, {
             method: 'PUT',
             headers: {
                 'accept': 'application/json',
@@ -28,7 +34,7 @@ export default {
             body: JSON.stringify(wishlist),
         })
         .then((response) => {
-            if (response.status === 201) {
+            if (response.status === 200) {
                 alert('Wishlist edited');
                 return response.json();
             } else {
@@ -212,10 +218,8 @@ export default {
                         </div>
                     </div>
                     <div class="button-delete">
-                        <button @click="deleteWishlist" href="#" id="button-delete-text">Delete</button>
-                        
+                        <button @click="deleteWishlist" id="button-delete-text">Delete</button>
                         <button @click="editWishlist" id="information-wishlist-save-button">Save</button>
-                    
                     </div>
                 </div>
                 <div id="hide-wishlist-data">
