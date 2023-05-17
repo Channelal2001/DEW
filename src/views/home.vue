@@ -39,8 +39,8 @@
       this.friends = friendsData;
     })
 
-    const id = divideTokenVue.methods.divideToken(token);
-    fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${id}/wishlists`, {
+    const idUser = divideTokenVue.methods.divideToken(token);
+    fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${idUser}/wishlists`, {
         method: 'GET',
         headers: {
             'accept': 'application/json',
@@ -64,6 +64,65 @@
     .then((myWishlistsData) => {
       this.myWishlists = myWishlistsData;
     })
+
+    const idsFriends = [];
+    fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends', {
+        method: 'GET',
+        headers: {
+            'accept': 'application/json',
+            Authorization: `Bearer ${token}`,
+        },
+    })
+    .then((response) => {
+        if (response.status === 200) {
+            return response.json();
+        } else {
+            switch(response.status) {
+              case 401:
+                  alert('Unauthorized');
+                  break;
+              case 500:
+                  alert('Error getting friends');
+                  break;
+              case 502:
+                  alert('Internal Server Error');
+                  break;
+            }
+        }
+    })
+    .then((friendsData) => {
+      for (var i = 0; i < friendsData.length; i++) {
+        idsFriends.push(friendsData[i].id);
+      }
+    })
+    const friendsWishlists = [];
+    for (var i = 0; i < idsFriends.length; i++) {
+      friendsWishlists.push(
+        fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${idFriend}/wishlists`, {
+            method: 'GET',
+            headers: {
+                'accept': 'application/json',
+                Authorization: `Bearer ${token}`,
+            },
+        })
+        .then((response) => {
+            if (response.status === 200) {
+                return response.json();
+            } else {
+                switch(response.status) {
+                  case 401:
+                      alert('Unauthorized');
+                      break;
+                  case 500:
+                      alert('Error getting wishlists');
+                      break;
+                }
+            }
+        })
+      )
+      this.friendsWishlists = friendsWishlists;
+      console.log(this.friendsWishlists);
+    }
 
     fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends/requests', {
         method: 'GET',
@@ -396,88 +455,9 @@
             <button class="unstyle" id="filters-type-3">1 month</button>
           </div>
         </div>
-          </section>
-          <section>
-            <div id="title-slider">
-              <p><b>Newest for you</b></p>
-            </div>
-          </section>
-
-      <section id="slider">
-        <div id="icon-left">
-          <a href="">
-            <svg class="svg-icon" viewBox="0 0 20 20">
-              <path
-                d="M11.739,13.962c-0.087,0.086-0.199,0.131-0.312,0.131c-0.112,0-0.226-0.045-0.312-0.131l-3.738-3.736c-0.173-0.173-0.173-0.454,0-0.626l3.559-3.562c0.173-0.175,0.454-0.173,0.626,0c0.173,0.172,0.173,0.451,0,0.624l-3.248,3.25l3.425,3.426C11.911,13.511,11.911,13.789,11.739,13.962 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.148,3.374,7.521,7.521,7.521C14.147,17.521,17.521,14.148,17.521,10"
-              ></path>
-            </svg>
-          </a>
-        </div>
-        <div id="slider-wishlists">
-          <article>
-            <div class="present-cover">
-              <div class="text-present">
-                <div class="text-title-present">
-                  <p>Andrea's Party</p>
-                </div>
-                <div class="text-time-present">
-                  <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day in:</b></p>
-                  <p style="margin-top: 0">10days</p>
-                </div>
-              </div>
-            </div>
-          </article>
-          <article>
-            <div class="present-cover">
-              <div class="text-present">
-                <div class="text-title-present">
-                  <p>Andrea's Party</p>
-                </div>
-                <div class="text-time-present">
-                  <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day in:</b></p>
-                  <p style="margin-top: 0">10days</p>
-                </div>
-              </div>
-            </div>
-          </article>
-          <article>
-            <div class="present-cover">
-              <div class="text-present">
-                <div class="text-title-present">
-                  <p>Andrea's Party</p>
-                </div>
-                <div class="text-time-present">
-                  <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day in:</b></p>
-                  <p style="margin-top: 0">10days</p>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article>
-            <div class="present-cover">
-              <div class="text-present">
-                <div class="text-title-present">
-                  <p>Andrea's Party</p>
-                </div>
-                <div class="text-time-present">
-                  <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day in:</b></p>
-                  <p style="margin-top: 0">10days</p>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div id="icon-right">
-          <a href="">
-            <svg class="svg-icon" viewBox="0 0 20 20">
-              <path
-                d="M12.522,10.4l-3.559,3.562c-0.172,0.173-0.451,0.176-0.625,0c-0.173-0.173-0.173-0.451,0-0.624l3.248-3.25L8.161,6.662c-0.173-0.173-0.173-0.452,0-0.624c0.172-0.175,0.451-0.175,0.624,0l3.738,3.736C12.695,9.947,12.695,10.228,12.522,10.4 M18.406,10c0,4.644-3.764,8.406-8.406,8.406c-4.644,0-8.406-3.763-8.406-8.406S5.356,1.594,10,1.594C14.643,1.594,18.406,5.356,18.406,10M17.521,10c0-4.148-3.374-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.147,17.521,17.521,14.147,17.521,10"
-              ></path>
-            </svg>
-          </a>
-        </div>
       </section>
+
+      <!-- Following-->
       <section>
         <div id="title-slider">
           <p><b>Following</b></p>
