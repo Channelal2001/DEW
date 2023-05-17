@@ -62,6 +62,7 @@ export default {
     })
     .then((response) => {
         if (response.status === 200) {
+            alert('User found');
             return response.json();
         } else {
             switch(response.status) {
@@ -92,9 +93,6 @@ export default {
     })
     }
 }
-function myFunction() {
-  document.getElementById("myP").contentEditable = true;
-}
 
 </script>
 
@@ -124,7 +122,7 @@ function myFunction() {
                 <section class="info">
                     <div class="data">
                         <h4><b>Name:</b></h4>
-                        <div  id="name"></div>
+                        <div id="name"></div>
                     </div>
                     <div id="space"> 
                         </div>
@@ -134,33 +132,29 @@ function myFunction() {
                         <h4>Last name: </h4>
                         <div contentEditable="true" id="last-name"></div>
                     </div>
-                    <div id="space">
-                        </div>
+                    <div id="space"></div>
                 </section>
                 <section class="info">
                     <div class="data">
                         <h4>Email: </h4>
                         <div contentEditable="true" id="email"></div>
                     </div>
-                    <div id="space">
-                        </div>
+                    <div id="space"></div>
                 </section>
                 <section class="info">
                     <div class="data">
                         <h4>Password: </h4>
                         <div contentEditable="true" id="password"></div>
                     </div>
-                    <div id="space">
-                        </div>
+                    <div id="space"></div>
                 </section>
                 <section id="sign-out">
-                    <button @click="logout" href="#" class="button-sign-out">Sign out</button>
+                    <button @click="logout" class="button-sign-out">Sign out</button>
                 </section>
             </div>
             <section id="delete">
-                <button @click="deleteUser" href="#" class="button-delete">Delete account</button>
+                <button @click="deleteUser" class="button-delete">Delete account</button>
             </section>
-            
         </main>
         <footer></footer>
     </div>
