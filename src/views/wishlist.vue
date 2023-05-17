@@ -106,6 +106,7 @@ export default {
             x.display = "block";
         }
     },
+    showLink{},
   },
   mounted() {
     const token = localStorage.getItem('token');
@@ -235,14 +236,14 @@ export default {
                         <div>
                             <div class="image-name-new-gift">
                                 
-                                <p id="name-new-gift">Name of the gift</p>
+                                <p contenteditable="true" id="name-new-gift">Name of the gift</p>
                             </div>
                             <p id="description-neuw-gift">Description product Description product Description product Description product Description product</p>
                         </div>
                         <div class="buttons-source">
                             <p>Add to find it:</p>
                             <div class="buttons-source-gift">
-                                <p href="#" id="button-add-link">Add link</p>
+                                <p @click="showLink" id="button-add-link">Add link</p>
                                 <p href="#" id="button-mercado-expres">Mercado expres</p>
                                 <p href="#" id="button-amazon">Amazon</p>
                             </div>
