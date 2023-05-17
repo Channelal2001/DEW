@@ -97,7 +97,7 @@
                     <div id="date-start-text">
                         <p id="text-celebration">Celebration day in</p>
                         <p id="instruction">Please use the hyphen to separate</p>
-                        <div contentEditable="true" id="information-wishlist-end-date">10-10-23</div>
+                        <div contentEditable="true" id="information-wishlist-end-date">2023-10-10</div>
                     </div>
 
                     <div class="information-wishlist-updateble">
