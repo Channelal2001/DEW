@@ -106,7 +106,7 @@ export default {
             x.display = "block";
         }
     },
-    showLink{},
+    //showLink{},
   },
   mounted() {
     const token = localStorage.getItem('token');
