@@ -106,8 +106,16 @@ export default {
             x.display = "block";
         }
     },
-    //showLink{},
+    showLin(){
+        var x = document.getElementById("message-empty");
+        if (numberOfItems > 0) {
+            x.display = "none";
+        } else {
+            x.display = "block";
+        }
+    },
   },
+
   mounted() {
     const token = localStorage.getItem('token');
     const wishlistID = localStorage.getItem('wishlistID');
@@ -236,17 +244,18 @@ export default {
                         <div>
                             <div class="image-name-new-gift">
                                 
-                                <p contenteditable="true" id="name-new-gift">Name of the gift</p>
+                                <p contenteditable="true"  id="name-new-gift">Name of the gift</p>
                             </div>
                             <p contenteditable="true"  id="description-neuw-gift">Description product Description product Description product Description product Description product</p>
                         </div>
                         <div class="buttons-source">
                             <p>Add to find it:</p>
                             <div class="buttons-source-gift">
-                                <p @click="showLink" id="button-add-link">Add link</p>
-                                <p href="#" id="button-mercado-expres">Mercado expres</p>
-                                <p href="#" id="button-amazon">Amazon</p>
+                                <p @onclick="showLink" id="button-add-link">Add link</p>
+                                <p @onclick="showLink" id="button-mercado-expres">Mercado expres</p>
+                                <p @onclick="showLink" id="button-amazon">Amazon</p>
                             </div>
+                            <p contenteditable="true" id="box-link">Enter the link here...</p>
                         </div>
                     </div>
                 </div>
