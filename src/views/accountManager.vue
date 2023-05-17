@@ -43,14 +43,13 @@ export default {
     },
 },
   mounted() {
-    const editableField = document.getElementById('editableField');
+    const editableField = document.getElementById('password');
 
     editableField.addEventListener('click', function() {
-      if (editableField.innerHTML === '*') {
+      if (editableField.innerHTML === '********') {
         editableField.innerHTML = '';
       }
     });
-
     const token = localStorage.getItem('token');
     const id = divideTokenVue.methods.divideToken(token);
     fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${id}`, {
@@ -116,16 +115,14 @@ export default {
                     </div>
                     <div>
                         <input class="button-edit-image" type="text" name="url" placeholder="Add link to change it">
-                        
                     </div>
                 </section>
                 <section class="info">
                     <div class="data">
                         <h4><b>Name:</b></h4>
-                        <div id="name"></div>
+                        <div contentEditable="true" id="name"></div>
                     </div>
-                    <div id="space"> 
-                        </div>
+                    <div id="space"></div>
                 </section>
                 <section class="info">
                     <div class="data">
