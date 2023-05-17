@@ -238,7 +238,7 @@ export default {
                                 
                                 <p contenteditable="true" id="name-new-gift">Name of the gift</p>
                             </div>
-                            <p id="description-neuw-gift">Description product Description product Description product Description product Description product</p>
+                            <p contenteditable="true"  id="description-neuw-gift">Description product Description product Description product Description product Description product</p>
                         </div>
                         <div class="buttons-source">
                             <p>Add to find it:</p>
