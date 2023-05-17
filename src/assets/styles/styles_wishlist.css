@@ -9,6 +9,10 @@
     display: none
 }
 
+#add-links {
+    cursor: pointer;
+}
+
 #box-link {
     border: 1px solid rgb(0, 195, 255);
     border-radius: 45px;
@@ -22,6 +26,12 @@
 
 #hide-link {
     display: none;
+    align-self: center;
+}
+
+#hide-links {
+    display: none;
+    align-self: center;
 }
 
 #information-wishlist-numbers-box {
@@ -49,6 +59,7 @@
     padding-right: 10px;
     border-radius: 45px;
     margin-top: 5px;
+    margin-right: 1rem;
     cursor: pointer;
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -64,6 +75,7 @@
     padding-right: 10px;
     border-radius: 45px;
     margin-top: 5px;
+    margin-right: 1rem;
     cursor: pointer;
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -79,6 +91,7 @@
     padding-right: 10px;
     border-radius: 45px;
     margin-top: 5px;
+    margin-right: 1rem;
     cursor: pointer;
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -326,6 +339,7 @@ header {
     align-self: center;
     margin-top: 20px;
     margin-bottom: 8px;
+    margin-left: 10px;
 }
 
 #information-wishlist {
@@ -482,7 +496,7 @@ header {
 #name-new-gift {
     font-family: Inter, medium;
     color: rgba(139, 139, 139, 1);
-    margin-left: 40px;
+    margin-left: 30px;
     margin-bottom: 15px;
     margin-top: 15px;
     font-size: 35px;
