@@ -43,6 +43,14 @@ export default {
     },
 },
   mounted() {
+    const editableField = document.getElementById('editableField');
+
+    editableField.addEventListener('click', function() {
+      if (editableField.innerHTML === '*') {
+        editableField.innerHTML = '';
+      }
+    });
+
     const token = localStorage.getItem('token');
     const id = divideTokenVue.methods.divideToken(token);
     fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${id}`, {
