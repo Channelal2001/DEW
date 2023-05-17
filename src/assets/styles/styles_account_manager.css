@@ -54,11 +54,12 @@ header {
 }
 
 .button-edit-image {
-    background-color: rgba(172.82890766859055, 175.11833041906357, 179.56249594688416, 1);
+    background-color: rgb(109, 109, 109);
     color: white;
-    width: 54px;
+    width: fit-content;
     height: 30px;
     font-family: inter, sans-serif;
+    font-size: 5px;
     border-top-left-radius: 45px;
     border-top-right-radius: 45px;
     border-bottom-left-radius: 45px;
@@ -67,6 +68,7 @@ header {
     margin-bottom: 20px;
     border: none;
     font-size: 13px;
+    text-align: center;
 }
 
 .button-edit-image:hover {
