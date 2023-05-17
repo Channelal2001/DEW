@@ -177,9 +177,9 @@ header {
     margin-top: 10px;
     display: flex;
     flex-direction: row;
-    padding-left: 15px;
-    padding-right: 15px;
-    width: 200px;
+    padding-left: 20px;
+    padding-right: 40px;
+    width: fit-content;
 }
 
 #name {
