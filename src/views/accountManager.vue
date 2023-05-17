@@ -132,7 +132,7 @@ function myFunction() {
                 <section class="info">
                     <div class="data">
                         <h4>Email: </h4>
-                        <div id="email"></div>
+                        <div contentEditable="true" id="email"></div>
                     </div>
                     <div id="space">
                         </div>
@@ -140,7 +140,7 @@ function myFunction() {
                 <section class="info">
                     <div class="data">
                         <h4>Password: </h4>
-                        <div id="password"></div>
+                        <div contentEditable="true" id="password"></div>
                     </div>
                     <div id="space">
                         </div>
