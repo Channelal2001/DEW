@@ -20,6 +20,10 @@
     align-self: center;
 }
 
+#hide-link {
+    display: none;
+}
+
 #information-wishlist-numbers-box {
     color: rgb(142, 141, 141);
     font-size: 20px;

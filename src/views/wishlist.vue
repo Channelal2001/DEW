@@ -106,13 +106,15 @@ export default {
             x.display = "block";
         }
     },
-    showLin(){
-        var x = document.getElementById("message-empty");
-        if (numberOfItems > 0) {
-            x.display = "none";
+    showLink(){
+        var x = document.getElementById("hide-link");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+       
         } else {
-            x.display = "block";
-        }
+          x.style.display = "none";
+          
+      }
     },
   },
 
@@ -255,7 +257,9 @@ export default {
                                 <p @onclick="showLink" id="button-mercado-expres">Mercado expres</p>
                                 <p @onclick="showLink" id="button-amazon">Amazon</p>
                             </div>
-                            <p contenteditable="true" id="box-link">Enter the link here...</p>
+                            <div id="hide-link">
+                                <p contenteditable="true" id="box-link">Enter the link here...</p>
+                            </div>
                         </div>
                     </div>
                 </div>
