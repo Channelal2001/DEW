@@ -116,7 +116,7 @@ function myFunction() {
                 <section class="info">
                     <div class="data">
                         <h4><b>Name:</b></h4>
-                        <div contentEditable="true" id="name"></div>
+                        <div  id="name"></div>
                     </div>
                     <div id="space"> 
                         </div>
@@ -127,23 +127,23 @@ function myFunction() {
                         <div contentEditable="true" id="last-name"></div>
                     </div>
                     <div id="space">
-                       </div>
+                        </div>
                 </section>
                 <section class="info">
                     <div class="data">
                         <h4>Email: </h4>
-                        <div contentEditable="true" id="email"></div>
+                        <div id="email"></div>
                     </div>
                     <div id="space">
-                       </div>
+                        </div>
                 </section>
                 <section class="info">
                     <div class="data">
                         <h4>Password: </h4>
-                        <div contentEditable="true" id="password"></div>
+                        <div id="password"></div>
                     </div>
                     <div id="space">
-                   </div>
+                        </div>
                 </section>
                 <section id="sign-out">
                     <button @click="logout" href="#" class="button-sign-out">Sign out</button>
