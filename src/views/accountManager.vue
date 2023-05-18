@@ -8,11 +8,12 @@ export default {
   },
   methods: {
     async editUser() {
-        const name = document.getElementById('name').value;
-        const lastname = document.getElementById('lastname').value;
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-        const image = document.getElementById('url').value;
+        const token = localStorage.getItem('token');
+        const name = document.getElementById('name').innerHTML;
+        const lastname = document.getElementById('last-name').innerHTML;
+        const email = document.getElementById('email').innerHTML;
+        const password = document.getElementById('password').innerHTML;
+        const image = document.getElementById('button-edit-image').innerHTML;
         const user = {
             name: name,
             last_name: lastname,
@@ -25,12 +26,13 @@ export default {
             method: 'PUT',
             headers: {
                 'accept': 'application/json',
+                Authorization: `Bearer ${token}`,
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(user),
         })
         .then((response) => {
-            if (response.status === 201) {
+            if (response.status === 200) {
                 alert('User edited');
                 window.location.href="javascript:history.back()";
                 return response.json();
@@ -90,13 +92,13 @@ export default {
     },
 },
   mounted() {
-    const editableField = document.getElementById('password');
+    /*const editableField = document.getElementById('password');
 
     editableField.addEventListener('click', function() {
       if (editableField.innerHTML === '********') {
         editableField.innerHTML = '';
       }
-    });
+    });*/
     const token = localStorage.getItem('token');
     const id = divideTokenVue.methods.divideToken(token);
     fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${id}`, {
@@ -186,7 +188,8 @@ export default {
                 <section class="info">
                     <div class="data">
                         <h4>Password: </h4>
-                        <div contentEditable="true" id="password"></div>
+                        <!--<div contentEditable="true" id="password"></div>-->
+                        <input id="password" type="text" name="password" placeholder="Enter your new password">
                     </div>
                     <div id="space"></div>
                 </section>
