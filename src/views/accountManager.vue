@@ -7,6 +7,53 @@ export default {
     };
   },
   methods: {
+    async editUser() {
+        const name = document.getElementById('name').value;
+        const lastname = document.getElementById('lastname').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const image = document.getElementById('url').value;
+        const user = {
+            name: name,
+            last_name: lastname,
+            email: email,
+            password: password,
+            image: image,
+        }
+        
+        fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/users', {
+            method: 'PUT',
+            headers: {
+                'accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(user),
+        })
+        .then((response) => {
+            if (response.status === 201) {
+                alert('User edited');
+                window.location.href="javascript:history.back()";
+                return response.json();
+            } else {
+                switch(response.status) {
+                    case 400:
+                        alert('Bad request');
+                        break;
+                    case 401:
+                        alert('Unauthorized');
+                        break;
+                    case 406:
+                        alert('Missing parameters');
+                        break;
+                    case 409:
+                        alert('The email adress has already been previously registered');
+                        break;
+                    case 410:
+                        alert('No user has been edited');
+                }
+            }
+        })
+    },
     async deleteUser() {
         const token = localStorage.getItem('token');
         fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/users', {
@@ -61,7 +108,6 @@ export default {
     })
     .then((response) => {
         if (response.status === 200) {
-            alert('User found');
             return response.json();
         } else {
             switch(response.status) {
@@ -92,7 +138,6 @@ export default {
     })
     }
 }
-
 </script>
 
 <template>
@@ -104,7 +149,7 @@ export default {
                 </div>
             </a>
             <div class="save"> 
-                <a href="javascript:history.back()" class="button-save ">Save</a>
+                <button @click="editUser" class="button-save ">Save</button>
             </div>
         </header>
         <main>
@@ -114,7 +159,7 @@ export default {
                         <img class="image">
                     </div>
                     <div>
-                        <input class="button-edit-image" type="text" name="url" placeholder="Add link to change it">
+                        <input id="button-edit-image" type="text" name="url" placeholder="Add link to change it">
                     </div>
                 </section>
                 <section class="info">
