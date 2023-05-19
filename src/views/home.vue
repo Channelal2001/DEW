@@ -9,150 +9,80 @@
       requests: [],
     };
   },
-  mounted() {
-    const token = localStorage.getItem('token');
-    fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends', {
-        method: 'GET',
-        headers: {
-            'accept': 'application/json',
-            Authorization: `Bearer ${token}`,
-        },
-    })
-    .then((response) => {
-        if (response.status === 200) {
-            return response.json();
-        } else {
-            switch(response.status) {
-              case 401:
-                  alert('Unauthorized');
-                  break;
-              case 500:
-                  alert('Error getting friends');
-                  break;
-              case 502:
-                  alert('Internal Server Error');
-                  break;
-            }
-        }
-    })
-    .then((friendsData) => {
-      this.friends = friendsData;
-    })
+  methods: {
+    async loadFriendsWishlists(idsFriends) {
+      const friendsWishlists = [];
 
-    const idUser = divideTokenVue.methods.divideToken(token);
-    fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${idUser}/wishlists`, {
-        method: 'GET',
-        headers: {
-            'accept': 'application/json',
-            Authorization: `Bearer ${token}`,
-        },
-    })
-    .then((response) => {
-        if (response.status === 200) {
-            return response.json();
-        } else {
-            switch(response.status) {
-              case 401:
-                  alert('Unauthorized');
-                  break;
-              case 500:
-                  alert('Error getting wishlists');
-                  break;
-            }
-        }
-    })
-    .then((myWishlistsData) => {
-      this.myWishlists = myWishlistsData;
-    })
-
-    const idsFriends = [];
-    fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends', {
-        method: 'GET',
-        headers: {
-            'accept': 'application/json',
-            Authorization: `Bearer ${token}`,
-        },
-    })
-    .then((response) => {
-        if (response.status === 200) {
-            return response.json();
-        } else {
-            switch(response.status) {
-              case 401:
-                  alert('Unauthorized');
-                  break;
-              case 500:
-                  alert('Error getting friends');
-                  break;
-              case 502:
-                  alert('Internal Server Error');
-                  break;
-            }
-        }
-    })
-    .then((friendsData) => {
-      for (var i = 0; i < friendsData.length; i++) {
-        idsFriends.push(friendsData[i].id);
-      }
-    })
-    const friendsWishlists = [];
-    for (var i = 0; i < idsFriends.length; i++) {
-      friendsWishlists.push(
-        fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${idFriend}/wishlists`, {
-            method: 'GET',
-            headers: {
-                'accept': 'application/json',
-                Authorization: `Bearer ${token}`,
-            },
+      for (var i = 0; i < idsFriends.length; i++) {
+        fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${idsFriends[i]}/wishlists`, {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${token}`,
+          },
         })
         .then((response) => {
-            if (response.status === 200) {
-                return response.json();
-            } else {
-                switch(response.status) {
-                  case 401:
-                      alert('Unauthorized');
-                      break;
-                  case 500:
-                      alert('Error getting wishlists');
-                      break;
-                }
-            }
-        })
-      )
-      this.friendsWishlists = friendsWishlists;
-      console.log(this.friendsWishlists);
-    }
-
-    fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends/requests', {
-        method: 'GET',
-        headers: {
-            'accept': 'application/json',
-            Authorization: `Bearer ${token}`,
-        },
-    })
-    .then((response) => {
-        if (response.status === 200) {
+          if (response.status === 200) {
             return response.json();
-        } else {
-            switch(response.status) {
+          } else {
+            switch (response.status) {
               case 401:
-                  alert('Unauthorized');
-                  break;
+                throw new Error('Unauthorized');
               case 500:
-                  alert('Error getting friend requests');
-                  break;
-              case 502:
-                  alert('Internal Server Error');
-                  break;
+                throw new Error('Error getting wishlists');
+              default:
+                throw new Error('Unknown error');
             }
+          }
+        })
+        .then((data) => {
+          console.log(data);
+          friendsWishlists.push(data);
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
+      }
+
+      this.friendsWishlists = friendsWishlists;
+    },
+    async loadFriends() {
+      const idsFriends = [];
+      const token = localStorage.getItem('token');
+      fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends', {
+          method: 'GET',
+          headers: {
+              'accept': 'application/json',
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`,
+          },
+      })
+      .then((response) => {
+          if (response.status === 200) {
+              return response.json();
+          } else {
+              switch(response.status) {
+                case 401:
+                    alert('Unauthorized');
+                    break;
+                case 500:
+                    alert('Error getting friends');
+                    break;
+                case 502:
+                    alert('Internal Server Error');
+                    break;
+              }
+          }
+      })
+      .then((friendsData) => {
+        for (var i = 0; i < friendsData.length; i++) {
+          idsFriends.push(friendsData[i].id);
         }
-    })
-    .then((requestsData) => {
-      this.requests = requestsData;
-    })
-  },
-  methods: {
+      })
+
+      console.log(idsFriends);
+      await this.loadFriendsWishlists(idsFriends);
+    },
     async acceptRequest(userID) {
       const token = localStorage.getItem('token');
       fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends/${userID}`, {
@@ -267,6 +197,159 @@
     formatDate(date) {
       return date.substring(0, 10);
     },
+  },
+  mounted() {
+    const token = localStorage.getItem('token');
+    fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends', {
+        method: 'GET',
+        headers: {
+            'accept': 'application/json',
+            Authorization: `Bearer ${token}`,
+        },
+    })
+    .then((response) => {
+        if (response.status === 200) {
+            return response.json();
+        } else {
+            switch(response.status) {
+              case 401:
+                  alert('Unauthorized');
+                  break;
+              case 500:
+                  alert('Error getting friends');
+                  break;
+              case 502:
+                  alert('Internal Server Error');
+                  break;
+            }
+        }
+    })
+    .then((friendsData) => {
+      this.friends = friendsData;
+    })
+
+    const idUser = divideTokenVue.methods.divideToken(token);
+    fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${idUser}/wishlists`, {
+        method: 'GET',
+        headers: {
+            'accept': 'application/json',
+            Authorization: `Bearer ${token}`,
+        },
+    })
+    .then((response) => {
+        if (response.status === 200) {
+            return response.json();
+        } else {
+            switch(response.status) {
+              case 401:
+                  alert('Unauthorized');
+                  break;
+              case 500:
+                  alert('Error getting wishlists');
+                  break;
+            }
+        }
+    })
+    .then((myWishlistsData) => {
+      this.myWishlists = myWishlistsData;
+    })
+
+
+    /*const idsFriends = this.loadFriends();
+    console.log(idsFriends);*/
+
+    /*const friendsWishlists = [];
+
+    for (var i = 0; i < idsFriends.length; i++) {
+      fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${idsFriends[i]}/wishlists`, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          switch (response.status) {
+            case 401:
+              throw new Error('Unauthorized');
+            case 500:
+              throw new Error('Error getting wishlists');
+            default:
+              throw new Error('Unknown error');
+          }
+        }
+      })
+      .then((data) => {
+        console.log(data);
+        friendsWishlists.push(data);
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+    }
+
+    this.friendsWishlists = friendsWishlists;*/
+
+    /*const friendsWishlists = [];
+    for (var i = 0; i < idsFriends.length; i++) {
+      friendsWishlists.push(
+        fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${idsFriends[i]}/wishlists`, {
+            method: 'GET',
+            headers: {
+                'accept': 'application/json',
+                Authorization: `Bearer ${token}`,
+            },
+        })
+        .then((response) => {
+            if (response.status === 200) {
+                console.log(response.data);
+                alert('Friends wishlists loaded');
+                return response.json();
+            } else {
+                switch(response.status) {
+                  case 401:
+                      alert('Unauthorized');
+                      break;
+                  case 500:
+                      alert('Error getting wishlists');
+                      break;
+                }
+            }
+        })
+      )
+      this.friendsWishlists = friendsWishlists;
+    }*/
+
+    fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends/requests', {
+        method: 'GET',
+        headers: {
+            'accept': 'application/json',
+            Authorization: `Bearer ${token}`,
+        },
+    })
+    .then((response) => {
+        if (response.status === 200) {
+            return response.json();
+        } else {
+            switch(response.status) {
+              case 401:
+                  alert('Unauthorized');
+                  break;
+              case 500:
+                  alert('Error getting friend requests');
+                  break;
+              case 502:
+                  alert('Internal Server Error');
+                  break;
+            }
+        }
+    })
+    .then((requestsData) => {
+      this.requests = requestsData;
+    })
   }
 }
 </script>
