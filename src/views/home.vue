@@ -36,15 +36,16 @@
           }
         })
         .then((data) => {
-          console.log(data);
+          console.log("Hola");
           friendsWishlists.push(data);
         })
         .catch((error) => {
           alert(error.message);
         });
       }
-
+      console.log(idsFriends[0]);
       this.friendsWishlists = friendsWishlists;
+      console.log("Response: " + this.friendsWishlists);
     },
     async loadFriends() {
       const idsFriends = [];
@@ -75,11 +76,10 @@
           }
       })
       .then((friendsData) => {
-        for (var i = 0; i < friendsData.length; i++) {
-          idsFriends.push(friendsData[i].id);
-        }
+        friendsData.forEach((friend) => {
+          idsFriends.push(friend.id);
+        });
       })
-
       console.log(idsFriends);
       await this.loadFriendsWishlists(idsFriends);
     },
@@ -255,8 +255,7 @@
     })
 
 
-    /*const idsFriends = this.loadFriends();
-    console.log(idsFriends);*/
+    this.loadFriends();
 
     /*const friendsWishlists = [];
 
