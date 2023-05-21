@@ -99,14 +99,6 @@
                         <p id="instruction">Please use the hyphen to separate</p>
                         <div contentEditable="true" id="information-wishlist-end-date">2023-10-10</div>
                     </div>
-
-                    <div class="information-wishlist-updateble">
-                        <div id="information-wishlist">
-                            <p id="information-wishlist-text">Items</p>
-                            <p id="information-wishlist-numbers">0</p>
-                        </div>
-                   
-                    </div>
                     <div class="save">
                         <button @click="createWishlist" href="#" id="information-wishlist-save-button">Save</button>
                     </div>
