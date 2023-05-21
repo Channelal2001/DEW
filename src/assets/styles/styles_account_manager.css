@@ -214,10 +214,13 @@ header {
 #password {
     color: rgb(191, 191, 191);
     font-family: inter, sans-serif;
+    background-color: rgb(246, 249, 252);
     text-align: center;
     justify-content: center;
     align-self: center;
     margin-left: 1rem;
+    border: none;
+    width: 10rem;
 }
 
 .button-edit {
