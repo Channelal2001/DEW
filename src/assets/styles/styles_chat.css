@@ -122,13 +122,20 @@ header {
     flex-direction: column;
     margin-top: 15px;
     grid-column: 2;
-    background-color: rgba(255, 255, 255, 1);
-    border-radius: 20px;
     min-width: auto;
     max-width: 680px;
     height: 600px;
     justify-content: space-between;
     margin-right: 150px;
+}
+
+.chat-box {
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 20px;
+    min-width: auto;
+    max-width: 680px;
+    height: 600px;
+    margin-bottom: 0.5rem;
 }
 
 #name-user-chat {
@@ -157,17 +164,20 @@ header {
     padding-top: 10px;
     padding-bottom: 10px;
     margin: 0px;
+    border: 0;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 15px;
+    box-shadow: 0px 1px 4px 0px black;
+    width: 100%;
 }
 
 #text-imput {
     font-family: Inter, medium;
     color: rgba(70, 70, 70, 0.3);
-    width: 100%;
+    min-width: auto;
+    max-width: 680px;
     height: fit-content;
     font-size: 20px;
-    background-color: rgba(255, 255, 255, 1);
-    border-radius: 15px;
-    box-shadow: 0px 1px 4px 0px black;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -187,8 +197,14 @@ header {
     width: fit-content;
     align-content: center;
     justify-content: center;
-    margin-right: 20px;
+    margin-right: 5px;
+    margin-left: 10px;
     padding: 5px 6px 1px;
+    cursor: pointer;
+}
+
+#icon-send-back:hover {
+    background-color: rgb(29, 116, 197);
 }
 
 #chat-open {
@@ -305,12 +321,31 @@ footer {
         flex-direction: column;
         margin-top: 15px;
         grid-column: 2;
-        background-color: rgba(255, 255, 255, 1);
         border-radius: 20px;
         min-width: auto;
         max-width: 90vh;
         height: 80vh;
         justify-content: space-between;
         margin-right: 150px;
+    }
+    #text-imput-chat {
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin: 0px;
+        border: 0;
+        background-color: rgba(255, 255, 255, 1);
+        border-radius: 15px;
+        box-shadow: 0px 1px 4px 0px black;
+        width: 100%;
+    }
+    .chat-box {
+        background-color: rgba(255, 255, 255, 1);
+        border-radius: 20px;
+        min-width: auto;
+        max-width: 680px;
+        height: 100%;
+        margin-bottom: 0.5rem;
     }
 }
