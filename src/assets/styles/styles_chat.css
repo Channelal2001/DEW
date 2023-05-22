@@ -348,8 +348,4 @@ footer {
         height: 100%;
         margin-bottom: 0.5rem;
     }
-    #list {
-        display: flex;
-        flex-flow: row wrap;
-    }
 }
