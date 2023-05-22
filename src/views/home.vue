@@ -234,9 +234,7 @@
       .then((usersData) => {
         console.log(usersData);
       })
-      // Aquí puedes agregar la lógica para realizar la búsqueda con el término ingresado
       console.log("Realizando búsqueda: " + searchTerm);
-      // Limpia el campo de búsqueda después de ejecutar la búsqueda
       document.getElementById("search-bar").value = "";
     },
   },

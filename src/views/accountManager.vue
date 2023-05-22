@@ -180,7 +180,6 @@ export default {
                 <section class="info">
                     <div class="data">
                         <h4>Password: </h4>
-                        <!--<div contentEditable="true" id="password"></div>-->
                         <input id="password" type="text" name="password" placeholder="Enter your new password">
                     </div>
                     <div id="space"></div>
