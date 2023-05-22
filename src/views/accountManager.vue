@@ -12,8 +12,8 @@ export default {
         const name = document.getElementById('name').innerHTML;
         const lastname = document.getElementById('last-name').innerHTML;
         const email = document.getElementById('email').innerHTML;
-        const password = document.getElementById('password').innerHTML;
-        const image = document.getElementById('button-edit-image').innerHTML;
+        const password = document.getElementById('password').value;
+        const image = document.getElementById('button-edit-image').value;
         const user = {
             name: name,
             last_name: lastname,
@@ -92,13 +92,6 @@ export default {
     },
 },
   mounted() {
-    /*const editableField = document.getElementById('password');
-
-    editableField.addEventListener('click', function() {
-      if (editableField.innerHTML === '********') {
-        editableField.innerHTML = '';
-      }
-    });*/
     const token = localStorage.getItem('token');
     const id = divideTokenVue.methods.divideToken(token);
     fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${id}`, {
@@ -136,7 +129,6 @@ export default {
         document.getElementById('last-name').innerHTML = data.last_name;
         document.getElementById('email').innerHTML = data.email;
         document.getElementsByClassName('image')[0].src = data.image;
-        document.getElementById('password').innerHTML = "********";
     })
     }
 }
