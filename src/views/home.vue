@@ -197,8 +197,27 @@
     formatDate(date) {
       return date.substring(0, 10);
     },
+    executeSearch() {
+      //
+    },
+    search() {
+      var searchTerm = document.getElementById("search-bar").value;
+      // Aquí puedes agregar la lógica para realizar la búsqueda con el término ingresado
+      console.log("Realizando búsqueda: " + searchTerm);
+      // Limpia el campo de búsqueda después de ejecutar la búsqueda
+      document.getElementById("search-bar").value = "";
+    },
   },
   mounted() {
+    /*document.addEventListener("DOMContentLoaded", function() {
+      var searchForm = document.getElementById("searchForm");
+
+      searchForm.addEventListener("submit", function(event) {
+        event.preventDefault(); // Evita que se envíe el formulario y se recargue la página
+        executeSearch();
+      });
+    });*/
+
     const token = localStorage.getItem('token');
     fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends', {
         method: 'GET',
@@ -257,71 +276,6 @@
 
     this.loadFriends();
 
-    /*const friendsWishlists = [];
-
-    for (var i = 0; i < idsFriends.length; i++) {
-      fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${idsFriends[i]}/wishlists`, {
-        method: 'GET',
-        headers: {
-          'Accept': 'application/json',
-          'Authorization': `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        if (response.status === 200) {
-          return response.json();
-        } else {
-          switch (response.status) {
-            case 401:
-              throw new Error('Unauthorized');
-            case 500:
-              throw new Error('Error getting wishlists');
-            default:
-              throw new Error('Unknown error');
-          }
-        }
-      })
-      .then((data) => {
-        console.log(data);
-        friendsWishlists.push(data);
-      })
-      .catch((error) => {
-        alert(error.message);
-      });
-    }
-
-    this.friendsWishlists = friendsWishlists;*/
-
-    /*const friendsWishlists = [];
-    for (var i = 0; i < idsFriends.length; i++) {
-      friendsWishlists.push(
-        fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${idsFriends[i]}/wishlists`, {
-            method: 'GET',
-            headers: {
-                'accept': 'application/json',
-                Authorization: `Bearer ${token}`,
-            },
-        })
-        .then((response) => {
-            if (response.status === 200) {
-                console.log(response.data);
-                alert('Friends wishlists loaded');
-                return response.json();
-            } else {
-                switch(response.status) {
-                  case 401:
-                      alert('Unauthorized');
-                      break;
-                  case 500:
-                      alert('Error getting wishlists');
-                      break;
-                }
-            }
-        })
-      )
-      this.friendsWishlists = friendsWishlists;
-    }*/
-
     fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends/requests', {
         method: 'GET',
         headers: {
@@ -359,9 +313,7 @@
                 <a href="/home" id="logo"><strong>Social</strong>Gift</a>
             </section>
             <section id="search" >
-                <div id="search-bar">
-                  <input type="text" name="search" placeholder="Search..">
-                </div>
+                <input type="text" id="search-bar" name="search" placeholder="Search.." @keydown.enter="search">
                 <div id="menu">
                   <button class="unstyle" @click= "showfriends" >
                     <svg
