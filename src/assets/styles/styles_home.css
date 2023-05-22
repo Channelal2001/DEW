@@ -208,6 +208,8 @@
     #list {
         display: flex;
         flex-flow: row wrap;
+        justify-content: center;
+        padding-bottom: 20px;
     }
     #filters-type {
         color: rgba(70, 70, 70, 1);
@@ -378,7 +380,26 @@
     }
     .button_share:hover {
         fill: rgb(255, 255, 255);
-        background-color: rgb(35, 35, 35);
+        background-color: rgb(77, 129, 219);
+        cursor: pointer;
+    }
+    .button_edit {
+        background-color: #828283;
+        border-radius: 45px;
+        border: none;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        font-family: Arial;
+        font-size: 14px;
+        padding: 8px 15px;
+        text-decoration: none;
+        width: fit-content;
+        align-self: center;
+    }
+    .button_edit:hover {
+        fill: rgb(255, 255, 255);
+        background-color: rgb(40, 40, 40);
         cursor: pointer;
     }
     #title-slider {
@@ -398,7 +419,8 @@
     article {
         grid-column: 2;
         margin-top: 10px;
-        margin-right: 30px;
+        margin-right: 15px;
+        margin-left: 15px;
     }
     #icon-left {
         grid-column: 1;
@@ -456,6 +478,8 @@
     #list {
         display: flex;
         flex-flow: row wrap;
+        justify-content: center;
+        padding-bottom: 20px;
     }
     #body_container {
         background-color: rgba(242, 242, 242, 1);
@@ -588,7 +612,26 @@
     }
     .button_share:hover {
         fill: rgb(255, 255, 255);
-        background-color: rgb(35, 35, 35);
+        background-color: rgb(77, 129, 219);
+        cursor: pointer;
+    }
+    .button_edit {
+        background-color: #828283;
+        border-radius: 45px;
+        border: none;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        font-family: Arial;
+        font-size: 14px;
+        padding: 8px 15px;
+        text-decoration: none;
+        width: fit-content;
+        align-self: center;
+    }
+    .button_edit:hover {
+        fill: rgb(255, 255, 255);
+        background-color: rgb(40, 40, 40);
         cursor: pointer;
     }
     #title-slider {
@@ -608,7 +651,8 @@
     article {
         grid-column: 2;
         margin-top: 10px;
-        margin-right: 30px;
+        margin-right: 15px;
+        margin-left: 15px;
     }
     #icon-left {
         grid-column: 1;
