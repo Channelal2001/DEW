@@ -563,7 +563,6 @@
       </section>
       
       <section id="lists">
-        <div id="slider-wishlists">
           <article v-for="myWishlist in myWishlists" :key="myWishlist.id">
             <div class="present-cover">
               <div class="text-present">
@@ -579,7 +578,7 @@
               </div>
             </div>
           </article>
-        </div>
+        
         <!--<div id="slider-wishlists">
           <article>
             <div class="present-cover">
