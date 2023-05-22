@@ -197,9 +197,6 @@
     formatDate(date) {
       return date.substring(0, 10);
     },
-    executeSearch() {
-      //
-    },
     search() {
       var searchTerm = document.getElementById("search-bar").value;
       // Aquí puedes agregar la lógica para realizar la búsqueda con el término ingresado
@@ -209,15 +206,6 @@
     },
   },
   mounted() {
-    /*document.addEventListener("DOMContentLoaded", function() {
-      var searchForm = document.getElementById("searchForm");
-
-      searchForm.addEventListener("submit", function(event) {
-        event.preventDefault(); // Evita que se envíe el formulario y se recargue la página
-        executeSearch();
-      });
-    });*/
-
     const token = localStorage.getItem('token');
     fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends', {
         method: 'GET',
