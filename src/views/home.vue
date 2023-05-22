@@ -11,41 +11,45 @@
   },
   methods: {
     async loadFriendsWishlists(idsFriends) {
-      const friendsWishlists = [];
-
-      for (var i = 0; i < idsFriends.length; i++) {
-        fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${idsFriends[i]}/wishlists`, {
-          method: 'GET',
-          headers: {
-            'Accept': 'application/json',
-            'Authorization': `Bearer ${token}`,
-          },
-        })
-        .then((response) => {
-          if (response.status === 200) {
-            return response.json();
-          } else {
-            switch (response.status) {
-              case 401:
-                throw new Error('Unauthorized');
-              case 500:
-                throw new Error('Error getting wishlists');
-              default:
-                throw new Error('Unknown error');
+      try {
+        const token = localStorage.getItem('token');
+        const promises = idsFriends.map((friendId) => {
+          return fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${friendId}/wishlists`, {
+            method: 'GET',
+            headers: {
+              'Accept': 'application/json',
+              'Authorization': `Bearer ${token}`,
+            },
+          })
+          .then((response) => {
+            if (response.status === 200) {
+              return response.json();
+            } else {
+              switch (response.status) {
+                case 401:
+                  alert('Unauthorized');
+                  break;
+                case 500:
+                  alert('Error getting all wishlists');
+                  break;
+              }
             }
-          }
-        })
-        .then((data) => {
-          console.log("Hola");
-          friendsWishlists.push(data);
-        })
-        .catch((error) => {
-          alert(error.message);
+          });
         });
+
+        const results = await Promise.all(promises);
+        results.forEach((wishlist) => {
+          this.friendsWishlists.push(wishlist);
+        });
+
+        let combinedWishlist = [].concat(...this.friendsWishlists);
+        this.friendsWishlists[0] = combinedWishlist;
+        this.friendsWishlists.splice(1);
+
+        console.log("Response:", this.friendsWishlists);
+      } catch (error) {
+        console.log(error);
       }
-      console.log(idsFriends[0]);
-      this.friendsWishlists = friendsWishlists;
-      console.log("Response: " + this.friendsWishlists);
     },
     async loadFriends() {
       const idsFriends = [];
@@ -54,7 +58,6 @@
           method: 'GET',
           headers: {
               'accept': 'application/json',
-              'Content-Type': 'application/json',
               Authorization: `Bearer ${token}`,
           },
       })
@@ -79,9 +82,9 @@
         friendsData.forEach((friend) => {
           idsFriends.push(friend.id);
         });
+        this.loadFriendsWishlists(idsFriends);
       })
-      console.log(idsFriends);
-      await this.loadFriendsWishlists(idsFriends);
+      
     },
     async acceptRequest(userID) {
       const token = localStorage.getItem('token');
@@ -200,7 +203,7 @@
     search() {
       const searchTerm = document.getElementById("search-bar").value;
       const token = localStorage.getItem('token');
-      fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/search/${searchTerm}`, {
+      fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/search?s=${searchTerm}`, {
           method: 'GET',
           headers: {
               'accept': 'application/json',
@@ -234,7 +237,6 @@
       .then((usersData) => {
         console.log(usersData);
       })
-      console.log("Realizando búsqueda: " + searchTerm);
       document.getElementById("search-bar").value = "";
     },
   },
@@ -530,15 +532,15 @@
             </div>
         </a>
         <div id="slider-wishlists">
-          <article>
+          <article v-for="friendWishlist in friendsWishlists" :key="friendWishlist.id">
             <div class="present-cover">
               <div class="text-present">
                 <div class="text-title-present">
-                  <p>Andrea's Party</p>
+                  <p>{{ friendWishlist.name }}</p>
                 </div>
                 <div class="text-time-present">
                   <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day in:</b></p>
-                  <p style="margin-top: 0">10days</p>
+                  <p style="margin-top: 0">{{ formatDate(friendWishlist.end_date) }}</p>
                 </div>
               </div>
             </div>
