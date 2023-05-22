@@ -5,6 +5,10 @@
         font-family: Inter, medium;
     }
     
+    #hide-text {
+        display: none;
+    }
+    
     #hide-wishlist-data {
         display: none
     }
