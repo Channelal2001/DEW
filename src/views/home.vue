@@ -529,8 +529,8 @@
                   <p>Andrea's Party</p>
                 </div>
                 <div class="text-time-present">
-                  <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day in:</b></p>
-                  <p style="margin-top: 0">10days</p>
+                  <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day:</b></p>
+                  <p style="margin-top: 0">10-11-12</p>
                 </div>
               </div>
             </div>
@@ -553,7 +553,7 @@
                   <p>{{ myWishlist.name }}</p>
                 </div>
                 <div class="text-time-present">
-                  <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day in:</b></p>
+                  <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day:</b></p>
                   <p style="margin-top: 0"> {{ formatDate(myWishlist.end_date) }}</p>
                 </div>
                 <!--<a href="" class="button_share">Share</a>-->
