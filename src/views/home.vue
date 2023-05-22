@@ -197,11 +197,43 @@
     formatDate(date) {
       return date.substring(0, 10);
     },
-    executeSearch() {
-      //
-    },
     search() {
-      var searchTerm = document.getElementById("search-bar").value;
+      const searchTerm = document.getElementById("search-bar").value;
+      const token = localStorage.getItem('token');
+      fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/search/${searchTerm}`, {
+          method: 'GET',
+          headers: {
+              'accept': 'application/json',
+              Authorization: `Bearer ${token}`,
+          },
+      })
+      .then((response) => {
+          if (response.status === 200) {
+            alert('List of found users');
+            return response.json();
+          } else {
+            switch(response.status) {
+              case 400:
+                alert('Bad request');
+                break;
+              case 401:
+                alert('Unauthorized');
+                break;
+              case 406:
+                alert('Missing parameters');
+                break;
+              case 500:
+                alert('Error getting list of found users');
+                break;
+              case 502:
+                alert('Internal Server Error');
+                break;
+            }
+          }
+      })
+      .then((usersData) => {
+        console.log(usersData);
+      })
       // Aquí puedes agregar la lógica para realizar la búsqueda con el término ingresado
       console.log("Realizando búsqueda: " + searchTerm);
       // Limpia el campo de búsqueda después de ejecutar la búsqueda
@@ -209,15 +241,6 @@
     },
   },
   mounted() {
-    /*document.addEventListener("DOMContentLoaded", function() {
-      var searchForm = document.getElementById("searchForm");
-
-      searchForm.addEventListener("submit", function(event) {
-        event.preventDefault(); // Evita que se envíe el formulario y se recargue la página
-        executeSearch();
-      });
-    });*/
-
     const token = localStorage.getItem('token');
     fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends', {
         method: 'GET',
