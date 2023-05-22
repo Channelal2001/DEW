@@ -294,6 +294,7 @@
     })
     .then((myWishlistsData) => {
       this.myWishlists = myWishlistsData;
+      console.log(this.myWishlists);
     })
 
 
