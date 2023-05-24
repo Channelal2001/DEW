@@ -11,10 +11,8 @@ export default {
   },
   methods: {
     loadFriendsWishlists(idsFriends) {
-
       const token = localStorage.getItem('token');
       idsFriends.forEach((friendId) => {
-        console.log("pasa por aqui")
         fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${friendId}/wishlists`, {
           method: 'GET',
           headers: {
@@ -214,7 +212,7 @@ export default {
           }
         })
         .then((usersData) => {
-          console.log("usersData: " + usersData);
+          console.log(usersData);
         })
       document.getElementById("search-bar").value = "";
     },
@@ -436,32 +434,6 @@ export default {
           </div>
         </div>
       </div>
-      <!-- <section>
-        <button class="unstyle filters" @click= "hidefilters" >
-          <p>Filters</p>
-          <svg
-            id="icon-filter"
-            herf=" "
-            xmlns="http://www.w3.org/2000/svg"
-            width="8"
-            height="8"
-            viewBox="0 0 16 16 "
-          >
-            <path
-              d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5
-                    0 0 1 .128-.334L13.5 3.308V2h-11z "
-            />
-          </svg>
-        </button>
-        <div id="hide-filters">
-          <div class="filters-wrap">
-            <p  id="filters-text">Ends in:</p>
-            <button class="unstyle" id="filters-type-1">24h</button>
-            <button class="unstyle" id="filters-type-2">7 days</button>
-            <button class="unstyle" id="filters-type-3">1 month</button>
-          </div>
-        </div>
-      </section>-->
 
       <!-- Following-->
       <section>
@@ -471,20 +443,20 @@ export default {
       </section>
 
       <section id="list">
-          <article v-for="friendWishlist in friendsWishlists" :key="friendWishlist.id">
-            <div class="present-cover">
-              <div class="text-present">
-                <div class="text-title-present">
-                  <p>{{ friendWishlist.name }}</p>
-                </div>
-                <div class="text-time-present">
-                  <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day in:</b></p>
-                  <p style="margin-top: 0">{{ formatDate(friendWishlist.end_date) }}</p>
-                </div>
+        <article v-for="friendWishlist in friendsWishlists" :key="friendWishlist.id">
+          <div class="present-cover">
+            <div class="text-present">
+              <div class="text-title-present">
+                <p>{{ friendWishlist.name }}</p>
+              </div>
+              <div class="text-time-present">
+                <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day in:</b></p>
+                <p style="margin-top: 0">{{ formatDate(friendWishlist.end_date) }}</p>
               </div>
             </div>
-          </article>
-        
+          </div>
+        </article>
+
       </section>
 
       <!-- My Wishlists-->
