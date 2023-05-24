@@ -471,8 +471,6 @@ export default {
       </section>
 
       <section id="list">
-
-        <div id="slider-wishlists">
           <article v-for="friendWishlist in friendsWishlists" :key="friendWishlist.id">
             <div class="present-cover">
               <div class="text-present">
@@ -486,7 +484,7 @@ export default {
               </div>
             </div>
           </article>
-        </div>
+        
       </section>
 
       <!-- My Wishlists-->
