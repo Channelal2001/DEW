@@ -482,67 +482,6 @@ export default {
             </div>
           </div>
         </article>
-
-        <!--<div id="slider-wishlists">
-          <article>
-            <div class="present-cover">
-              <div class="text-present">
-                <div class="text-title-present">
-                  <p>Andrea's Party</p>
-                </div>
-                <div class="text-time-present">
-                  <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day in:</b></p>
-                  <p style="margin-top: 0">10days</p>
-                </div>
-                <a href="" class="button_share">Share</a>
-              </div>
-            </div>
-          </article>
-          <article>
-            <div class="present-cover">
-              <div class="text-present">
-                <div class="text-title-present">
-                  <p>Andrea's Party</p>
-                </div>
-                <div class="text-time-present">
-                  <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day in:</b></p>
-                  <p style="margin-top: 0">10days</p>
-                </div>
-                <a href="" class="button_share">Share</a>
-              </div>
-            </div>
-          </article>
-          <article>
-            <div class="present-cover">
-              <div class="text-present">
-                <div class="text-title-present">
-                  <p>Andrea's Party</p>
-                </div>
-                <div class="text-time-present">
-                  <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day in:</b></p>
-                  <p style="margin-top: 0">10days</p>
-                </div>
-                <a href="" class="button_share">Share</a>
-              </div>
-            </div>
-          </article>
-
-          <article>
-            <div class="present-cover">
-              <div class="text-present">
-                <div class="text-title-present">
-                  <p>Andrea's Party</p>
-                </div>
-                <div class="text-time-present">
-                  <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day in:</b></p>
-                  <p style="margin-top: 0">10days</p>
-                </div>
-                <a href="" class="button_share">Share</a>
-              </div>
-            </div>
-          </article>
-        </div>-->
-
       </section>
     </main>
     <footer></footer>
