@@ -1,3 +1,56 @@
+<script>
+export default {
+  data() {
+    return {
+      gifts: [],
+    };
+  },
+  mounted() {
+    const token = localStorage.getItem('token');
+    const wishlistID = localStorage.getItem('wishlistID');
+    fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/wishlists/${wishlistID}`, {
+      method: 'GET',
+      headers: {
+        'accept': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .then((response) => {
+      if (response.status === 200) {
+        alert('Wishlist found');
+        return response.json();
+      } else {
+        switch (response.status) {
+          case 204:
+            alert('Wishlist not found');
+            break;
+          case 400:
+            alert('Bad request');
+            break;
+          case 401:
+            alert('Unauthorized');
+            break;
+          case 406:
+            alert('Missing parameters');
+            break;
+          case 502:
+            alert('Internal Server Error');
+            break;
+        }
+      }
+    })
+    .then((wishlistData) => {
+      console.log(wishlistData);
+      document.getElementById('name-wishlist').innerHTML = wishlistData.name;
+      document.getElementById('description-wishlist').innerHTML = wishlistData.description;
+      // TODO: S'ha de modificar la sortida d'aquesta data perque mostri els dies, hores minuts que falten per la finalització de la wisghlist
+      document.getElementById('information-wishlist-numbers-box').innerHTML = wishlistData.end_date.substring(0, 10);
+      this.gifts = wishlistData.gifts;
+    })
+  }
+}
+</script>
+
 <template>
     <div id="body_container">
         <header>

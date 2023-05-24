@@ -462,7 +462,7 @@ export default {
         <section id="list">
           <article v-for="friendWishlist in friendsWishlists" :key="friendWishlist.id">
             <div class="present-cover">
-              <div class="text-present">
+              <a @click="showWishlist(friendWishlist.id)" class="text-present">
                 <div class="text-title-present">
                   <p>{{ friendWishlist.name }}</p>
                 </div>
@@ -470,7 +470,7 @@ export default {
                   <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day in:</b></p>
                   <p style="margin-top: 0">{{ formatDate(friendWishlist.end_date) }}</p>
                 </div>
-              </div>
+              </a>
             </div>
           </article>
 
