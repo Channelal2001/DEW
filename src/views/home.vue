@@ -490,7 +490,7 @@ export default {
       <!-- My Wishlists-->
       <section>
         <div id="title-slider">
-          <p><b>My Wishlist</b></p>
+          <p><b>My Wishlists</b></p>
         </div>
       </section>
 
