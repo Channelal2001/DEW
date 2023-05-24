@@ -170,6 +170,18 @@ export default {
         x.style.display = "none";
       }
     },
+    showSearch() {
+      var x = document.getElementById("hide-search");
+      var y = document.getElementById("show-search");
+
+      if (x.style.display === "none") {
+        x.style.display = "block";
+        y.style.display = "none";
+      } else {
+        x.style.display = "none";
+        y.style.display = "block";
+      }
+    },
     editWishlist(wishlistID) {
       localStorage.setItem('wishlistID', wishlistID);
       window.location.href = "/wishlist";
@@ -313,7 +325,7 @@ export default {
         <a href="/home" id="logo"><strong>Social</strong>Gift</a>
       </section>
       <section id="search">
-        <input type="text" id="search-bar" name="search" placeholder="Search.." @keydown.enter="search">
+        <input type="text" @click="showSearch" id="search-bar" name="search" placeholder="Search.." @keydown.enter="search">
         <div id="menu">
           <button class="unstyle" @click="showfriends">
             <svg herf="" class="button-menu" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="12" height="12"
@@ -436,6 +448,7 @@ export default {
       </div>
 
       <!-- Following-->
+      <div>
       <section>
         <div id="title-slider">
           <p><b>Following</b></p>
@@ -482,68 +495,8 @@ export default {
             </div>
           </div>
         </article>
-
-        <!--<div id="slider-wishlists">
-          <article>
-            <div class="present-cover">
-              <div class="text-present">
-                <div class="text-title-present">
-                  <p>Andrea's Party</p>
-                </div>
-                <div class="text-time-present">
-                  <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day in:</b></p>
-                  <p style="margin-top: 0">10days</p>
-                </div>
-                <a href="" class="button_share">Share</a>
-              </div>
-            </div>
-          </article>
-          <article>
-            <div class="present-cover">
-              <div class="text-present">
-                <div class="text-title-present">
-                  <p>Andrea's Party</p>
-                </div>
-                <div class="text-time-present">
-                  <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day in:</b></p>
-                  <p style="margin-top: 0">10days</p>
-                </div>
-                <a href="" class="button_share">Share</a>
-              </div>
-            </div>
-          </article>
-          <article>
-            <div class="present-cover">
-              <div class="text-present">
-                <div class="text-title-present">
-                  <p>Andrea's Party</p>
-                </div>
-                <div class="text-time-present">
-                  <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day in:</b></p>
-                  <p style="margin-top: 0">10days</p>
-                </div>
-                <a href="" class="button_share">Share</a>
-              </div>
-            </div>
-          </article>
-
-          <article>
-            <div class="present-cover">
-              <div class="text-present">
-                <div class="text-title-present">
-                  <p>Andrea's Party</p>
-                </div>
-                <div class="text-time-present">
-                  <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day in:</b></p>
-                  <p style="margin-top: 0">10days</p>
-                </div>
-                <a href="" class="button_share">Share</a>
-              </div>
-            </div>
-          </article>
-        </div>-->
-
       </section>
+    </div>
     </main>
     <footer></footer>
   </div>
