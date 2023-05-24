@@ -477,7 +477,6 @@ export default {
                 <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day:</b></p>
                 <p style="margin-top: 0"> {{ formatDate(myWishlist.end_date) }}</p>
               </div>
-              <!--<a href="" class="button_share">Share</a>-->
               <button @click="editWishlist(myWishlist.id)" class="button_edit">Edit</button>
             </div>
           </div>
