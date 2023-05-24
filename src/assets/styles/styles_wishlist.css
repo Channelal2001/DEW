@@ -267,6 +267,8 @@
     
     #wishlist-product-list {
         grid-column: 1;
+        align-self: center;
+        justify-self: center;
     }
     
     #wishlist-information {
