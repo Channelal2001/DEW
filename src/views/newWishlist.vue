@@ -80,16 +80,12 @@
             </div>
         </section>
         <section>
-            <div contentEditable="true" id="name-wishlist">Name for the Wishlist</div>
-            <div contentEditable="true" id="description-wishlist">Description for the Wishlist</div>
+            
         </section>
         <section class="chats-dashboard">
             <div id="wishlist-product-list">
-                <div id="button-add">
-                    <p id="button-add-gift">Add gift</p>
-                </div>
-
-                <p id="message-emty">Add the first gift</p>
+                <div contentEditable="true" id="name-wishlist">Name for the Wishlist</div>
+            <div contentEditable="true" id="description-wishlist">Description for the Wishlist</div>
             </div>
             <div id="wishlist-information">
                 
