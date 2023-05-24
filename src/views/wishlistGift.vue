@@ -2,10 +2,49 @@
 export default {
   data() {
     return {
-      gifts: [],
+      products: [],
     };
   },
+  methods: {
+    loadProducts(gifts) {
+      gifts.forEach((gift) => {
+        fetch(gift.product_url, {
+          method: 'GET',
+          headers: {
+            'accept': 'application/json',
+          },
+        })
+        .then((response) => {
+          if (response.status === 200) {
+            return response.json();
+          } else {
+            switch(response.status) {
+              case 204:
+                alert('Product not found');
+                break;
+              case 400:
+                alert('Bad request');
+                break;
+              case 401:
+                alert('Unauthorized');
+                break;
+              case 406:
+                alert('Missing parameters');
+                break;
+              case 502:
+                alert('Internal Server Error');
+                break;
+            }
+          }
+        })
+        .then((productsData) => {
+          this.products.push(productsData);
+        })
+      })
+    },
+  },
   mounted() {
+    let gifts = [];
     const token = localStorage.getItem('token');
     const wishlistID = localStorage.getItem('wishlistID');
     fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/wishlists/${wishlistID}`, {
@@ -17,7 +56,6 @@ export default {
     })
     .then((response) => {
       if (response.status === 200) {
-        alert('Wishlist found');
         return response.json();
       } else {
         switch (response.status) {
@@ -45,7 +83,8 @@ export default {
       document.getElementById('description-wishlist').innerHTML = wishlistData.description;
       // TODO: S'ha de modificar la sortida d'aquesta data perque mostri els dies, hores minuts que falten per la finalització de la wisghlist
       document.getElementById('information-wishlist-numbers-box').innerHTML = wishlistData.end_date.substring(0, 10);
-      this.gifts = wishlistData.gifts;
+      gifts = wishlistData.gifts;
+      this.loadProducts(gifts);
     })
   }
 }
@@ -81,51 +120,15 @@ export default {
         </section>
         <section class="chats-dashboard">
             <div id="wishlist-product-list">
-                <div id="button-add">
-                    <p href="" id="button-add-gift">Add gift</p>
-                </div>
-
-                <div class="chat-user-moving">
-                    <img id="image-user" src="/src/assets/images/chat-image-user.png " alt="image-chat-user ">
+                <!-- TODO: Quan es cliqui aquest botó s'ha de mostrar el panell amb la informació del producte -->
+                <button @click="" v-for="product in products" :key="product.id" class="chat-user-moving">
+                    <img id="image-user" :src="product.photo" alt="image-chat-user ">
                     <div id="box-message-gift">
-                        <p id="user-chat">iPhone 14 Pro ultra</p>
-                        <p id="message-text">Description</p>
+                        <p id="user-chat">{{ product.name }}</p>
+                        <p id="message-text">{{ product.description }}</p>
                     </div>
                     <a href="/wishlistGiftReserved" id="notifications">Reserve</a>
-                </div>
-                <div class="chat-user">
-                    <img id="image-user" src="/src/assets/images/chat-image-user.png " alt="image-chat-user ">
-                    <div id="box-message-gift">
-                        <p id="user-chat">iPhone 14 Pro ultra</p>
-                        <p id="message-text">Description</p>
-                    </div>
-                    <a href="" id="notifications">Reserve</a>
-                </div>
-                <div class="chat-user">
-                    <img id="image-user" src="/src/assets/images/chat-image-user.png " alt="image-chat-user ">
-                    <div id="box-message-gift">
-                        <p id="user-chat">iPhone 14 Pro ultra</p>
-                        <p id="message-text">Description</p>
-                    </div>
-                    <a href="" id="notifications">Reserve</a>
-                </div>
-                <div class="chat-user">
-                    <img id="image-user" src="/src/assets/images/chat-image-user.png " alt="image-chat-user ">
-                    <div id="box-message-gift">
-                        <p id="user-chat">iPhone 14 Pro ultra</p>
-                        <p id="message-text">Description</p>
-                    </div>
-                    <a href="" id="notifications">Reserve</a>
-                </div>
-                <div class="chat-user">
-                    <img id="image-user" src="/src/assets/images/chat-image-user.png " alt="image-chat-user ">
-                    <div id="box-message-gift">
-                        <p id="user-chat">iPhone 14 Pro ultra</p>
-                        <p id="message-text">Description</p>
-                    </div>
-                    <a href="" id="notifications">Reserve</a>
-                </div>
-
+                </button>
             </div>
             <div id="wishlist-information">
                 <div class="celebration-date-box">
@@ -141,12 +144,8 @@ export default {
                             </svg>
                             <p id="name-new-gift">iPhone 14 Pro ultra</p>
                         </div>
-                        <p id="description-neuw-gift">Description product Description product Description product Description product Description product</p>
+                        <p id="description-neuw-gift">Product description</p>
                         <p id="text-link-gift">Website to find it</p>
-                    </div>
-                    <div id="navegation-gift">
-                        <a href="/wishlistMoving" id="button-move">Move</a>
-                        <a href="" id="button-delete">Delete</a>
                     </div>
                 </div>
             </div>

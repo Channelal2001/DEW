@@ -4,7 +4,7 @@ import divideTokenVue from '../components/divideToken.vue';
 export default {
   data() {
     return {
-        gifts: [],
+      products: [],
     };
   },
   methods: {
@@ -131,11 +131,48 @@ export default {
           
       }
     },
+    loadProducts(gifts) {
+      gifts.forEach((gift) => {
+        fetch(gift.product_url, {
+          method: 'GET',
+          headers: {
+            'accept': 'application/json',
+          },
+        })
+        .then((response) => {
+          if (response.status === 200) {
+            return response.json();
+          } else {
+            switch(response.status) {
+              case 204:
+                alert('Product not found');
+                break;
+              case 400:
+                alert('Bad request');
+                break;
+              case 401:
+                alert('Unauthorized');
+                break;
+              case 406:
+                alert('Missing parameters');
+                break;
+              case 502:
+                alert('Internal Server Error');
+                break;
+            }
+          }
+        })
+        .then((productsData) => {
+            this.products.push(productsData);
+        })
+      })
+    },
   },
 
   mounted() {
     const token = localStorage.getItem('token');
     const wishlistID = localStorage.getItem('wishlistID');
+    let gifts = [];
     fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/wishlists/${wishlistID}`, {
         method: 'GET',
         headers: {
@@ -172,7 +209,8 @@ export default {
         document.getElementById('information-wishlist-ending-date').innerHTML = wishlistData.end_date.substring(0, 10);
         document.getElementById('information-wishlist-creation-date').innerHTML = wishlistData.creation_date.substring(0, 10);
         document.getElementById('information-wishlist-numbers').innerHTML = wishlistData.gifts.length;
-        this.gifts = wishlistData.gifts;
+        gifts = wishlistData.gifts;
+        this.loadProducts(gifts);
     })
   }
 }
@@ -209,12 +247,13 @@ export default {
                 <div id="button-add">
                     <p @click= "hideWhislistInfo" id="button-add-gift">Add gift</p>
                 </div>
-                <div v-for="gift in gifts" :key="gift.id" class="chat-user-moving">
-                    <img id="image-user" src="/src/assets/images/chat-image-user.png " alt="image-chat-user ">
+                <div v-for="product in products" :key="product.id" class="chat-user-moving">
+                    <img id="image-user" :src="product.photo" alt="image-chat-user ">
                     <div id="box-message-gift">
-                        <p id="user-chat">iPhone 14 Pro ultra</p>
-                        <p id="message-text">Description</p>
+                        <p id="user-chat">{{ product.name }}</p>
+                        <p id="message-text">{{ product.description }}</p>
                     </div>
+                  <!-- TODO: Aquest botó s'hauria de treure. No té sentit que el propietari d'una wishlist pugui reservar el seu propi regal-->
                     <a href="/wishlistGiftReserved" id="notifications">Reserve</a>
                 </div>
                 <div id="hide-text">
