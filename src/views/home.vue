@@ -170,6 +170,18 @@ export default {
         x.style.display = "none";
       }
     },
+    showSearch() {
+      var x = document.getElementById("hide-search");
+      var y = document.getElementById("show-search");
+
+      if (x.style.display === "none") {
+        x.style.display = "block";
+        y.style.display = "none";
+      } else {
+        x.style.display = "none";
+        y.style.display = "block";
+      }
+    },
     editWishlist(wishlistID) {
       localStorage.setItem('wishlistID', wishlistID);
       window.location.href = "/wishlist";
@@ -317,7 +329,7 @@ export default {
         <a href="/home" id="logo"><strong>Social</strong>Gift</a>
       </section>
       <section id="search">
-        <input type="text" id="search-bar" name="search" placeholder="Search.." @keydown.enter="search">
+        <input type="text" @click="showSearch" id="search-bar" name="search" placeholder="Search.." @keydown.enter="search">
         <div id="menu">
           <button class="unstyle" @click="showfriends">
             <svg herf="" class="button-menu" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="12" height="12"
@@ -440,52 +452,98 @@ export default {
       </div>
 
       <!-- Following-->
-      <section>
-        <div id="title-slider">
-          <p><b>Following</b></p>
-        </div>
-      </section>
-
-      <section id="list">
-        <article v-for="friendWishlist in friendsWishlists" :key="friendWishlist.id">
-          <div class="present-cover">
-            <a @click="showWishlist(friendWishlist.id)" class="text-present">
-              <div class="text-title-present">
-                <p>{{ friendWishlist.name }}</p>
-              </div>
-              <div class="text-time-present">
-                <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day in:</b></p>
-                <p style="margin-top: 0">{{ formatDate(friendWishlist.end_date) }}</p>
-              </div>
-            </a>
+      <div id="hide-search">
+        <section>
+          <div id="title-slider">
+            <p><b>Following</b></p>
           </div>
-        </article>
+        </section>
 
-      </section>
-
-      <!-- My Wishlists-->
-      <section>
-        <div id="title-slider">
-          <p><b>My Wishlists</b></p>
-        </div>
-      </section>
-
-      <section id="list">
-        <article v-for="myWishlist in myWishlists" :key="myWishlist.id">
-          <div class="present-cover">
-            <div class="text-present">
-              <div class="text-title-present">
-                <p>{{ myWishlist.name }}</p>
+        <section id="list">
+          <article v-for="friendWishlist in friendsWishlists" :key="friendWishlist.id">
+            <div class="present-cover">
+              <div class="text-present">
+                <div class="text-title-present">
+                  <p>{{ friendWishlist.name }}</p>
+                </div>
+                <div class="text-time-present">
+                  <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day in:</b></p>
+                  <p style="margin-top: 0">{{ formatDate(friendWishlist.end_date) }}</p>
+                </div>
               </div>
-              <div class="text-time-present">
-                <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day:</b></p>
-                <p style="margin-top: 0"> {{ formatDate(myWishlist.end_date) }}</p>
-              </div>
-              <button @click="editWishlist(myWishlist.id)" class="button_edit">Edit</button>
             </div>
+          </article>
+
+        </section>
+
+        <!-- My Wishlists-->
+        <section>
+          <div id="title-slider">
+            <p><b>My Wishlists</b></p>
           </div>
-        </article>
-      </section>
+        </section>
+
+        <section id="list">
+          <article v-for="myWishlist in myWishlists" :key="myWishlist.id">
+            <div class="present-cover">
+              <div class="text-present">
+                <div class="text-title-present">
+                  <p>{{ myWishlist.name }}</p>
+                </div>
+                <div class="text-time-present">
+                  <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day:</b></p>
+                  <p style="margin-top: 0"> {{ formatDate(myWishlist.end_date) }}</p>
+                </div>
+                <button @click="editWishlist(myWishlist.id)" class="button_edit">Edit</button>
+              </div>
+            </div>
+          </article>
+        </section>
+      </div>
+
+      <!-- Search-->
+      <section>
+          <div id="title-slider">
+            <p><b>People</b></p>
+          </div>
+        </section>
+        <section id="list">
+         
+          <div id="slider-wishlists">
+            <article>
+              <div class="present-cover">
+                <div class="text-present">
+                  <div class="text-title-present">
+                    <p>Andrea</p>
+                  </div>
+                  <a href="/viewProfile" class="button_follow">Follow</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section>
+          <div id="title-slider">
+            <p><b>Wishlists</b></p>
+          </div>
+        </section>
+        <section id="list">
+          <div id="slider-wishlists">
+            <article>
+              <div class="present-cover">
+                <div class="text-present">
+                  <div class="text-title-present">
+                    <p>Andrea's Party</p>
+                  </div>
+                  <div class="text-time-present">
+                    <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day in:</b></p>
+                    <p style="margin-top: 0">10days</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
     </main>
     <footer></footer>
   </div>
