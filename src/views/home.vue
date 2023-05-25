@@ -565,7 +565,7 @@ export default {
           </div>
         </section>
         <section id="list">
-          <div id="slider-wishlists">
+          
             <article v-for="user in users" :key="user.id">
               <div class="present-cover">
                 <button class="text-present">
@@ -576,7 +576,7 @@ export default {
                 </button>
               </div>
             </article>
-          </div>
+          
         </section>
         <section>
           <div id="title-slider">
@@ -584,7 +584,7 @@ export default {
           </div>
         </section>
         <section id="list">
-          <div id="slider-wishlists">
+          
             <article v-for="wishlist in usersWishlists" :key="wishlist.id">
               <div class="present-cover">
                 <div class="text-present">
@@ -598,7 +598,7 @@ export default {
                 </div>
               </div>
             </article>
-          </div>
+          
         </section>
       </div>
     </main>
