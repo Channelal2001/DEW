@@ -294,6 +294,19 @@
         margin-bottom: 5px;
         border-radius: 20px;
     }
+
+    #gift-information {
+        display: none;
+        background-color: rgba(255, 255, 255, 1);
+        justify-items: center;
+        width: 50vh;
+        padding-top: 35px;
+        padding-bottom: 35px;
+        align-self: center;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        border-radius: 20px;
+    }
     
     .wishlist-data-information-moved {
         background-color: rgba(255, 255, 255, 1);
