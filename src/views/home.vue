@@ -175,7 +175,10 @@ export default {
       var x = document.getElementById("hide-search");
       var y = document.getElementById("show-search");
 
-      if (x.style.display === "none") {
+      if (x.style.display === "block") {
+        x.style.display = "none";
+        y.style.display = "block";
+      } else {
         x.style.display = "block";
         y.style.display = "none";
       }
@@ -199,6 +202,7 @@ export default {
       })
         .then((response) => {
           if (response.status === 200) {
+            alert('List of found users');
             return response.json();
           } else {
             switch (response.status) {
@@ -222,7 +226,6 @@ export default {
         })
         .then((usersData) => {
           console.log(usersData);
-          this.showSearch();
         })
       document.getElementById("search-bar").value = "";
     },
@@ -327,7 +330,7 @@ export default {
         <a href="/home" id="logo"><strong>Social</strong>Gift</a>
       </section>
       <section id="search">
-        <input type="text" id="search-bar" name="search" placeholder="Search.." @keydown.enter="search">
+        <input type="text" @click="showSearch" id="search-bar" name="search" placeholder="Search.." @keydown.enter="search">
         <div id="menu">
           <button class="unstyle" @click="showfriends">
             <svg herf="" class="button-menu" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="12" height="12"
@@ -450,7 +453,7 @@ export default {
       </div>
 
       <!-- Following-->
-      <div id="show-search">
+      <div id="hide-search">
         <section>
           <div id="title-slider">
             <p><b>Following</b></p>
@@ -501,13 +504,13 @@ export default {
       </div>
 
       <!-- Search-->
-      <div id = hide-search>
-        <section>
+      <section>
           <div id="title-slider">
             <p><b>People</b></p>
           </div>
         </section>
         <section id="list">
+         
           <div id="slider-wishlists">
             <article>
               <div class="present-cover">
@@ -543,7 +546,6 @@ export default {
             </article>
           </div>
         </section>
-      </div>
     </main>
     <footer></footer>
   </div>
