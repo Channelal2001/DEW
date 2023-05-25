@@ -1,7 +1,9 @@
-/* Pantalles de movil*/
-
 #hide-search {
     display: none;
+}
+
+#show-search {
+    display: block;
 }
 
 #hide-text {
