@@ -258,26 +258,26 @@ export default {
         Authorization: `Bearer ${token}`,
       },
     })
-        .then((response) => {
-          if (response.status === 200) {
-            return response.json();
-          } else {
-            switch (response.status) {
-              case 401:
-                alert('Unauthorized');
-                break;
-              case 500:
-                alert('Error getting friends');
-                break;
-              case 502:
-                alert('Internal Server Error');
-                break;
-            }
-          }
-        })
-        .then((friendsData) => {
-          this.friends = friendsData;
-        })
+    .then((response) => {
+      if (response.status === 200) {
+        return response.json();
+      } else {
+        switch (response.status) {
+          case 401:
+            alert('Unauthorized');
+            break;
+          case 500:
+            alert('Error getting friends');
+            break;
+          case 502:
+            alert('Internal Server Error');
+            break;
+        }
+      }
+    })
+    .then((friendsData) => {
+      this.friends = friendsData;
+    })
 
     const idUser = divideTokenVue.methods.divideToken(token);
     fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${idUser}/wishlists`, {
@@ -287,23 +287,23 @@ export default {
         Authorization: `Bearer ${token}`,
       },
     })
-        .then((response) => {
-          if (response.status === 200) {
-            return response.json();
-          } else {
-            switch (response.status) {
-              case 401:
-                alert('Unauthorized');
-                break;
-              case 500:
-                alert('Error getting wishlists');
-                break;
-            }
-          }
-        })
-        .then((myWishlistsData) => {
-          this.myWishlists = myWishlistsData;
-        })
+    .then((response) => {
+      if (response.status === 200) {
+        return response.json();
+      } else {
+        switch (response.status) {
+          case 401:
+            alert('Unauthorized');
+            break;
+          case 500:
+            alert('Error getting wishlists');
+            break;
+        }
+      }
+    })
+    .then((myWishlistsData) => {
+      this.myWishlists = myWishlistsData;
+    })
 
 
     this.loadFriends();
@@ -315,26 +315,26 @@ export default {
         Authorization: `Bearer ${token}`,
       },
     })
-        .then((response) => {
-          if (response.status === 200) {
-            return response.json();
-          } else {
-            switch (response.status) {
-              case 401:
-                alert('Unauthorized');
-                break;
-              case 500:
-                alert('Error getting friend requests');
-                break;
-              case 502:
-                alert('Internal Server Error');
-                break;
-            }
-          }
-        })
-        .then((requestsData) => {
-          this.requests = requestsData;
-        })
+    .then((response) => {
+      if (response.status === 200) {
+        return response.json();
+      } else {
+        switch (response.status) {
+          case 401:
+            alert('Unauthorized');
+            break;
+          case 500:
+            alert('Error getting friend requests');
+            break;
+          case 502:
+            alert('Internal Server Error');
+            break;
+        }
+      }
+    })
+    .then((requestsData) => {
+      this.requests = requestsData;
+    })
   }
 }
 </script>
@@ -528,12 +528,12 @@ export default {
           <div id="slider-wishlists">
             <article v-for="user in users" :key="user.id">
               <div class="present-cover">
-                <div class="text-present">
+                <button class="text-present">
                   <div class="text-title-present">
                     <p>{{ user.name }}</p>
                   </div>
                   <a href="/viewProfile" class="button_follow">Follow</a>
-                </div>
+                </button>
               </div>
             </article>
           </div>
