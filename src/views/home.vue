@@ -10,6 +10,7 @@ export default {
     };
   },
   methods: {
+    // TODO: Canviar la forma d'obtenir el token. Utilitzar el patro singelton fent servir APP.vue. És més eficient
     loadFriendsWishlists(idsFriends) {
       const token = localStorage.getItem('token');
       idsFriends.forEach((friendId) => {
@@ -31,7 +32,7 @@ export default {
     },
     loadFriends() {
       let idsFriends = [];
-      const token = localStorage.getItem('token'); // eficient: patró singleton fent servir App.vue
+      const token = localStorage.getItem('token');
       fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends', {
         method: 'GET',
         headers: {

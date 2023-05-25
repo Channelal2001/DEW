@@ -1,6 +1,3 @@
-<script>
-
-    </script>
 <template>
     <div id="body_container">
         <header>
