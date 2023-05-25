@@ -138,37 +138,19 @@ export default {
     showfriends() {
       var x = document.getElementById("hide");
 
-      if (x.style.display === "none") {
-        x.style.display = "block";
-      } else {
+      if (x.style.display === "block") {
         x.style.display = "none";
+      } else {
+        x.style.display = "block";
       }
     },
     shownotifications() {
       var x = document.getElementById("hide-notifications");
 
-      if (x.style.display === "none") {
-        x.style.display = "block";
-      } else {
+      if (x.style.display === "block") {
         x.style.display = "none";
-      }
-    },
-    hidenotifications() {
-      var x = document.getElementById("hide-notifications");
-
-      if (x.style.display === "none") {
-        x.style.display = "block";
       } else {
-        x.style.display = "none";
-      }
-    },
-    hidefilters() {
-      var x = document.getElementById("hide-filters");
-
-      if (x.style.display === "none") {
         x.style.display = "block";
-      } else {
-        x.style.display = "none";
       }
     },
     showSearch() {

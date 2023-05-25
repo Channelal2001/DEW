@@ -247,14 +247,13 @@ export default {
                 <div id="button-add">
                     <p @click= "hideWhislistInfo" id="button-add-gift">Add gift</p>
                 </div>
-                <div v-for="product in products" :key="product.id" class="chat-user-moving">
+                <button @click="showProductInfo" v-for="product in products" :key="product.id" class="chat-user-moving">
                     <img id="image-user" :src="product.photo" alt="image-chat-user ">
                     <div id="box-message-gift">
                         <p id="user-chat">{{ product.name }}</p>
                         <p id="message-text">{{ product.description }}</p>
                     </div>
-                  
-                </div>
+                </button>
                 <div id="hide-text">
                     <p id="message-emty">Add the first gift</p>
                </div>
