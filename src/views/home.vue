@@ -175,12 +175,12 @@ export default {
       var x = document.getElementById("hide-search");
       var y = document.getElementById("show-search");
 
-      if (x.style.display === "none") {
-        x.style.display = "block";
-        y.style.display = "none";
-      } else {
+      if (x.style.display === "block") {
         x.style.display = "none";
         y.style.display = "block";
+      } else {
+        x.style.display = "block";
+        y.style.display = "none";
       }
     },
     editWishlist(wishlistID) {
