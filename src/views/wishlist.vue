@@ -253,8 +253,7 @@ export default {
                         <p id="user-chat">{{ product.name }}</p>
                         <p id="message-text">{{ product.description }}</p>
                     </div>
-                  <!-- TODO: Aquest botó s'hauria de treure. No té sentit que el propietari d'una wishlist pugui reservar el seu propi regal-->
-                    <a href="/wishlistGiftReserved" id="notifications">Reserve</a>
+                  
                 </div>
                 <div id="hide-text">
                     <p id="message-emty">Add the first gift</p>
