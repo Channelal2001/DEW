@@ -77,7 +77,7 @@ export default {
       })
       .then((response) => {
         if (response.status === 200) {
-          alert('Friend request accepted');
+          alert('Friend request sent');
           return response.json();
         } else {
           switch (response.status) {
@@ -90,11 +90,14 @@ export default {
             case 406:
               alert('Missing parameters');
               break;
+            case 409:
+              alert('Friend request already registered');
+              break;
             case 410:
-              alert('This user id does not exist');
+              alert('This user with this id does not exist');
               break;
             case 500:
-              alert('Error accepting friend request');
+              alert('Error creating friend request');
               break;
             case 502:
               alert('Internal Server Error');
@@ -562,7 +565,7 @@ export default {
           </div>
         </section>
         <section id="list">
-          <div id="slider-wishlists">
+          
             <article v-for="user in users" :key="user.id">
               <div class="present-cover">
                 <button class="text-present">
@@ -573,7 +576,7 @@ export default {
                 </button>
               </div>
             </article>
-          </div>
+          
         </section>
         <section>
           <div id="title-slider">
@@ -581,7 +584,7 @@ export default {
           </div>
         </section>
         <section id="list">
-          <div id="slider-wishlists">
+          
             <article v-for="wishlist in usersWishlists" :key="wishlist.id">
               <div class="present-cover">
                 <div class="text-present">
@@ -595,7 +598,7 @@ export default {
                 </div>
               </div>
             </article>
-          </div>
+          
         </section>
       </div>
     </main>
