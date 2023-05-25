@@ -66,6 +66,46 @@ export default {
             this.loadFriendsWishlists(idsFriends)
           })
     },
+    sendFriendRequest(userID) {
+      const token = localStorage.getItem('token');
+      fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends/${userID}`, {
+        method: 'POST',
+        headers: {
+          'accept': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        if (response.status === 200) {
+          alert('Friend request sent');
+          return response.json();
+        } else {
+          switch (response.status) {
+            case 400:
+              alert('Bad request');
+              break;
+            case 401:
+              alert('Unauthorized');
+              break;
+            case 406:
+              alert('Missing parameters');
+              break;
+            case 409:
+              alert('Friend request already registered');
+              break;
+            case 410:
+              alert('This user with this id does not exist');
+              break;
+            case 500:
+              alert('Error creating friend request');
+              break;
+            case 502:
+              alert('Internal Server Error');
+              break;
+          }
+        }
+      })
+    },
     async acceptRequest(userID) {
       const token = localStorage.getItem('token');
       fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends/${userID}`, {
@@ -75,33 +115,33 @@ export default {
           Authorization: `Bearer ${token}`,
         },
       })
-          .then((response) => {
-            if (response.status === 200) {
-              alert('Friend request accepted');
-              return response.json();
-            } else {
-              switch (response.status) {
-                case 400:
-                  alert('Bad request');
-                  break;
-                case 401:
-                  alert('Unauthorized');
-                  break;
-                case 406:
-                  alert('Missing parameters');
-                  break;
-                case 410:
-                  alert('This user id does not exist');
-                  break;
-                case 500:
-                  alert('Error accepting friend request');
-                  break;
-                case 502:
-                  alert('Internal Server Error');
-                  break;
-              }
-            }
-          })
+      .then((response) => {
+        if (response.status === 200) {
+          alert('Friend request accepted');
+          return response.json();
+        } else {
+          switch (response.status) {
+            case 400:
+              alert('Bad request');
+              break;
+            case 401:
+              alert('Unauthorized');
+              break;
+            case 406:
+              alert('Missing parameters');
+              break;
+            case 410:
+              alert('This user id does not exist');
+              break;
+            case 500:
+              alert('Error accepting friend request');
+              break;
+            case 502:
+              alert('Internal Server Error');
+              break;
+          }
+        }
+      })
     },
     async removeRequest(userID) {
       const token = localStorage.getItem('token');
@@ -532,7 +572,7 @@ export default {
                   <div class="text-title-present">
                     <p>{{ user.name }}</p>
                   </div>
-                  <a href="/viewProfile" class="button_follow">Follow</a>
+                  <button @click="sendFriendRequest(user.id)" class="button_follow">Follow</button>
                 </button>
               </div>
             </article>
