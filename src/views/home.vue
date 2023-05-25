@@ -7,6 +7,8 @@ export default {
       myWishlists: [],
       friendsWishlists: [],
       requests: [],
+      users: [],
+      usersWishlists: [],
     };
   },
   methods: {
@@ -169,6 +171,9 @@ export default {
     formatDate(date) {
       return date.substring(0, 10);
     },
+    loadWishlist(userId) {
+      // TODO: Aquí es carregarà una wishlist i es retornarà
+    },
     search() {
       const searchTerm = document.getElementById("search-bar").value;
       const token = localStorage.getItem('token');
@@ -203,7 +208,16 @@ export default {
           }
         })
         .then((usersData) => {
-          console.log(usersData);
+          // TODO: Modificar els camps per mostrar les dades dels usuaris
+          // TODO: S'han de guardar les dades a dos arrays. Un per les persones i l'altre per les wishlists
+          // TODO: Per guardar les dades de les wishlists s'ha de fer una altre peticio a la API. Se li hauria d'anar passant les ids de dels usuaris
+          this.users = usersData;
+          this.users.forEach((user) => {
+            let wishlist;
+            wishlist = this.loadWishlist(user.id);
+            this.usersWishlists.push(wishlist);
+          });
+
           this.showSearch();
         })
       document.getElementById("search-bar").value = "";
