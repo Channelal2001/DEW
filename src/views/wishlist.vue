@@ -247,6 +247,8 @@ export default {
                 <div id="button-add">
                     <p @click= "hideWhislistInfo" id="button-add-gift">Add gift</p>
                 </div>
+                <!-- TODO: Cuan es cliqui al botó s'ha de mostrar la part per moure el regal de wishlist i amagar les dades de la wishlist -->
+                <!-- TODO: Quan s'arribi a aquella part s'ha de poder moure el regal de wishlist. S'haurà de poder seleccionar a quina wishlist es vol moure -->
                 <button @click="showProductInfo" v-for="product in products" :key="product.id" class="chat-user-moving">
                     <img id="image-user" :src="product.photo" alt="image-chat-user ">
                     <div id="box-message-gift">
