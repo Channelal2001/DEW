@@ -42,29 +42,29 @@ export default {
           Authorization: `Bearer ${token}`,
         },
       })
-          .then((response) => {
-            if (response.status === 200) {
-              return response.json();
-            } else {
-              switch (response.status) {
-                case 401:
-                  alert('Unauthorized');
-                  break;
-                case 500:
-                  alert('Error getting friends');
-                  break;
-                case 502:
-                  alert('Internal Server Error');
-                  break;
-              }
-            }
-          })
-          .then((friendsData) => {
-            friendsData.forEach((friend) => {
-              idsFriends.push(friend.id);
-            });
-            this.loadFriendsWishlists(idsFriends)
-          })
+      .then((response) => {
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          switch (response.status) {
+            case 401:
+              alert('Unauthorized');
+              break;
+            case 500:
+              alert('Error getting friends');
+              break;
+            case 502:
+              alert('Internal Server Error');
+              break;
+          }
+        }
+      })
+      .then((friendsData) => {
+        friendsData.forEach((friend) => {
+          idsFriends.push(friend.id);
+        });
+        this.loadFriendsWishlists(idsFriends)
+      })
     },
     sendFriendRequest(userID) {
       const token = localStorage.getItem('token');
@@ -76,6 +76,7 @@ export default {
         },
       })
       .then((response) => {
+        // NOTE: Quan la petició es fa bé retorna un status code de 201. S'hauria de parlar per a que ho solucionin
         if (response.status === 200) {
           alert('Friend request sent');
           return response.json();
