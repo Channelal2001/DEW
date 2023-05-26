@@ -213,8 +213,6 @@ export default {
       return date.substring(0, 10);
     },
     loadWishlists(userId) {
-      // TODO: Aquí es carregaran les wishlists de l'usuari i es retornaran
-      let wishlists = [];
       const token = localStorage.getItem('token');
       fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${userId}/wishlists`, {
         method: 'GET',
@@ -588,7 +586,7 @@ export default {
           
             <article v-for="wishlist in usersWishlists" :key="wishlist.id">
               <div class="present-cover">
-                <div class="text-present">
+                <a @click="showWishlist(wishlist.id)" class="text-present">
                   <div class="text-title-present">
                     <p>{{ wishlist.name }}</p>
                   </div>
@@ -596,7 +594,7 @@ export default {
                     <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day in:</b></p>
                     <p style="margin-top: 0">{{ formatDate(wishlist.end_date) }}</p>
                   </div>
-                </div>
+                </a>
               </div>
             </article>
           
