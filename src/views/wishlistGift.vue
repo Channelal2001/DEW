@@ -39,7 +39,7 @@ export default {
       .then(productData => {
         document.getElementById('name-new-gift').innerHTML = productData.name;
         document.getElementById('description-new-gift').innerHTML = productData.description;
-        document.getElementsByClassName("image-icon-wishlist")[0].src = productData.photo;
+        document.getElementsByClassName("image-icon-wishlist-user")[0].src = productData.photo;
         this.showProductPanel();
       })
     },
@@ -183,7 +183,7 @@ export default {
 
                 <div id="gift-information">
                     <div class="image-name-new-gift">
-                        <img class="image-icon-wishlist" src="something.png" alt="image-gift">
+                        <img class="image-icon-wishlist-user" src="something.png" alt="image-gift">
                         <p id="name-new-gift">iPhone 14 Pro ultra</p>
                     </div>
                     <p id="description-new-gift">Product description</p>

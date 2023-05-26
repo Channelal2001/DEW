@@ -311,16 +311,11 @@ export default {
                             <p contenteditable="true"  id="description-new-gift">Product description</p>
                         </div>
                         <div class="buttons-source">
-                            <p id="add-links" @click="showLinks" >Add to find it:</p>
+                            <p id="add-links" @click="showLinks" >Add a photo</p>
                             <div id="hide-links">
                                 <div class="buttons-source-gift">
-                                    <p @click="showLink" id="button-add-link">Add link</p>
-                                    <p @click="showLink" id="button-mercado-expres">Mercado expres</p>
-                                    <p @click="showLink" id="button-amazon">Amazon</p>
+                                    <input id="box-link" type="text" name="search" placeholder="Add a link...">
                                 </div>
-                            </div>
-                            <div id="hide-link">
-                                <input id="box-link" type="text" name="search" placeholder="Add a link...">
                             </div>
                         </div>
                     </div>
