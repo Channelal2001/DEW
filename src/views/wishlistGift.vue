@@ -187,7 +187,7 @@ export default {
                         <p id="name-new-gift">iPhone 14 Pro ultra</p>
                     </div>
                     <p id="description-new-gift">Product description</p>
-                    <p id="text-link-gift">Website to find it</p>
+                    
                 </div>
             </div>
         </section>
