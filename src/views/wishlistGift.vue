@@ -2,7 +2,8 @@
 export default {
   data() {
     return {
-      products: [],
+      gifts: [],
+      //products: [],
     };
   },
   methods: {
@@ -88,7 +89,7 @@ export default {
         x.style.display = "block";
       }
     },
-    reserveGift() {
+    reserveGift(giftId) {
       const token = localStorage.getItem('token');
       fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/gifts/${giftId}/book`, {
         method: 'POST',
@@ -126,7 +127,7 @@ export default {
     }
   },
   mounted() {
-    let gifts = [];
+    //let gifts = [];
     const token = localStorage.getItem('token');
     const wishlistID = localStorage.getItem('wishlistID');
     fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/wishlists/${wishlistID}`, {
@@ -165,8 +166,8 @@ export default {
       document.getElementById('description-wishlist').innerHTML = wishlistData.description;
       // TODO: S'ha de modificar la sortida d'aquesta data perque mostri els dies, hores minuts que falten per la finalització de la wishlist
       document.getElementById('information-wishlist-numbers-box').innerHTML = wishlistData.end_date.substring(0, 10);
-      gifts = wishlistData.gifts;
-      this.loadProducts(gifts);
+      this.gifts = wishlistData.gifts;
+      //this.loadProducts(gifts);
     })
   }
 }
@@ -201,14 +202,21 @@ export default {
         </section>
         <section class="chats-dashboard">
             <div id="wishlist-product-list">
-                <button @click="showProductInformation(product.id)" v-for="product in products" :key="product.id" class="chat-user-moving">
+                <!--<button @click="showProductInformation(product.id)" v-for="product in products" :key="product.id" class="chat-user-moving">
                     <img id="image-user" :src="product.photo" alt="image-chat-user ">
                     <div id="box-message-gift">
                         <p id="user-chat">{{ product.name }}</p>
                         <p id="message-text">{{ product.description }}</p>
                     </div>
                     <a @click="reserveGift()" id="notifications">Reserve</a>
-                </button>
+                </button>-->
+                <div v-for="gift in gifts" :key="gift.id" class="chat-user">
+                  <div id="box-message-gift">
+                    <p id="user-chat">Priority: {{ gift.priority }}</p>
+                    <p id="message-text">{{ gift.product_url }}</p>
+                  </div>
+                  <a @click="reserveGift(gift.id)" id="notifications">Reserve</a>
+                </div>
             </div>
             <div id="wishlist-information">
                 <div class="celebration-date-box">

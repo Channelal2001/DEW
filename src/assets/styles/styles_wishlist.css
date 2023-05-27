@@ -902,6 +902,18 @@
                 border-radius: 20px;
                 cursor: pointer;
             }
+            .chat-user {
+                background-color: rgb(255, 255, 255);
+                border-radius: 20px;
+                width: 50vh;
+                margin-left: 5%;
+                margin-top: 15px;
+                display: flex;
+                flex-direction: row;
+                padding: 5px;
+                align-items: center;
+                justify-content: space-between;
+            }
             .chat-user-moving {
                 background-color: rgb(255, 255, 255);
                 border-radius: 20px;
