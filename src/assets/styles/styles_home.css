@@ -98,6 +98,23 @@
         height: 15px;
         cursor: pointer;
     }
+    /*arreglar posicoó corss*/
+    
+    #svg-icon-cross-friends {
+        fill: white;
+        background-color: rgba(224, 224, 224, 1);
+        border-radius: 50%;
+        padding: 5px;
+        width: 15px;
+        height: 15px;
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-bottom: 5px;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
     
     .text {
         margin: 0;
