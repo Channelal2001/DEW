@@ -597,7 +597,7 @@
         .chat-user {
             background-color: rgba(255, 255, 255, 1);
             border-radius: 20px;
-            width: 50vh;
+            width: fit-content;
             margin-left: 60px;
             margin-top: 15px;
             display: flex;
@@ -680,6 +680,36 @@
             margin-right: 20px;
             align-items: flex-end;
             text-decoration: none;
+            border: none;
+        }
+        
+        #notifications:hover {
+            background-color: rgb(57, 55, 184);
+        }
+        
+        #button-see-more {
+            font-family: Inter, medium;
+            color: white;
+            background-color: rgb(254, 169, 132);
+            padding-top: 3px;
+            padding-bottom: 3px;
+            padding-left: 12px;
+            padding-right: 12px;
+            border-radius: 50px;
+            font-size: 16px;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            align-items: flex-end;
+            text-decoration: none;
+            border: none;
+            width: fit-content;
+            align-self: center;
+        }
+        
+        #button-see-more:hover {
+            background-color: rgb(183, 117, 89);
         }
         
         #notifications-reserved {
@@ -837,6 +867,32 @@
                 margin-right: 20px;
                 align-items: flex-end;
             }
+            #notifications:hover {
+                background-color: rgb(57, 55, 184);
+            }
+            #button-see-more {
+                font-family: Inter, medium;
+                color: white;
+                background-color: rgb(254, 169, 132);
+                padding-top: 3px;
+                padding-bottom: 3px;
+                padding-left: 12px;
+                padding-right: 12px;
+                border-radius: 50px;
+                font-size: 16px;
+                margin-left: 20px;
+                margin-right: 20px;
+                margin-top: 20px;
+                margin-bottom: 10px;
+                align-items: flex-end;
+                text-decoration: none;
+                border: none;
+                width: fit-content;
+                align-self: center;
+            }
+            #button-see-more:hover {
+                background-color: rgb(183, 117, 89);
+            }
         }
         
         @media screen and (max-width: 600px) {
@@ -911,7 +967,7 @@
             .chat-user {
                 background-color: rgb(255, 255, 255);
                 border-radius: 20px;
-                width: 50vh;
+                width: fit-content;
                 margin-left: 5%;
                 margin-top: 15px;
                 display: flex;
@@ -939,7 +995,7 @@
             .chat-user {
                 background-color: rgba(255, 255, 255, 1);
                 border-radius: 20px;
-                width: 50vh;
+                width: fit-content;
                 margin-left: 5%;
                 margin-top: 15px;
                 display: flex;
