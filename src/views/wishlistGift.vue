@@ -215,7 +215,7 @@ export default {
                     <p id="user-chat">Priority: {{ gift.priority }}</p>
                     <p id="message-text">{{ gift.product_url }}</p>
                   </div>
-                  <a @click="reserveGift(gift.id)" id="notifications">Reserve</a>
+                  <button @click="reserveGift(gift.id)" id="notifications">Reserve</button>
                 </div>
             </div>
             <div id="wishlist-information">
