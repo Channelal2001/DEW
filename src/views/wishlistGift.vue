@@ -7,8 +7,8 @@ export default {
     };
   },
   methods: {
-    showProductInformation(productId) {
-      fetch(`https://balandrau.salle.url.edu/i3/mercadoexpress/api/v1/products/${productId}`, {
+    showProductInformation(productURL) {
+      fetch(productURL, {
         method: 'GET',
         headers: {
           'accept': 'application/json',
@@ -214,8 +214,9 @@ export default {
                   <div id="box-message-gift">
                     <p id="user-chat">Priority: {{ gift.priority }}</p>
                     <p id="message-text">{{ gift.product_url }}</p>
+                    <button @click="showProductInformation(gift.product_url)" id="notifications">See more</button>
                   </div>
-                  <a @click="reserveGift(gift.id)" id="notifications">Reserve</a>
+                  <button @click="reserveGift(gift.id)" id="notifications">Reserve</button>
                 </div>
             </div>
             <div id="wishlist-information">
