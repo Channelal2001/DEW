@@ -13,6 +13,10 @@
             display: none
         }
         
+        #hide-info {
+            display: none;
+        }
+        
         #add-links {
             cursor: pointer;
         }

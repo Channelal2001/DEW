@@ -122,14 +122,19 @@ export default {
     },
     showMovingPanel(){
         var x = document.getElementById("hide-moving");
+        var y = document.getElementById("hide-info");
         if (x.style.display === "block") {
           x.style.display = "none";
+          y.style.display = "block";
        
         } else {
           x.style.display = "block";
+          y.style.display = "none";
           
       }
     },
+   
+    
     loadProducts(gifts) {
       gifts.forEach((gift) => {
         fetch(gift.product_url, {
@@ -261,25 +266,27 @@ export default {
                </div>
             </div>
             <div id="wishlist-information">
-                <div id="wishlist-data-information">
-                    <div id="date-start-text">
-                        <p id="text-celebration">Celebration day in</p>
-                        <p contentEditable="true" id="information-wishlist-ending-date">15/12/23</p>
-                    </div>
+                <div id="hide-info">
+                    <div id="wishlist-data-information">
+                        <div id="date-start-text">
+                            <p id="text-celebration">Celebration day in</p>
+                            <p contentEditable="true" id="information-wishlist-ending-date">15/12/23</p>
+                        </div>
 
-                    <div class="information-wishlist-updateble">
-                        <div id="information-wishlist">
-                            <p id="information-wishlist-text">Items</p>
-                            <p id="information-wishlist-numbers">0</p>
+                        <div class="information-wishlist-updateble">
+                            <div id="information-wishlist">
+                                <p id="information-wishlist-text">Items</p>
+                                <p id="information-wishlist-numbers">0</p>
+                            </div>
+                            <div id="information-wishlist">
+                                <p id="information-wishlist-text">Created</p>
+                                <p contentEditable="true" id="information-wishlist-creation-date">11/12/23</p>
+                            </div>
                         </div>
-                        <div id="information-wishlist">
-                            <p id="information-wishlist-text">Created</p>
-                            <p contentEditable="true" id="information-wishlist-creation-date">11/12/23</p>
+                        <div class="button-delete">
+                            <button @click="deleteWishlist" id="button-delete-text">Delete</button>
+                            <button @click="editWishlist" id="information-wishlist-save-button">Save</button>
                         </div>
-                    </div>
-                    <div class="button-delete">
-                        <button @click="deleteWishlist" id="button-delete-text">Delete</button>
-                        <button @click="editWishlist" id="information-wishlist-save-button">Save</button>
                     </div>
                 </div>
                 <div id="hide-wishlist-data">
