@@ -744,6 +744,7 @@
             -ms-user-select: none;
             user-select: none;
             text-decoration: none;
+            margin-bottom: 2rem;
         }
         
         .wishlist-moving-info {
@@ -753,6 +754,11 @@
             border-radius: 20px;
             width: 50vh;
             margin-top: 15px;
+            margin-bottom: 3rem;
+        }
+        
+        #hide-moving {
+            display: none;
         }
         
         #navegation-gift {

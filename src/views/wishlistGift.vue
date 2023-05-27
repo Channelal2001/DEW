@@ -235,6 +235,7 @@ export default {
                     
                 </div>
             </div>
+            
         </section>
     </main>
     <footer></footer>
