@@ -207,7 +207,7 @@ export default {
                         <p id="user-chat">{{ product.name }}</p>
                         <p id="message-text">{{ product.description }}</p>
                     </div>
-                    <p id="notifications">Reserve</p>
+                    <a @click="reserveGift()" id="notifications">Reserve</a>
                 </button>
             </div>
             <div id="wishlist-information">
@@ -222,9 +222,6 @@ export default {
                         <p id="name-new-gift">iPhone 14 Pro ultra</p>
                     </div>
                     <p id="description-new-gift">Product description</p>
-                    <div id="hola">
-                      <a @click="reserveGift()" id="notifications-info">Reserve</a>
-                    </div>
                     
                 </div>
             </div>

@@ -682,28 +682,6 @@
             text-decoration: none;
         }
         
-        #notifications-info {
-            font-family: Inter, medium;
-            color: white;
-            background-color: rgba(77, 74, 239, 1);
-            padding-top: 3px;
-            padding-bottom: 3px;
-            padding-left: 7px;
-            padding-right: 7px;
-            border-radius: 50px;
-            font-size: 16px;
-            margin-left: 2rem;
-            margin-right: 20px;
-            align-items: flex-end;
-            text-decoration: none;
-            justify-self: center;
-            cursor: pointer;
-        }
-        
-        #notifications-info:hover {
-            background-color: rgb(47, 45, 152);
-        }
-        
         #notifications-reserved {
             background-color: rgba(226, 148, 31, 1);
             padding-top: 3px;
@@ -852,24 +830,6 @@
                 margin-left: 20px;
                 margin-right: 20px;
                 align-items: flex-end;
-            }
-            #notifications-info {
-                font-family: Inter, medium;
-                color: white;
-                background-color: rgba(77, 74, 239, 1);
-                padding-top: 3px;
-                padding-bottom: 3px;
-                padding-left: 7px;
-                padding-right: 7px;
-                border-radius: 50px;
-                font-size: 16px;
-                margin-left: 2rem;
-                margin-right: 20px;
-                align-items: flex-end;
-                text-decoration: none;
-            }
-            #notifications-info:hover {
-                background-color: rgb(47, 45, 152);
             }
         }
         
