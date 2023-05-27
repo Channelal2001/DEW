@@ -45,7 +45,8 @@ header {
 
 .image {
     max-width: 240px;
-    width: 80%;
+    width: 8rem;
+    height: 8rem;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;

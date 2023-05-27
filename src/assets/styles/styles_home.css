@@ -60,7 +60,9 @@
     }
     
     #image-friend-info {
-        width: 5rem;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 45px;
     }
     
     #email-friend {
