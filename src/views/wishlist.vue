@@ -110,24 +110,13 @@ export default {
             y.style.display = "none";
         }
     },
-   
-    showLink(){
-        var x = document.getElementById("hide-link");
-        if (x.style.display === "none") {
-          x.style.display = "block";
-       
-        } else {
-          x.style.display = "none";
-          
-      }
-    },
     showLinks(){
         var x = document.getElementById("hide-links");
-        if (x.style.display === "none") {
-          x.style.display = "block";
+        if (x.style.display === "block") {
+          x.style.display = "none";
        
         } else {
-          x.style.display = "none";
+          x.style.display = "block";
           
       }
     },
@@ -209,6 +198,7 @@ export default {
         document.getElementById('information-wishlist-ending-date').innerHTML = wishlistData.end_date.substring(0, 10);
         document.getElementById('information-wishlist-creation-date').innerHTML = wishlistData.creation_date.substring(0, 10);
         document.getElementById('information-wishlist-numbers').innerHTML = wishlistData.gifts.length;
+        document.getElementById('information-wishlist-numbers-box').innerHTML = wishlistData.end_date.substring(0, 10);
         gifts = wishlistData.gifts;
         this.loadProducts(gifts);
     })

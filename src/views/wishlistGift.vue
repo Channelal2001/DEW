@@ -88,6 +88,42 @@ export default {
         x.style.display = "block";
       }
     },
+    reserveGift() {
+      const token = localStorage.getItem('token');
+      fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/gifts/${giftId}/book`, {
+        method: 'POST',
+        headers: {
+          'accept': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        if (response.status === 201) {
+          return response.json();
+        } else {
+          switch (response.status) {
+            case 204:
+              alert('Product not found');
+              break;
+            case 400:
+              alert('Bad request');
+              break;
+            case 406:
+              alert('Missing parameters');
+              break;
+            case 409:
+              alert('The reservation has been previously registered');
+              break;
+            case 500:
+              alert('The gift reserve has not been created');
+              break;
+            case 502:
+              alert('Internal Server Error');
+              break;
+          }
+        }
+      })
+    }
   },
   mounted() {
     let gifts = [];
@@ -165,14 +201,13 @@ export default {
         </section>
         <section class="chats-dashboard">
             <div id="wishlist-product-list">
-                <!-- TODO: Quan es cliqui aquest botó s'ha de mostrar el panell amb la informació del producte -->
                 <button @click="showProductInformation(product.id)" v-for="product in products" :key="product.id" class="chat-user-moving">
                     <img id="image-user" :src="product.photo" alt="image-chat-user ">
                     <div id="box-message-gift">
                         <p id="user-chat">{{ product.name }}</p>
                         <p id="message-text">{{ product.description }}</p>
                     </div>
-                    <a href="/wishlistGiftReserved" id="notifications">Reserve</a>
+                    <a @click="reserveGift()" id="notifications">Reserve</a>
                 </button>
             </div>
             <div id="wishlist-information">
