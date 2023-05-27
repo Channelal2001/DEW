@@ -100,6 +100,7 @@ export default {
       })
       .then((response) => {
         if (response.status === 201) {
+          alert('The gift has been reserved');
           return response.json();
         } else {
           switch (response.status) {
