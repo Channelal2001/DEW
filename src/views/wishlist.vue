@@ -132,8 +132,9 @@ export default {
           y.style.display = "none";
       }
     },
-    loadProduct(productURL) {
-      fetch(productURL, {
+    loadProduct(gift) {
+      localStorage.setItem('giftID', gift.id);
+      fetch(gift.product_url, {
         method: 'GET',
         headers: {
           'accept': 'application/json',
@@ -294,7 +295,7 @@ export default {
                         <p id="message-text">{{ product.description }}</p>
                     </div>
                 </button>-->
-                <button @click="loadProduct(gift.product_url)" v-for="gift in gifts" :key="gift.id" class="chat-user-moving">
+                <button @click="loadProduct(gift)" v-for="gift in gifts" :key="gift.id" class="chat-user-moving">
                   <div id="box-message-gift">
                     <p id="user-chat">Priority: {{ gift.priority }}</p>
                     <p id="message-text">{{ gift.product_url }}</p>
