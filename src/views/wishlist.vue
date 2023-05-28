@@ -401,7 +401,7 @@ export default {
                 <div id="button-add">
                     <p @click= "hideWhislistInfo" id="button-add-gift">Add gift</p>
                 </div>
-              
+
                 <button @click="loadProduct(gift)" v-for="gift in gifts" :key="gift.id" class="chat-user-moving">
                   <div class="gift-position">
                     <div id="box-message-gift">

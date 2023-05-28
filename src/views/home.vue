@@ -75,8 +75,7 @@ export default {
         },
       })
       .then((response) => {
-        // NOTE: Quan la petició es fa bé retorna un status code de 201. S'hauria de parlar per a que ho solucionin
-        if (response.status === 200) {
+        if (response.status === 201) {
           alert('Friend request sent');
           return response.json();
         } else {
