@@ -16,21 +16,20 @@ export default {
     loadFriendsWishlists(idsFriends) {
       const token = localStorage.getItem('token');
       idsFriends.forEach((friendId) => {
-            fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${friendId}/wishlists`, {
-              method: 'GET',
-              headers: {
-                'Accept': 'application/json',
-                'Authorization': `Bearer ${token}`,
-              },
-            })
-                .then((response) => {
-                  return response.json();
-                })
-                .then((data) => {
-                  this.friendsWishlists.push(...data);
-                })
-          }
-      )
+        fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${friendId}/wishlists`, {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          this.friendsWishlists.push(...data);
+        })
+      })
     },
     loadFriends() {
       let idsFriends = [];
@@ -153,30 +152,30 @@ export default {
           Authorization: `Bearer ${token}`,
         },
       })
-          .then((response) => {
-            if (response.status === 200) {
-              alert('Friend request removed');
-              return response.json();
-            } else {
-              switch (response.status) {
-                case 400:
-                  alert('Bad request');
-                  break;
-                case 401:
-                  alert('Unauthorized');
-                  break;
-                case 406:
-                  alert('Missing parameters');
-                  break;
-                case 500:
-                  alert('Friend request not removed');
-                  break;
-                case 502:
-                  alert('Internal Server Error');
-                  break;
-              }
-            }
-          })
+      .then((response) => {
+        if (response.status === 200) {
+          alert('Friend request removed');
+          return response.json();
+        } else {
+          switch (response.status) {
+            case 400:
+              alert('Bad request');
+              break;
+            case 401:
+              alert('Unauthorized');
+              break;
+            case 406:
+              alert('Missing parameters');
+              break;
+            case 500:
+              alert('Friend request not removed');
+              break;
+            case 502:
+              alert('Internal Server Error');
+              break;
+          }
+        }
+      })
     },
     showfriends() {
       var x = document.getElementById("hide");
