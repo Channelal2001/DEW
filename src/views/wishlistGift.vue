@@ -225,14 +225,12 @@ export default {
                     <p id="text-celebration-box">Celebration day in</p>
                     <p id="information-wishlist-numbers-box">10 days 2h 11 min</p>
                 </div>
-
                 <div id="gift-information">
                     <div class="image-name-new-gift">
                         <img class="image-icon-wishlist-user" src="something.png" alt="image-gift">
                         <p id="name-new-gift">iPhone 14 Pro ultra</p>
                     </div>
                     <p id="description-new-gift">Product description</p>
-                    
                 </div>
             </div>
             

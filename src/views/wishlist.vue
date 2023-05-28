@@ -339,6 +339,11 @@ export default {
                                 </svg>
                             </a>
                         </div>
+                        <div class="image-name-new-gift">
+                          <img class="image-icon-wishlist-user" src="something.png" alt="image-gift">
+                          <p id="name-new-gift">iPhone 14 Pro ultra</p>
+                        </div>
+                        <p id="description-new-gift">Product description</p>
                         <p id="text-list-wishlist">Where you want to move</p>
                         <div id="lists">
                             <p id="name-wishlist-move">Andrea’s party</p>
