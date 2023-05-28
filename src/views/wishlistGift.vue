@@ -43,10 +43,9 @@ export default {
         this.showProductPanel();
       })
     },
-    async unreservedGift() {
+    unreservedGift(giftID) {
         const token = localStorage.getItem('token');
-        const giftID = localStorage.getItem('giftID');
-        fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/gifts/book/${giftID}`, {
+        fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/gifts/${giftID}/book/`, {
             method: 'DELETE',
             headers: {
                 'accept': 'application/json',
@@ -64,10 +63,10 @@ export default {
                         alert('Unauthorized');
                         break;
                     case 500:
-                        alert('The Gift has not unreserved');
+                        alert('The reservation has not been canceled');
                         break;
                     case 502:
-                        alert('Internal server error');
+                        alert('Internal Server Error');
                         break;
                 }
             }
@@ -94,6 +93,7 @@ export default {
       .then((response) => {
         if (response.status === 201) {
           alert('The gift has been reserved');
+          window.location.href = "/wishlistGift";
           return response.json();
         } else {
           switch (response.status) {
@@ -201,7 +201,7 @@ export default {
                   </div>
                   <div class="butons-reserve">
                   <button @click="reserveGift(gift.id)" id="notifications">Reserve</button>
-                  <button @click="unreservedGift" id="button-delete-unreserve">Unreserve</button>
+                  <button @click="unreservedGift(gift.id)" id="button-delete-unreserve">Unreserve</button>
                   </div>
                 </div>
             </div>
