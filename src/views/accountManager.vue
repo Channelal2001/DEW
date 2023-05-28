@@ -21,7 +21,6 @@ export default {
             password: password,
             image: image,
         }
-        
         fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/users', {
             method: 'PUT',
             headers: {
