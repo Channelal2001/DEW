@@ -10,6 +10,12 @@
             flex-direction: column;
         }
         
+        .gift-position {
+            display: flex;
+            flex-direction: row;
+            padding: 10px;
+        }
+        
         #hide-text {
             display: none;
         }
@@ -602,7 +608,6 @@
             margin-top: 5px;
             font-size: 14px;
             border: none;
-            margin-left: 1rem;
         }
         
         #description-new-gift {
@@ -649,8 +654,7 @@
         }
         
         #button-delete-product {
-            margin-bottom: 0px;
-            margin-top: 20px;
+            margin-left: 20px;
             cursor: pointer;
             font-size: 14px;
             -webkit-user-select: none;
@@ -663,6 +667,7 @@
             border: none;
             width: fit-content;
             align-self: center;
+            justify-self: center;
         }
         
         #button-delete-unreserve {
@@ -727,7 +732,8 @@
         .chat-user-moving {
             background-color: rgb(255, 255, 255);
             border-radius: 20px;
-            width: 50vh;
+            width: auto;
+            padding-right: 10px;
             margin-left: 60px;
             margin-top: 15px;
             display: flex;
@@ -760,6 +766,7 @@
             font-size: 23px;
             margin: 0;
             padding-left: 10px;
+            align-self: flex-start;
         }
         
         #message-text {
@@ -1084,7 +1091,8 @@
             .chat-user-moving {
                 background-color: rgb(255, 255, 255);
                 border-radius: 20px;
-                width: 50vh;
+                width: auto;
+                padding-right: 10px;
                 margin-left: 5%;
                 margin-top: 15px;
                 display: flex;

@@ -359,10 +359,13 @@ export default {
                
                 <!-- TODO: Quan s'arribi a aquella part s'ha de poder moure el regal de wishlist. S'haurà de poder seleccionar a quina wishlist es vol moure -->
                 <button @click="loadProduct(gift)" v-for="gift in gifts" :key="gift.id" class="chat-user-moving">
-                  <div id="box-message-gift">
-                    <p id="user-chat">Priority: {{ gift.priority }}</p>
-                    <p id="message-text">{{ gift.product_url }}</p>
-                  </div>
+                  <div class="gift-position">
+                    <div id="box-message-gift">
+                      <p id="user-chat">Priority: {{ gift.priority }}</p>
+                      <p id="message-text">{{ gift.product_url }}</p>
+                    </div>
+                    <button @click="deleteGift" id="button-delete-product">Delete</button>
+                    </div>
                 </button>
                 <div id="hide-text">
                     <p id="message-emty">Add the first gift</p>
@@ -440,7 +443,6 @@ export default {
                           <p id="name-gift">iPhone 14 Pro ultra</p>
                         </div>
                         <p id="description-gift">Product description</p>
-                        <button @click="deleteGift" id="button-delete-product">Delete</button>
                         <p id="text-list-wishlist">Where you want to move</p>
                         <div v-for="wishlist in wishlists" :key="wishlist.id" id="lists">
                             <p id="name-wishlist-move">{{ wishlist.name }}</p>
