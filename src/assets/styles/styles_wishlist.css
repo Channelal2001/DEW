@@ -629,6 +629,28 @@
             align-self: center;
         }
         
+        #button-delete-unreserve {
+            margin-bottom: 5px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            text-decoration: none;
+            color: white;
+            background-color: red;
+            border-radius: 45px;
+            border: none;
+            width: fit-content;
+            align-self: center;
+            margin-left: 40%;
+        }
+        
+        #button-delete-unreserve:hover {
+            background-color: rgb(143, 0, 0);
+        }
+        
         #button-delete-product:hover {
             background-color: rgb(143, 0, 0);
         }
