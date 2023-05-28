@@ -128,7 +128,6 @@ export default {
     }
   },
   mounted() {
-    //let gifts = [];
     const token = localStorage.getItem('token');
     const wishlistID = localStorage.getItem('wishlistID');
     fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/wishlists/${wishlistID}`, {
@@ -162,13 +161,11 @@ export default {
       }
     })
     .then((wishlistData) => {
-      console.log(wishlistData);
       document.getElementById('name-wishlist').innerHTML = wishlistData.name;
       document.getElementById('description-wishlist').innerHTML = wishlistData.description;
       // TODO: S'ha de modificar la sortida d'aquesta data perque mostri els dies, hores minuts que falten per la finalització de la wishlist
       document.getElementById('information-wishlist-numbers-box').innerHTML = wishlistData.end_date.substring(0, 10);
       this.gifts = wishlistData.gifts;
-      //this.loadProducts(gifts);
     })
   }
 }
