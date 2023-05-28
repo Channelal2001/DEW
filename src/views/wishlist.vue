@@ -4,7 +4,8 @@ import divideTokenVue from '../components/divideToken.vue';
 export default {
   data() {
     return {
-      products: [],
+      gifts: [],
+      //products: [],
     };
   },
   methods: {
@@ -97,7 +98,6 @@ export default {
             y.style.display = "block";
         }
     },
-   
     showWhislistInfo() {
         var x = document.getElementById("wishlist-data-information");
         var y = document.getElementById("hide-wishlist-data");
@@ -133,9 +133,7 @@ export default {
           
       }
     },
-   
-    
-    loadProducts(gifts) {
+    /*loadProducts(gifts) {
       gifts.forEach((gift) => {
         fetch(gift.product_url, {
           method: 'GET',
@@ -170,9 +168,8 @@ export default {
             this.products.push(productsData);
         })
       })
-    },
+    },*/
   },
-
   mounted() {
     const token = localStorage.getItem('token');
     const wishlistID = localStorage.getItem('wishlistID');
@@ -214,8 +211,8 @@ export default {
         document.getElementById('information-wishlist-creation-date').innerHTML = wishlistData.creation_date.substring(0, 10);
         document.getElementById('information-wishlist-numbers').innerHTML = wishlistData.gifts.length;
         document.getElementById('information-wishlist-numbers-box').innerHTML = wishlistData.end_date.substring(0, 10);
-        gifts = wishlistData.gifts;
-        this.loadProducts(gifts);
+        this.gifts = wishlistData.gifts;
+        //this.loadProducts(gifts);
     })
   }
 }
@@ -254,12 +251,18 @@ export default {
                 </div>
                
                 <!-- TODO: Quan s'arribi a aquella part s'ha de poder moure el regal de wishlist. S'haurà de poder seleccionar a quina wishlist es vol moure -->
-                <button @click="showMovingPanel" v-for="product in products" :key="product.id" class="chat-user-moving">
+                <!--<button @click="showMovingPanel" v-for="product in products" :key="product.id" class="chat-user-moving">
                     <img id="image-user" :src="product.photo" alt="image-chat-user ">
                     <div id="box-message-gift">
                         <p id="user-chat">{{ product.name }}</p>
                         <p id="message-text">{{ product.description }}</p>
                     </div>
+                </button>-->
+                <button @click="showMovingPanel" v-for="gift in gifts" :key="gift.id" class="chat-user-moving">
+                  <div id="box-message-gift">
+                    <p id="user-chat">Priority: {{ gift.priority }}</p>
+                    <p id="message-text">{{ gift.product_url }}</p>
+                  </div>
                 </button>
                 <div id="hide-text">
                     <p id="message-emty">Add the first gift</p>
@@ -272,7 +275,6 @@ export default {
                             <p id="text-celebration">Celebration day in</p>
                             <p contentEditable="true" id="information-wishlist-ending-date">15/12/23</p>
                         </div>
-
                         <div class="information-wishlist-updateble">
                             <div id="information-wishlist">
                                 <p id="information-wishlist-text">Items</p>
@@ -337,13 +339,10 @@ export default {
                                 </svg>
                             </a>
                         </div>
-
                         <p id="text-list-wishlist">Where you want to move</p>
-
-
                         <div id="lists">
                             <p id="name-wishlist-move">Andrea’s party</p>
-                            <!-- TODO: Quan s'apreti aquest botó s'ha de tancar la pestanya per moure el regal -->
+                            <!-- TODO: Quan s'apreti aquest botó s'ha de tancar la pestanya per moure el regal i s'ha de moure el regal. Es posarà la funció showMovingPanel dins de la funció que s'hagi creat per moure el regal -->
                             <a href="/wishlistMoved" id="move-button">Move</a>
                         </div>
                         <!-- TODO: Quan s'apreti aquest botó s'ha de tancar la pestanya per moure el regal -->
