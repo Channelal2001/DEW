@@ -86,6 +86,36 @@ export default {
             }
         })
     },
+    async deleteGift() {
+        const token = localStorage.getItem('token');
+        const wishlistID = localStorage.getItem('Gift ID');
+        fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/gifts/${giftID}`, {
+            method: 'DELETE',
+            headers: {
+                'accept': 'application/json',
+                Authorization: `Bearer ${token}`,
+            },
+        })
+        .then((response) => {
+            if (response.status === 200) {
+                alert('Gift removed');
+                window.location.href = "/Wishlist";
+                return response.json();
+            } else {
+                switch(response.status) {
+                    case 401:
+                        alert('Unauthorized');
+                        break;
+                    case 500:
+                        alert('The Gift has not deleted');
+                        break;
+                    case 502:
+                        alert('Internal server error');
+                        break;
+                }
+            }
+        })
+    },
     hideWhislistInfo() {
         var x = document.getElementById("wishlist-data-information");
         var y = document.getElementById("hide-wishlist-data");
@@ -412,6 +442,7 @@ export default {
                           <p id="name-gift">iPhone 14 Pro ultra</p>
                         </div>
                         <p id="description-gift">Product description</p>
+                        <button @click="deleteGift" id="button-delete-product">Delete</button>
                         <p id="text-list-wishlist">Where you want to move</p>
                         <div v-for="wishlist in wishlists" :key="wishlist.id" id="lists">
                             <p id="name-wishlist-move">{{ wishlist.name }}</p>

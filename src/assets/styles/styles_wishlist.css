@@ -542,7 +542,7 @@
             flex-direction: row;
             align-items: center;
         }
-
+        
         #name-gift {
             font-family: Inter, sans-serif;
             color: rgba(139, 139, 139, 1);
@@ -551,7 +551,7 @@
             margin-top: 15px;
             font-size: 35px;
         }
-
+        
         #description-gift {
             color: rgba(139, 139, 139, 1);
             font-family: Inter, sans-serif;
@@ -559,7 +559,7 @@
             padding-left: 15px;
             margin-left: 20px;
         }
-
+        
         #name-new-gift {
             font-family: Inter, medium;
             color: rgba(139, 139, 139, 1);
@@ -609,6 +609,28 @@
             background-color: red;
             border-radius: 45px;
             border: none;
+            width: fit-content;
+        }
+        
+        #button-delete-product {
+            margin-bottom: 0px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            text-decoration: none;
+            color: white;
+            background-color: red;
+            border-radius: 45px;
+            border: none;
+            width: fit-content;
+            align-self: center;
+        }
+        
+        #button-delete-product:hover {
+            background-color: rgb(143, 0, 0);
         }
         
         #button-delete-text:hover {
@@ -711,7 +733,7 @@
         #button-see-more {
             font-family: Inter, medium;
             color: white;
-            background-color: rgb(254, 169, 132);
+            border-color: rgb(126, 126, 126);
             padding-top: 3px;
             padding-bottom: 3px;
             padding-left: 12px;
@@ -730,7 +752,7 @@
         }
         
         #button-see-more:hover {
-            background-color: rgb(183, 117, 89);
+            background-color: rgb(111, 111, 111);
         }
         
         #notifications-reserved {
@@ -893,8 +915,8 @@
             }
             #button-see-more {
                 font-family: Inter, medium;
+                border-color: rgb(126, 126, 126);
                 color: white;
-                background-color: rgb(254, 169, 132);
                 padding-top: 3px;
                 padding-bottom: 3px;
                 padding-left: 12px;
@@ -912,7 +934,7 @@
                 align-self: center;
             }
             #button-see-more:hover {
-                background-color: rgb(183, 117, 89);
+                background-color: rgb(111, 111, 111);
             }
         }
         
