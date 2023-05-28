@@ -118,6 +118,7 @@ export default {
       .then((response) => {
         if (response.status === 200) {
           alert('Friend request accepted');
+          window.location.href="/home";
           return response.json();
         } else {
           switch (response.status) {
@@ -155,6 +156,7 @@ export default {
       .then((response) => {
         if (response.status === 200) {
           alert('Friend request removed');
+          window.location.href="/home";
           return response.json();
         } else {
           switch (response.status) {
@@ -169,6 +171,41 @@ export default {
               break;
             case 500:
               alert('Friend request not removed');
+              break;
+            case 502:
+              alert('Internal Server Error');
+              break;
+          }
+        }
+      })
+    },
+    deleteFriend (userID) {
+      const token = localStorage.getItem('token');
+      fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends/${userID}`, {
+        method: 'DELETE',
+        headers: {
+          'accept': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        if (response.status === 200) {
+          alert('Friend removed');
+          window.location.href="/home";
+          return response.json();
+        } else {
+          switch (response.status) {
+            case 400:
+              alert('Bad request');
+              break;
+            case 401:
+              alert('Unauthorized');
+              break;
+            case 406:
+              alert('Missing parameters');
+              break;
+            case 500:
+              alert('Friend not removed');
               break;
             case 502:
               alert('Internal Server Error');
@@ -436,11 +473,13 @@ export default {
               <div id="name-surname-friend">
                 <p id="text-firend-info">{{ friend.name }}</p>
                 <p id="text-firend-info">{{ friend.last_name }}</p>
-                <!--Arreglar posició corss-->
+                <!-- TODO: Arreglar posició cross-->
                 <div>
-                  <svg id="svg-icon-cross-friends" viewBox="0 0 20 20">
-                                    <path  d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
-                                </svg>
+                  <a @click="deleteFriend(friend.id)">
+                    <svg id="svg-icon-cross-friends" viewBox="0 0 20 20">
+                      <path  d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
+                    </svg>
+                  </a>
                 </div>
               </div>
               <div>
