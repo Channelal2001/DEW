@@ -401,8 +401,7 @@ export default {
                 <div id="button-add">
                     <p @click= "hideWhislistInfo" id="button-add-gift">Add gift</p>
                 </div>
-               
-                <!-- TODO: Quan s'arribi a aquella part s'ha de poder moure el regal de wishlist. S'haurà de poder seleccionar a quina wishlist es vol moure -->
+              
                 <button @click="loadProduct(gift)" v-for="gift in gifts" :key="gift.id" class="chat-user-moving">
                   <div class="gift-position">
                     <div id="box-message-gift">
@@ -453,7 +452,6 @@ export default {
                                     <path  d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
                                 </svg>
                             </div>
-                            <!-- TODO: Afegir un mètode al @click per afegir el regal a la api -->
                             <a @click="addGift" id="button-add">Add</a>
                            
                         </div>
@@ -467,7 +465,6 @@ export default {
             <div id="hide-moving">
                 <div class="wishlist-moving-info">
                         <div class="buttons-navegation-new-gift">
-                            <!-- TODO: Quan s'apreti aquest botó s'ha de tancar la pestanya per moure el regal -->
                             <a @click="showMovingPanel">
                                 <svg id="svg-icon-cross-friends" viewBox="0 0 20 20">
                                     <path  d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
@@ -482,10 +479,8 @@ export default {
                         <p id="text-list-wishlist">Where you want to move</p>
                         <div v-for="wishlist in wishlists" :key="wishlist.id" id="lists">
                             <p id="name-wishlist-move">{{ wishlist.name }}</p>
-                            <!-- TODO: Quan s'apreti aquest botó s'ha de tancar la pestanya per moure el regal i s'ha de moure el regal. Es posarà la funció showMovingPanel dins de la funció que s'hagi creat per moure el regal -->
                             <a @click="moveGift(wishlist)" id="move-button">Move</a>
                         </div>
-                        <!-- TODO: Quan s'apreti aquest botó s'ha de tancar la pestanya per moure el regal -->
                         <a @click="showMovingPanel" id="cancel-button">Cancel</a>
                     </div>
                 </div>
