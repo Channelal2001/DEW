@@ -14,7 +14,7 @@
         }
         
         #hide-info {
-            display: none;
+            display: block;
         }
         
         #add-links {
