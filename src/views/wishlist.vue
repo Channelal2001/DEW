@@ -201,7 +201,7 @@ export default {
         this.showMovingPanel();
       })
     },
-    moveWishlist(wishlist) {
+    moveGift(wishlist) {
       const token = localStorage.getItem('token');
       const giftID = localStorage.getItem('giftID');
       const wishlistID = wishlist.id;
@@ -241,6 +241,51 @@ export default {
               break;
             case 410:
               alert('The gift has not been moved');
+              break;
+          }
+        }
+      })
+    },
+    addGift() {
+      const token = localStorage.getItem('token');
+      const wishlistID = localStorage.getItem('wishlistID');
+      const productURL = document.getElementById('input-description-gift').value;
+      const priority = document.getElementById('box-link-priority').value;
+      const gift = {
+        wishlist_id: wishlistID,
+        product_url: productURL,
+        priority: priority,
+      }
+      fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/gifts', {
+        method: 'POST',
+        headers: {
+          'accept': 'application/json',
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(gift),
+      })
+      .then((response) => {
+        if (response.status === 201) {
+          alert('Gift created');
+          window.location.href = "/wishlist";
+          return response.json();
+        } else {
+          switch(response.status) {
+            case 400:
+              alert('Bad request');
+              break;
+            case 406:
+              alert('Missing parameters');
+              break;
+            case 409:
+              alert('The gift has been previously registered');
+              break;
+            case 500:
+              alert('Gift not created');
+              break;
+            case 502:
+              alert('Internal Server Error');
               break;
           }
         }
@@ -406,21 +451,12 @@ export default {
                                 </svg>
                             </div>
                             <!-- TODO: Afegir un mètode al @click per afegir el regal a la api -->
-                            <a @click="hideFirstGiftMessage" id="button-add">Add</a>
+                            <a @click="addGift" id="button-add">Add</a>
                            
                         </div>
                         <div class="newGift">
-                            <input id="input-name-gift" type="text" name="Name gift" placeholder="Name of the gift">
-                            <input id="input-description-gift" type="text" name="description gift" placeholder="Description of the gitf">
+                            <input id="input-description-gift" type="text" name="description gift" placeholder="Product URL">
                             <input id="box-link-priority" type="text" name="priority gift" placeholder="Add a priority for the gift">
-                        </div>
-                        <div class="buttons-source">
-                            <p id="add-links" @click="showLinks" >Add a photo</p>
-                            <div id="hide-links">
-                                <div class="buttons-source-gift">
-                                    <input id="box-link" type="text" name="search" placeholder="Add a link...">
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -445,7 +481,7 @@ export default {
                         <div v-for="wishlist in wishlists" :key="wishlist.id" id="lists">
                             <p id="name-wishlist-move">{{ wishlist.name }}</p>
                             <!-- TODO: Quan s'apreti aquest botó s'ha de tancar la pestanya per moure el regal i s'ha de moure el regal. Es posarà la funció showMovingPanel dins de la funció que s'hagi creat per moure el regal -->
-                            <a @click="moveWishlist(wishlist)" id="move-button">Move</a>
+                            <a @click="moveGift(wishlist)" id="move-button">Move</a>
                         </div>
                         <!-- TODO: Quan s'apreti aquest botó s'ha de tancar la pestanya per moure el regal -->
                         <a @click="showMovingPanel" id="cancel-button">Cancel</a>
