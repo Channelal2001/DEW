@@ -158,7 +158,7 @@ header {
     margin: 0px;
 }
 
-#text-imput-chat {
+#text-input-chat {
     padding-left: 40px;
     padding-right: 40px;
     padding-top: 10px;
@@ -171,7 +171,7 @@ header {
     width: 100%;
 }
 
-#text-imput {
+#text-input {
     font-family: Inter, medium;
     color: rgba(70, 70, 70, 0.3);
     min-width: auto;
@@ -328,7 +328,7 @@ footer {
         justify-content: space-between;
         margin-right: 150px;
     }
-    #text-imput-chat {
+    #text-input-chat {
         padding-left: 40px;
         padding-right: 40px;
         padding-top: 10px;
