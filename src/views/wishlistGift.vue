@@ -43,6 +43,36 @@ export default {
         this.showProductPanel();
       })
     },
+    async unreservedGift() {
+        const token = localStorage.getItem('token');
+        const giftID = localStorage.getItem('giftID');
+        fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/gifts/book/${giftID}`, {
+            method: 'DELETE',
+            headers: {
+                'accept': 'application/json',
+                Authorization: `Bearer ${token}`,
+            },
+        })
+        .then((response) => {
+            if (response.status === 200) {
+                alert('Gift unreserved');
+                window.location.href = "/wishlistGift";
+                return response.json();
+            } else {
+                switch(response.status) {
+                    case 401:
+                        alert('Unauthorized');
+                        break;
+                    case 500:
+                        alert('The Gift has not unreserved');
+                        break;
+                    case 502:
+                        alert('Internal server error');
+                        break;
+                }
+            }
+        })
+    },
     showProductPanel() {
       var x = document.getElementById("gift-information");
 
@@ -183,7 +213,9 @@ export default {
                         <p id="name-new-gift">iPhone 14 Pro ultra</p>
                     </div>
                     <p id="description-new-gift">Product description</p>
+                    <button @click="unreservedGift" id="button-delete-unreserve">Unreserve</button>
                 </div>
+                
             </div>
             
         </section>
