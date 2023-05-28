@@ -68,6 +68,7 @@ export default {
         .then((response) => {
             if (response.status === 200) {
                 alert('User deleted');
+                localStorage.clear();
                 window.location.href = "/";
                 return response.json();
             } else {
@@ -86,8 +87,7 @@ export default {
         })
     },
     async logout() {
-        localStorage.removeItem('token');
-        localStorage.removeItem('wishlistID');
+        localStorage.clear();
         window.location.href = "/";
     },
 },

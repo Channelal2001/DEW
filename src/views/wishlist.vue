@@ -5,7 +5,7 @@ export default {
   data() {
     return {
       gifts: [],
-      //products: [],
+      wishlists: [],
     };
   },
   methods: {
@@ -170,47 +170,60 @@ export default {
         this.showMovingPanel();
       })
     },
-    /*loadProducts(gifts) {
-      gifts.forEach((gift) => {
-        fetch(gift.product_url, {
-          method: 'GET',
-          headers: {
-            'accept': 'application/json',
-          },
-        })
-        .then((response) => {
-          if (response.status === 200) {
-            return response.json();
-          } else {
-            switch(response.status) {
-              case 204:
-                alert('Product not found');
-                break;
-              case 400:
-                alert('Bad request');
-                break;
-              case 401:
-                alert('Unauthorized');
-                break;
-              case 406:
-                alert('Missing parameters');
-                break;
-              case 502:
-                alert('Internal Server Error');
-                break;
-            }
-          }
-        })
-        .then((productsData) => {
-            this.products.push(productsData);
-        })
+    moveWishlist(wishlist) {
+      const token = localStorage.getItem('token');
+      const giftID = localStorage.getItem('giftID');
+      const wishlistID = wishlist.id;
+      const productURL = wishlist.gifts.product_url;
+      const priority = wishlist.gifts.priority;
+      const booked = wishlist.gifts.booked;
+      const gift = {
+        wishlist_id: wishlistID,
+        product_url: productURL,
+        priority: priority,
+        booked: booked,
+      }
+      fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/gifts/${giftID}`, {
+        method: 'PUT',
+        headers: {
+          'accept': 'application/json',
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(gift),
       })
-    },*/
+      .then((response) => {
+        if (response.status === 200) {
+          alert('Gift moved');
+          return response.json();
+        } else {
+          switch(response.status) {
+            case 400:
+              alert('Bad request');
+              break;
+            case 401:
+              alert('Unauthorized');
+              break;
+            case 406:
+              alert('Missing parameters');
+              break;
+            case 410:
+              alert('The gift has not been moved');
+              break;
+          }
+        }
+      })
+      .then((productData) => {
+        document.getElementById('name-gift').innerHTML = productData.name;
+        document.getElementById('description-gift').innerHTML = productData.description;
+        document.getElementsByClassName('image-icon-wishlist-user')[0].src = productData.photo;
+        this.showMovingPanel();
+      })
+    },
   },
   mounted() {
     const token = localStorage.getItem('token');
     const wishlistID = localStorage.getItem('wishlistID');
-    let gifts = [];
     fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/wishlists/${wishlistID}`, {
         method: 'GET',
         headers: {
@@ -249,7 +262,32 @@ export default {
         document.getElementById('information-wishlist-numbers').innerHTML = wishlistData.gifts.length;
         document.getElementById('information-wishlist-numbers-box').innerHTML = wishlistData.end_date.substring(0, 10);
         this.gifts = wishlistData.gifts;
-        //this.loadProducts(gifts);
+    })
+
+    const userID = divideTokenVue.methods.divideToken(token);
+    fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${userID}/wishlists`, {
+      method: 'GET',
+      headers: {
+        'accept': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .then((response) => {
+      if (response.status === 200) {
+        return response.json();
+      } else {
+        switch(response.status) {
+          case 401:
+            alert('Unauthorized');
+            break;
+          case 500:
+            alert('Error getting all wishlists');
+            break;
+        }
+      }
+    })
+    .then((wishlistsData) => {
+      this.wishlists = wishlistsData;
     })
   }
 }
@@ -288,13 +326,6 @@ export default {
                 </div>
                
                 <!-- TODO: Quan s'arribi a aquella part s'ha de poder moure el regal de wishlist. S'haurà de poder seleccionar a quina wishlist es vol moure -->
-                <!--<button @click="showMovingPanel" v-for="product in products" :key="product.id" class="chat-user-moving">
-                    <img id="image-user" :src="product.photo" alt="image-chat-user ">
-                    <div id="box-message-gift">
-                        <p id="user-chat">{{ product.name }}</p>
-                        <p id="message-text">{{ product.description }}</p>
-                    </div>
-                </button>-->
                 <button @click="loadProduct(gift)" v-for="gift in gifts" :key="gift.id" class="chat-user-moving">
                   <div id="box-message-gift">
                     <p id="user-chat">Priority: {{ gift.priority }}</p>
@@ -382,10 +413,10 @@ export default {
                         </div>
                         <p id="description-gift">Product description</p>
                         <p id="text-list-wishlist">Where you want to move</p>
-                        <div id="lists">
-                            <p id="name-wishlist-move">Andrea’s party</p>
+                        <div v-for="wishlist in wishlists" :key="wishlist.id" id="lists">
+                            <p id="name-wishlist-move">{{ wishlist.name }}</p>
                             <!-- TODO: Quan s'apreti aquest botó s'ha de tancar la pestanya per moure el regal i s'ha de moure el regal. Es posarà la funció showMovingPanel dins de la funció que s'hagi creat per moure el regal -->
-                            <a href="/wishlistMoved" id="move-button">Move</a>
+                            <a @click="moveWishlist(wishlist)" id="move-button">Move</a>
                         </div>
                         <!-- TODO: Quan s'apreti aquest botó s'ha de tancar la pestanya per moure el regal -->
                         <a @click="showMovingPanel" id="cancel-button">Cancel</a>
