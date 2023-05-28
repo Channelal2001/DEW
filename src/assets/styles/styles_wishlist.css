@@ -631,7 +631,7 @@
         
         #button-delete-unreserve {
             margin-bottom: 5px;
-            margin-top: 20px;
+            margin-top: 10px;
             cursor: pointer;
             font-size: 14px;
             -webkit-user-select: none;
@@ -644,7 +644,6 @@
             border: none;
             width: fit-content;
             align-self: center;
-            margin-left: 40%;
         }
         
         #button-delete-unreserve:hover {
@@ -657,6 +656,11 @@
         
         #button-delete-text:hover {
             background-color: rgb(143, 0, 0);
+        }
+        
+        .butons-reserve {
+            display: flex;
+            flex-direction: column;
         }
         
         .chat-user {

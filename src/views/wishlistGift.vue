@@ -199,7 +199,10 @@ export default {
                     <p id="message-text">{{ gift.product_url }}</p>
                     <button @click="showProductInformation(gift.product_url)" id="button-see-more">See more</button>
                   </div>
+                  <div class="butons-reserve">
                   <button @click="reserveGift(gift.id)" id="notifications">Reserve</button>
+                  <button @click="unreservedGift" id="button-delete-unreserve">Unreserve</button>
+                  </div>
                 </div>
             </div>
             <div id="wishlist-information">
@@ -213,7 +216,7 @@ export default {
                         <p id="name-new-gift">iPhone 14 Pro ultra</p>
                     </div>
                     <p id="description-new-gift">Product description</p>
-                    <button @click="unreservedGift" id="button-delete-unreserve">Unreserve</button>
+                    
                 </div>
                 
             </div>
