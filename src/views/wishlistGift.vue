@@ -3,7 +3,6 @@ export default {
   data() {
     return {
       gifts: [],
-      //products: [],
     };
   },
   methods: {
@@ -42,42 +41,6 @@ export default {
         document.getElementById('description-new-gift').innerHTML = productData.description;
         document.getElementsByClassName("image-icon-wishlist-user")[0].src = productData.photo;
         this.showProductPanel();
-      })
-    },
-    loadProducts(gifts) {
-      gifts.forEach((gift) => {
-        fetch(gift.product_url, {
-          method: 'GET',
-          headers: {
-            'accept': 'application/json',
-          },
-        })
-        .then((response) => {
-          if (response.status === 200) {
-            return response.json();
-          } else {
-            switch(response.status) {
-              case 204:
-                alert('Product not found');
-                break;
-              case 400:
-                alert('Bad request');
-                break;
-              case 401:
-                alert('Unauthorized');
-                break;
-              case 406:
-                alert('Missing parameters');
-                break;
-              case 502:
-                alert('Internal Server Error');
-                break;
-            }
-          }
-        })
-        .then((productsData) => {
-          this.products.push(productsData);
-        })
       })
     },
     showProductPanel() {
@@ -200,14 +163,6 @@ export default {
         </section>
         <section class="chats-dashboard">
             <div id="wishlist-product-list">
-                <!--<button @click="showProductInformation(product.id)" v-for="product in products" :key="product.id" class="chat-user-moving">
-                    <img id="image-user" :src="product.photo" alt="image-chat-user ">
-                    <div id="box-message-gift">
-                        <p id="user-chat">{{ product.name }}</p>
-                        <p id="message-text">{{ product.description }}</p>
-                    </div>
-                    <a @click="reserveGift()" id="notifications">Reserve</a>
-                </button>-->
                 <div v-for="gift in gifts" :key="gift.id" class="chat-user">
                   <div id="box-message-gift">
                     <p id="user-chat">Priority: {{ gift.priority }}</p>
