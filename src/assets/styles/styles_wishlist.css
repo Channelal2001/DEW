@@ -5,6 +5,11 @@
             font-family: Inter, medium;
         }
         
+        .newGift {
+            display: flex;
+            flex-direction: column;
+        }
+        
         #hide-text {
             display: none;
         }
@@ -31,6 +36,17 @@
             width: fit-content;
             padding-left: 2rem;
             padding-right: 2rem;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            align-self: center;
+        }
+        
+        #box-link-priority {
+            border: 2px solid rgb(166, 255, 0);
+            border-radius: 45px;
+            width: fit-content;
+            padding-left: 1rem;
+            padding-right: 1rem;
             padding-top: 5px;
             padding-bottom: 5px;
             align-self: center;
@@ -567,6 +583,26 @@
             margin-bottom: 15px;
             margin-top: 15px;
             font-size: 35px;
+        }
+        
+        #input-name-gift {
+            font-family: Inter, sans-serif;
+            color: rgba(139, 139, 139, 1);
+            margin-bottom: 15px;
+            margin-top: 15px;
+            font-size: 18px;
+            border: none;
+            margin-left: 1rem;
+        }
+        
+        #input-description-gift {
+            font-family: Inter, sans-serif;
+            color: rgba(139, 139, 139, 1);
+            margin-bottom: 15px;
+            margin-top: 5px;
+            font-size: 14px;
+            border: none;
+            margin-left: 1rem;
         }
         
         #description-new-gift {

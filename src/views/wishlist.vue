@@ -409,10 +409,10 @@ export default {
                             <a @click="hideFirstGiftMessage" id="button-add">Add</a>
                            
                         </div>
-                        <div>
-                            <input id="name-new-gift" type="text" name="search" placeholder="Add a wishlist id">
-                            <input id="description-new-gift" type="text" name="search" placeholder="Add a product url">
-                            <input id="box-link" type="text" name="search" placeholder="Add a priority for the gift">
+                        <div class="newGift">
+                            <input id="input-name-gift" type="text" name="Name gift" placeholder="Name of the gift">
+                            <input id="input-description-gift" type="text" name="description gift" placeholder="Description of the gitf">
+                            <input id="box-link-priority" type="text" name="priority gift" placeholder="Add a priority for the gift">
                         </div>
                         <div class="buttons-source">
                             <p id="add-links" @click="showLinks" >Add a photo</p>
