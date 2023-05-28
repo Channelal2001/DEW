@@ -1,3 +1,119 @@
+<script>
+import divideTokenVue from '../components/divideToken.vue';
+export default {
+  data() {
+    return {
+      users: [],
+      messages: [],
+    };
+  },
+  methods: {
+    showMessages(userID) {
+      const token = localStorage.getItem('token');
+      localStorage.setItem('userID', userID);
+      fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/messages/${userID}`, {
+        method: 'GET',
+        headers: {
+          'accept': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          switch (response.status) {
+            case 401:
+              alert('Unauthorized');
+              break;
+            case 410:
+              alert('There is no user with that id');
+              break;
+            case 500:
+              alert('Error getting messages between the identified user and the authenticated user');
+              break;
+            case 502:
+              alert('Internal Server Error');
+              break;
+          }
+        }
+      })
+      .then((messagesData) => {
+        this.messages = messagesData;
+      })
+    },
+    sendMessage() {
+      const token = localStorage.getItem('token');
+      const content = document.getElementById('text-input-chat').value;
+      const userSenderID = divideTokenVue.methods.divideToken(token);
+      const userReceiverID = localStorage.getItem('userID');
+      const message = {
+        content: content,
+        user_id_send: userSenderID,
+        user_is_received: userReceiverID,
+      }
+      fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/messages', {
+        method: 'POST',
+        headers: {
+          'accept': 'application/json',
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(message),
+      })
+      .then((response) => {
+        if (response.status === 201) {
+          alert('Message sent');
+          return response.json();
+        } else {
+          switch (response.status) {
+            case 401:
+              alert('Unauthorized');
+              break;
+            case 500:
+              alert('Error sending message');
+              break;
+            case 502:
+              alert('Internal Server Error');
+              break;
+          }
+        }
+      })
+    },
+  },
+  mounted() {
+    const token = localStorage.getItem('token');
+    fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/messages/users', {
+      method: 'GET',
+      headers: {
+        'accept': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .then((response) => {
+      if (response.status === 200) {
+        return response.json();
+      } else {
+        switch (response.status) {
+          case 401:
+            alert('Unauthorized');
+            break;
+          case 500:
+            alert('Error getting friends list');
+            break;
+          case 502:
+            alert('Internal Server Error');
+            break;
+        }
+      }
+    })
+    .then((usersData) => {
+      this.users = usersData;
+    })
+  },
+}
+</script>
+
 <template>
     <div id="body_container">
         <header>
@@ -27,33 +143,17 @@
         <section class="chats-dashboard">
             <div id="chat-open">
                 <div id="search-bar">
-                        <input id="search-input" type="text" name="search" placeholder="Search...">
+                  <!--<input id="search-input" type="text" name="search" placeholder="Search..." @keydown.enter="searchUsers">-->
                 </div>
                 <div class="messages-box">
-                    <div class="chat-user">
-                        <img id="image-user" src="/src/assets/images/chat-image-user.png " alt="image-chat-user ">
+                    <button @click="showMessages(user.id)" v-for="user in users" :key="user.id" class="chat-user">
+                        <img id="image-user" :src="user.image" alt="image-chat-user ">
                         <div id="box-message-chat">
-                            <p id="user-chat">Alessandro Sadney</p>
+                            <p id="user-chat">{{ user.name }}</p>
                             <p id="message-text">Hi! I’m some grateful for your present!!!!</p>
                         </div>
                         <p id="notifications">2</p>
-                    </div>
-                    <div class="chat-user">
-                        <img id="image-user" src="/src/assets/images/chat-image-user.png " alt="image-chat-user ">
-                        <div id="box-message-chat">
-                            <p id="user-chat">Alessandro Sadney</p>
-                            <p id="message-text">Hi! I’m some grateful for your present!!!!</p>
-                        </div>
-                        <p id="notifications">2</p>
-                    </div>
-                    <div class="chat-user">
-                        <img id="image-user" src="/src/assets/images/chat-image-user.png " alt="image-chat-user ">
-                        <div id="box-message-chat">
-                            <p id="user-chat">Alessandro Sadney</p>
-                            <p id="message-text">Hi! I’m some grateful for your present!!!!</p>
-                        </div>
-                        <p id="notifications">2</p>
-                    </div>
+                    </button>
                 </div>
             </div>
             <section class="chat-open">
@@ -61,15 +161,15 @@
                 <div id="name-user-chat">
                     <p id="user-name">Alessandro Sadany</p>
                 </div>
-                <div class="messages">
-
+                <div v-for="message in messages" :key="message.id" class="messages">
+                  <p id="message-text">{{ message.content }}</p>
                 </div>
                  </div>
-                <div id="text-imput">
-                    <input id="text-imput-chat" type="text" name="search" placeholder="Type your message here...">
+                <div id="text-input">
+                    <input id="text-input-chat" type="text" name="search" placeholder="Type your message here...">
                     
-                    <div href="#" id="icon-send-back">
-                        <svg id="icon-send " xmlns="http://www.w3.org/2000/svg " width="16 " height="16 " fill="currentColor " class="bi bi-send " viewBox="0 0 16 16 "> <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643
+                    <div @click="sendMessage" id="icon-send-back">
+                        <svg id="icon-send " xmlns="http://www.w3.org/2000/svg" width="16 " height="16 " fill="currentColor " class="bi bi-send " viewBox="0 0 16 16 "> <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643
                         7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z " fill="white "></path> </svg>
                     </div>
                 </div>
