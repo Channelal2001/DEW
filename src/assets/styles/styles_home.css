@@ -80,15 +80,17 @@
         position: absolute;
         right: 5%;
         width: auto;
+        min-width: 12rem;
+        min-height: 3rem;
         background-color: white;
         border-radius: 20px;
-        padding: 1rem;
+        padding-top: 1rem;
+        padding-bottom: 4rem;
     }
     
     #svg-icon-cross {
         position: absolute;
         right: 0;
-        margin-top: 10px;
         margin-right: 10px;
         fill: white;
         background-color: rgba(224, 224, 224, 1);
