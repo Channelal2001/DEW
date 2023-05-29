@@ -514,9 +514,6 @@ export default {
               </svg>
             </button>
           </div>
-          <svg viewBox="0 0 290 1">
-            <line x1="0" y1="0.5" x2="290" y2="0.5" stroke="#CCCCCC" stroke-width="1" />
-          </svg>
           
         </div>
       </div>

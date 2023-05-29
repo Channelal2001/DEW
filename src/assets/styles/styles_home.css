@@ -63,6 +63,7 @@
         width: 4rem;
         height: 4rem;
         border-radius: 45px;
+        margin-right: 1rem;
     }
     
     #email-friend {
@@ -80,7 +81,7 @@
         position: absolute;
         right: 5%;
         width: auto;
-        min-width: 12rem;
+        min-width: 18rem;
         min-height: 3rem;
         background-color: white;
         border-radius: 20px;
@@ -129,6 +130,7 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        margin-left: 1rem;
     }
     
     .profile {
@@ -158,6 +160,7 @@
         margin-right: 10px;
         all: unset;
         cursor: pointer;
+        margin-right: 1rem;
     }
     
     .tick-cross {
