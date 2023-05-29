@@ -143,16 +143,16 @@ export default {
         <section class="chats-dashboard">
             <div id="chat-open">
                 <div id="search-bar">
-                  <!--<input id="search-input" type="text" name="search" placeholder="Search..." @keydown.enter="searchUsers">-->
+                  <input id="search-input" type="text" name="search" placeholder="Search..." @keydown.enter="searchUsers">
                 </div>
                 <div class="messages-box">
                     <button @click="showMessages(user.id)" v-for="user in users" :key="user.id" class="chat-user">
                         <img id="image-user" :src="user.image" alt="image-chat-user ">
                         <div id="box-message-chat">
                             <p id="user-chat">{{ user.name }}</p>
+                            <!-- TODO: Mirar si es pot mostrar l'últim missatge enviat -->
                             <p id="message-text">Hi! I’m some grateful for your present!!!!</p>
                         </div>
-                        <p id="notifications">2</p>
                     </button>
                 </div>
             </div>
