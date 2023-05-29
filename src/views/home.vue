@@ -537,7 +537,7 @@ export default {
                   <p>{{ friendWishlist.name }}</p>
                 </div>
                 <div class="text-time-present">
-                  <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day in:</b></p>
+                  <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day:</b></p>
                   <!-- TODO: Modificar la funció formatDate perquè retorni els dies que queden per què acabi la wishlist -->
                   <p style="margin-top: 0">{{ formatDate(friendWishlist.end_date) }}</p>
                 </div>
