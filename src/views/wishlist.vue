@@ -429,7 +429,7 @@ export default {
                             </div>
                             <div id="information-wishlist">
                                 <p id="information-wishlist-text">Created</p>
-                                <p contentEditable="true" id="information-wishlist-creation-date">11/12/23</p>
+                                <p id="information-wishlist-creation-date">11/12/23</p>
                             </div>
                         </div>
                         <div class="button-delete">
