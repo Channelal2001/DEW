@@ -419,7 +419,7 @@ export default {
                 <div id="hide-info">
                     <div id="wishlist-data-information">
                         <div id="date-start-text">
-                            <p id="text-celebration">Celebration day in</p>
+                            <p id="text-celebration">Celebration day</p>
                             <p contentEditable="true" id="information-wishlist-ending-date">15/12/23</p>
                         </div>
                         <div class="information-wishlist-updateble">

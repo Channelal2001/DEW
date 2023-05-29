@@ -77,7 +77,7 @@
             </div>
             <div id="wishlist-information">
                 <div class="wishlist-data-information-moved">
-                    <p id="text-celebration">Celebration day in</p>
+                    <p id="text-celebration">Celebration day </p>
                     <p id="information-wishlist-numbers-box">15 days 12 h 23 min</p>
                 </div>
                 <div class="chat-user-moving-gift">
