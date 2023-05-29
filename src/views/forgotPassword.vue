@@ -1,3 +1,62 @@
+<script>
+export default {
+  data() {
+    return {
+      friends: [],
+      myWishlists: [],
+      friendsWishlists: [],
+      requests: [],
+      users: [],
+      usersWishlists: [],
+    };
+  },
+  methods: {
+    search() {
+      const searchTerm = document.getElementById("search-bar").value;
+      const token = localStorage.getItem('token');
+      fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/search?s=${searchTerm}`, {
+        method: 'GET',
+        headers: {
+          'accept': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          switch (response.status) {
+            case 400:
+              alert('Bad request');
+              break;
+            case 401:
+              alert('Unauthorized');
+              break;
+            case 406:
+              alert('Missing parameters');
+              break;
+            case 500:
+              alert('Error getting list of found users');
+              break;
+            case 502:
+              alert('Internal Server Error');
+              break;
+          }
+        }
+      })
+      .then((usersData) => {
+        this.users = usersData;
+        this.users.forEach((user) => {
+          this.loadWishlists(user.id);
+        });
+        this.showSearch();
+      })
+      document.getElementById("search-bar").value = "";
+    },
+  },
+}
+</script>
+
 <template>
     <div id="body_container">
         <header>
@@ -6,23 +65,23 @@
         <main>
             <section class="signup-form">
                 <form class="sign-data-data">
-                    <div class="form-group">
+                    <!--<div class="form-group">
                         <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" required />
-                    </div>
+                        <input type="text" id="name" name="name" placeholder="Input your name" required />
+                    </div>-->
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required />
+                        <input type="email" id="email" name="email" placeholder="Input your email" required />
                     </div>
                     <div class="form-group">
                         <label for="Password">New Password:</label>
-                        <input type="email" id="password" name="password" required />
+                        <input type="email" id="password" name="password" placeholder="Input the new password" required />
                     </div>
                 </form>
             </section>
             <section>
                 <div id="button">
-                    <button type="submit"><a href="/login" id="button_text">Send</a></button>
+                    <button id="button_text">Send</button>
                 </div>
             </section>
 
