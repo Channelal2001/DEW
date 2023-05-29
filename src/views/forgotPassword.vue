@@ -14,6 +14,10 @@
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="email" required />
                     </div>
+                    <div class="form-group">
+                        <label for="Password">New Password:</label>
+                        <input type="email" id="password" name="password" required />
+                    </div>
                 </form>
             </section>
             <section>
