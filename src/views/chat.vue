@@ -50,7 +50,7 @@ export default {
       const message = {
         content: content,
         user_id_send: userSenderID,
-        user_is_received: userReceiverID,
+        user_id_recived: userReceiverID,
       }
       fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/messages', {
         method: 'POST',
