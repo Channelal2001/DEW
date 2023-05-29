@@ -441,7 +441,7 @@ export default {
                 <div id="hide-wishlist-data">
                   <div id="wishlist-information">
                     <div class="celebration-date-box">
-                        <p id="text-celebration-box">Celebration day in</p>
+                        <p id="text-celebration-box">Celebration day</p>
                         <p id="information-wishlist-numbers-box">10 days 2h 11 min</p>
                     </div>
 
