@@ -129,7 +129,7 @@ export default {
         document.getElementById('email').innerHTML = data.email;
         document.getElementsByClassName('image')[0].src = data.image;
     })
-    }
+  }
 }
 </script>
 

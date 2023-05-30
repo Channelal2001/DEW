@@ -8,19 +8,66 @@ export default {
     };
   },
   methods: {
-    showMessages(userID) {
+    async getUsername(userID) {
+      const token = localStorage.getItem('token');
+      try {
+        const response = await fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${userID}`, {
+          method: 'GET',
+          headers: {
+            'accept': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (response.status === 200) {
+          const data = await response.json();
+          return data.name;
+        } else {
+          switch (response.status) {
+            case 204:
+              alert('User not found');
+              break;
+            case 400:
+              alert('Bad request');
+              break;
+            case 401:
+              alert('Unauthorized');
+              break;
+            case 406:
+              alert('Missing parameters');
+              break;
+            case 502:
+              alert('Internal Server Error');
+              break;
+          }
+        }
+      } catch (error) {
+        throw new Error('Error occurred while fetching username');
+      }
+    },
+    async showMessages(userID) {
       const token = localStorage.getItem('token');
       localStorage.setItem('userID', userID);
-      fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/messages/${userID}`, {
-        method: 'GET',
-        headers: {
-          'accept': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
+      try {
+        const response = await fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/messages/${userID}`, {
+          method: 'GET',
+          headers: {
+            'accept': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
         if (response.status === 200) {
-          return response.json();
+          const mensaje = [];
+          const messagesData = await response.json();
+          for (const message of messagesData) {
+            const username = await this.getUsername(message.user_id_send);
+            mensaje.push({
+              username: username,
+              content: message.content,
+            });
+          }
+          this.messages = mensaje;
         } else {
           switch (response.status) {
             case 401:
@@ -37,10 +84,9 @@ export default {
               break;
           }
         }
-      })
-      .then((messagesData) => {
-        this.messages = messagesData;
-      })
+      } catch (error) {
+        throw new Error('Error occurred while fetching messages');
+      }
     },
     sendMessage() {
       const token = localStorage.getItem('token');
@@ -162,7 +208,7 @@ export default {
                     <p id="user-name">Alessandro Sadany</p>
                 </div>
                 <div v-for="message in messages" :key="message.id" class="messages">
-                  <p id="message-text">{{ message.content }}</p>
+                  <p id="message-text">{{ message.username }}: {{ message.content }}</p>
                 </div>
                  </div>
                 <div id="text-input">
