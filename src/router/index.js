@@ -3,7 +3,6 @@ import landingPage from '../views/landingPage.vue'
 import login from '../views/login.vue'
 import forgotPassword from '../views/forgotPassword.vue'
 import signup from '../views/signup.vue'
-import uploadImage from '../views/uploadImage.vue'
 import home from '../views/home.vue'
 import accountManager from '../views/accountManager.vue'
 import chat from '../views/chat.vue'
@@ -43,11 +42,7 @@ const router = createRouter({
             name: 'signup',
             component: signup
         },
-        {
-            path: '/uploadImage',
-            name: 'uploadImage',
-            component: uploadImage
-        },
+
         {
             path: '/home',
             name: 'home',
