@@ -598,6 +598,7 @@ export default {
                 </button>
                 <div id="show-wishlist-user">
                     <a id="link-wishlist-user">hola que ase</a>
+                    <!-- TODO: Afegir un botó per veure la wishlist de l'usuari -->
                   </div>
               </div>
             </article>
