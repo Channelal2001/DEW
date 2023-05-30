@@ -258,6 +258,7 @@ export default {
     },
     loadWishlists(userId) {
       const token = localStorage.getItem('token');
+      let wishlists = [];
       fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${userId}/wishlists`, {
         method: 'GET',
         headers: {
@@ -319,6 +320,7 @@ export default {
         }
       })
       .then((usersData) => {
+        this.usersWishlists.splice(0);
         this.users = usersData;
         this.users.forEach((user) => {
           this.loadWishlists(user.id);
