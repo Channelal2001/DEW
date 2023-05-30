@@ -129,6 +129,44 @@ export default {
         }
       })
     },
+    searchUsers() {
+      const searchTerm = document.getElementById("search-input").value;
+      const token = localStorage.getItem('token');
+      fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/search?s=${searchTerm}`, {
+        method: 'GET',
+        headers: {
+          'accept': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          switch (response.status) {
+            case 400:
+              alert('Bad request');
+              break;
+            case 401:
+              alert('Unauthorized');
+              break;
+            case 406:
+              alert('Missing parameters');
+              break;
+            case 500:
+              alert('Error getting list of found users');
+              break;
+            case 502:
+              alert('Internal Server Error');
+              break;
+          }
+        }
+      })
+      .then((usersData) => {
+        this.users = usersData;
+      })
+      document.getElementById("search-input").value = "";
+    },
   },
   mounted() {
     const token = localStorage.getItem('token');
@@ -199,8 +237,7 @@ export default {
                         <img id="image-user" :src="user.image" alt="image-chat-user ">
                         <div id="box-message-chat">
                             <p id="user-chat">{{ user.name }}</p>
-                            <!-- TODO: Mirar si es pot mostrar l'últim missatge enviat -->
-                            <p id="message-text">Hi! I’m some grateful for your present!!!!</p>
+                            <!--<p id="message-text">Hi! I’m some grateful for your present!!!!</p>-->
                         </div>
                     </button>
                 </div>

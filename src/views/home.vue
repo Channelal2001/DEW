@@ -9,6 +9,7 @@ export default {
       requests: [],
       users: [],
       usersWishlists: [],
+      userWishlists: [],
     };
   },
   methods: {
@@ -187,7 +188,7 @@ export default {
         }
       })
     },
-    deleteFriend (userID) {
+    deleteFriend(userID) {
       const token = localStorage.getItem('token');
       fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends/${userID}`, {
         method: 'DELETE',
@@ -256,9 +257,36 @@ export default {
     formatDate(date) {
       return date.substring(0, 10);
     },
+    loadUserWishlists(userId) {
+      const token = localStorage.getItem('token');
+      fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${userId}/wishlists`, {
+        method: 'GET',
+        headers: {
+          'accept': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          switch (response.status) {
+            case 401:
+              alert('Unauthorized');
+              break;
+            case 500:
+              alert('Error getting wishlists');
+              break;
+          }
+        }
+      })
+      .then((wishlistsData) => {
+        this.userWishlists = wishlistsData;
+        this.showWishlists();
+      })
+    },
     loadWishlists(userId) {
       const token = localStorage.getItem('token');
-      let wishlists = [];
       fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${userId}/wishlists`, {
         method: 'GET',
         headers: {
@@ -589,17 +617,17 @@ export default {
           
             <article v-for="user in users" :key="user.id" >
               <div class="present-cover">
-                <button class="text-present" @click="showWishlists">
+                <button class="text-present" @click="loadUserWishlists(user.id)">
                  
                   <div class="text-title-present">
                     <p>{{ user.name }}</p>
                   </div>
                   <button @click="sendFriendRequest(user.id)" class="button_follow">Follow</button>
                 </button>
-                <div id="show-wishlist-user">
-                    <a id="link-wishlist-user">hola que ase</a>
+                <div v-for="wishlist in userWishlists" :key="wishlist.id" id="show-wishlist-user">
+                    <a id="link-wishlist-user">{{ wishlist.name }}</a>
                     <!-- TODO: Afegir un botó per veure la wishlist de l'usuari -->
-                  </div>
+                </div>
               </div>
             </article>
           
