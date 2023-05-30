@@ -10,7 +10,6 @@ import wishlist from '../views/wishlist.vue'
 import viewProfile from '../views/viewProfile.vue'
 import newWishlist from '../views/newWishlist.vue'
 import wishlistGift from '../views/wishlistGift.vue'
-import wishlistErrorMessage from '../views/wishlistErrorMessage.vue'
 import chatMobileMessages from '../views/chatMobileMessages.vue'
 import chatMobileChatOpen from '../views/chatMobileChatOpen.vue'
 
