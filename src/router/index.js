@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import landingPage from '../views/landingPage.vue'
 import login from '../views/login.vue'
-import forgotPassword from '../views/forgotPassword.vue'
 import signup from '../views/signup.vue'
 import home from '../views/home.vue'
 import accountManager from '../views/accountManager.vue'
@@ -25,11 +24,6 @@ const router = createRouter({
             path: '/login',
             name: 'login',
             component: login
-        },
-        {
-            path: '/forgotPassword',
-            name: 'forgotPassword',
-            component: forgotPassword
         },
         {
             path: '/signup',

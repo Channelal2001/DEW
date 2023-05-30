@@ -66,12 +66,11 @@ export default {
                     </div>
                 </form>
             </section>
-            <section href="/home" id="button">
+            <section id="button">
                 <div>
                     <button @click="signin"><a href="#" id="button_text">Login</a></button>
                 </div>
             </section>
-            <a href="/forgotPassword" id="text-forgot">Forgot your password?</a>
         </main>
         <footer></footer>
     </div>
