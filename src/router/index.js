@@ -7,14 +7,9 @@ import home from '../views/home.vue'
 import accountManager from '../views/accountManager.vue'
 import chat from '../views/chat.vue'
 import wishlist from '../views/wishlist.vue'
-import search from '../views/search.vue'
 import viewProfile from '../views/viewProfile.vue'
-import newGift from '../views/newGift.vue'
 import newWishlist from '../views/newWishlist.vue'
 import wishlistGift from '../views/wishlistGift.vue'
-import wishlistGiftReserved from '../views/wishlistGiftReserved.vue'
-import wishlistMoving from '../views/wishlistMoving.vue'
-import wishlistMoved from '../views/wishlistMoved.vue'
 import wishlistErrorMessage from '../views/wishlistErrorMessage.vue'
 import chatMobileMessages from '../views/chatMobileMessages.vue'
 import chatMobileChatOpen from '../views/chatMobileChatOpen.vue'
@@ -63,21 +58,11 @@ const router = createRouter({
             name: 'wishlist',
             component: wishlist
         },
-        {
-            path: '/search',
-            name: 'search',
-            component: search
-        },
+
         {
             path: '/viewProfile',
             name: 'viewProfile',
             component: viewProfile
-        },
-
-        {
-            path: '/newGift',
-            name: 'newGift',
-            component: newGift
         },
         {
             path: '/newWishlist',
@@ -88,26 +73,6 @@ const router = createRouter({
             path: '/wishlistGift',
             name: 'wishlistGift',
             component: wishlistGift
-        },
-        {
-            path: '/wishlistGiftReserved',
-            name: 'wishlistGiftReserved',
-            component: wishlistGiftReserved
-        },
-        {
-            path: '/wishlistMoving',
-            name: 'wishlistMoving',
-            component: wishlistMoving
-        },
-        {
-            path: '/wishlistMoved',
-            name: 'wishlistMoved',
-            component: wishlistMoved
-        },
-        {
-            path: '/wishlistErrorMessage',
-            name: 'wishlistErrorMessage',
-            component: wishlistErrorMessage
         },
         {
             path: '/chatMobileMessages',
