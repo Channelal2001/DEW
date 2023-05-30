@@ -617,7 +617,7 @@ export default {
                     <p>{{ wishlist.name }}</p>
                   </div>
                   <div class="text-time-present">
-                    <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day in:</b></p>
+                    <p style="margin-bottom: 3px; margin-top: 5px"><b>Celebration day:</b></p>
                     <p style="margin-top: 0">{{ formatDate(wishlist.end_date) }}</p>
                   </div>
                 </a>
