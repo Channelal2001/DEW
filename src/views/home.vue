@@ -65,6 +65,15 @@ export default {
         this.loadFriendsWishlists(idsFriends)
       })
     },
+    showWishlists() {
+      var x = document.getElementById("show-wishlist-user");
+
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    },
     sendFriendRequest(userID) {
       const token = localStorage.getItem('token');
       fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends/${userID}`, {
@@ -576,14 +585,18 @@ export default {
         </section>
         <section id="list">
           
-            <article v-for="user in users" :key="user.id">
+            <article v-for="user in users" :key="user.id" >
               <div class="present-cover">
-                <button class="text-present">
+                <button class="text-present" @click="showWishlists">
+                 
                   <div class="text-title-present">
                     <p>{{ user.name }}</p>
                   </div>
                   <button @click="sendFriendRequest(user.id)" class="button_follow">Follow</button>
                 </button>
+                <div id="show-wishlist-user">
+                    <a id="link-wishlist-user">hola que ase</a>
+                  </div>
               </div>
             </article>
           

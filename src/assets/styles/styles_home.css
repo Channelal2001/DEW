@@ -397,7 +397,7 @@
             display: flex;
             flex-direction: row;
             justify-content: end;
-            align-items: end;
+            align-items: stretch;
             border-radius: 20px;
             box-shadow: 2px solid black;
         }
@@ -634,7 +634,7 @@
             display: flex;
             flex-direction: row;
             justify-content: end;
-            align-items: end;
+            align-items: stretch;
             border-radius: 20px;
             box-shadow: 2px solid black;
         }
@@ -654,6 +654,25 @@
         }
         .text-present:hover {
             background-color: rgb(205, 205, 205);
+        }
+        #show-wishlist-user {
+            background-color: rgb(250, 249, 249);
+            height: fit-content;
+            width: 100%;
+            text-align: center;
+            font-family: inter, medium;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            text-decoration: none;
+            outline: none;
+            border: none;
+        }
+        #link-wishlist-user {
+            text-decoration: none;
+            color: black;
+            padding: 10px;
         }
         .text-title-present {
             color: rgba(0, 0, 0, 1);
