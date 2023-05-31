@@ -244,13 +244,15 @@ export default {
             </div>
             <section class="chat-open">
                 <div class="chat-box">
-                <div id="name-user-chat">
-                    <p id="user-name">Alessandro Sadany</p>
+                  <div id="name-user-chat">
+                      <p id="user-name">Alessandro Sadany</p>
+                  </div>
+                  <div class="messages">
+                    <div v-for="message in messages" :key="message.id">
+                      <p id="message-text">{{ message.username }}: {{ message.content }}</p>
+                    </div>
+                  </div>
                 </div>
-                <div v-for="message in messages" :key="message.id" class="messages">
-                  <p id="message-text">{{ message.username }}: {{ message.content }}</p>
-                </div>
-                 </div>
                 <div id="text-input">
                     <input id="text-input-chat" type="text" name="search" placeholder="Type your message here...">
                     
