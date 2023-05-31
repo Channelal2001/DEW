@@ -654,6 +654,7 @@ export default {
         <button @click="showWishlists">Tancar</button>
           <div v-for="wishlist in userWishlists" :key="wishlist.id">
               <a id="link-wishlist-user">{{ wishlist.name }}</a>
+              <button>View</button>
           </div>
         </div>
       </div>
