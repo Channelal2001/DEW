@@ -101,6 +101,11 @@ header {
     margin-top: 0px;
 }
 
+.messages {
+    overflow-y: auto;
+    height: 680px;
+}
+
 #messages-text {
     font-family: Inter, medium;
     font-size: 35px;
