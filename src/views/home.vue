@@ -69,10 +69,10 @@ export default {
     showWishlists() {
       var x = document.getElementById("show-wishlist-user");
 
-      if (x.style.display === "none") {
-        x.style.display = "block";
-      } else {
+      if (x.style.display === "block") {
         x.style.display = "none";
+      } else {
+        x.style.display = "block";
       }
     },
     sendFriendRequest(userID) {
@@ -511,7 +511,7 @@ export default {
               <div id="name-surname-friend">
                 <p id="text-firend-info">{{ friend.name }}</p>
                 <p id="text-firend-info">{{ friend.last_name }}</p>
-                <!-- TODO: Arreglar posició cross-->
+
                 <div>
                   <a @click="deleteFriend(friend.id)">
                     <svg id="svg-icon-cross-friends" viewBox="0 0 20 20">
@@ -624,10 +624,6 @@ export default {
                   </div>
                   <button @click="sendFriendRequest(user.id)" class="button_follow">Follow</button>
                 </button>
-                <div v-for="wishlist in userWishlists" :key="wishlist.id" id="show-wishlist-user">
-                    <a id="link-wishlist-user">{{ wishlist.name }}</a>
-                    <!-- TODO: Afegir un botó per veure la wishlist de l'usuari -->
-                </div>
               </div>
             </article>
           
@@ -654,6 +650,13 @@ export default {
             </article>
           
         </section>
+        <div id="show-wishlist-user">
+        <p @click="loadUserWishlists">hola que </p>
+          <div v-for="wishlist in userWishlists" :key="wishlist.id">
+                      <a id="link-wishlist-user">{{ wishlist.name }}</a>
+                     
+          </div>
+        </div>
       </div>
     </main>
     <footer></footer>
