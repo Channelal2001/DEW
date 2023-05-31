@@ -654,7 +654,7 @@ export default {
         <p @click="loadUserWishlists">hola que </p>
           <div v-for="wishlist in userWishlists" :key="wishlist.id">
                       <a id="link-wishlist-user">{{ wishlist.name }}</a>
-                      TODO: Afegir un botó per veure la wishlist de l'usuari 
+                     
           </div>
         </div>
       </div>
