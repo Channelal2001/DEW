@@ -651,10 +651,10 @@ export default {
           
         </section>
         <div id="show-wishlist-user">
-        <p id="button-close" @click="loadUserWishlists">Close </p>
+        <p id="button-close" @click="showWishlists">Close</p>
         <div id="display-wishlists">
-          <div v-for="wishlist in userWishlists" :key="wishlist.id" id="link-wishlist-user" >
-            <a  id="link-wishlist-user-list">{{ wishlist.name }}</a>         
+          <div @click="showWishlist(wishlist.id)" v-for="wishlist in userWishlists" :key="wishlist.id" id="link-wishlist-user" >
+            <a id="link-wishlist-user-list">{{ wishlist.name }}</a>
           </div>
         </div>
         </div>
