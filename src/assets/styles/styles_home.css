@@ -2,6 +2,16 @@
         display: none;
     }
     
+    #show-wishlist-user {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 30px;
+        background-color: rgba(224, 221, 221, 0.4);
+        width: 100%;
+        height: 100%;
+    }
+    
     .button_follow {
         background-color: #56a7f2;
         color: white;
@@ -654,20 +664,6 @@
         }
         .text-present:hover {
             background-color: rgb(205, 205, 205);
-        }
-        #show-wishlist-user {
-            background-color: rgb(250, 249, 249);
-            height: fit-content;
-            width: 100%;
-            text-align: center;
-            font-family: inter, sans-serif;
-            border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            text-decoration: none;
-            outline: none;
-            border: none;
         }
         #link-wishlist-user {
             text-decoration: none;
