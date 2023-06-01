@@ -156,14 +156,12 @@ export default {
     .then((wishlistData) => {
       document.getElementById('name-wishlist').innerHTML = wishlistData.name;
       document.getElementById('description-wishlist').innerHTML = wishlistData.description;
-      // TODO: S'ha de modificar la sortida d'aquesta data perque mostri els dies, hores minuts que falten per la finalització de la wishlist
       document.getElementById('information-wishlist-numbers-box').innerHTML = wishlistData.end_date.substring(0, 10);
       this.gifts = wishlistData.gifts;
     })
   },
   computed: {
     sortedGifts() {
-      // Utiliza la función sort para ordenar los objetos según el campo "priority"
       return this.gifts.sort((a, b) => a.priority + b.priority);
     }
   }
