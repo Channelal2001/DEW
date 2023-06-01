@@ -1,5 +1,6 @@
 <script>
 import divideTokenVue from '../components/divideToken.vue';
+import io from 'socket.io-client';
 export default {
   data() {
     return {
@@ -100,6 +101,7 @@ export default {
         user_id_send: userSenderID,
         user_id_recived: userReceiverID,
       }
+      this.socket.emit('new_msg', message);
       fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/messages', {
         method: 'POST',
         headers: {
@@ -169,6 +171,38 @@ export default {
     },
   },
   mounted() {
+    this.socket = io("https://balandrau.salle.url.edu", {path: "/i3/socialgift/socket.io"});
+
+    if (this.socket) {
+      console.error("mySocket is not null and not undefined");
+      this.socket.on('connect', () => {
+        console.log("Connected to server");
+        console.log(this.socket.id);
+      });
+
+      this.socket.on("save_msg", (saveMsg) => {
+        console.log("saveMsg => " + saveMsg )
+      });
+
+      this.socket.on("new_msg", (newMsg) => {
+        console.log("newMsg => " + newMsg )
+      });
+
+      this.socket.on("connect_error", (error) => {
+        console.log("TransportError:", error);
+      });
+
+      this.socket.on("disconnect", (reason) => {
+        console.log("disconnect:");
+        setTimeout(() => {
+          this.socket.connect();
+        }, 1000);
+      });
+    } else {
+      console.error("mySocket is null or undefined");
+    }
+
+
     const token = localStorage.getItem('token');
     fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/messages/users', {
       method: 'GET',
