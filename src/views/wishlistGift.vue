@@ -197,6 +197,9 @@ export default {
                   <div id="box-message-gift">
                     <p id="user-chat">Priority: {{ gift.priority }}</p>
                     <p id="message-text">{{ gift.product_url }}</p>
+                    <svg v-if="gift.booked === 1" width="100" height="75" viewBox="0 0 100 75">
+                      <image xlink:href="../assets/images/gift_box.svg" width="100" height="75" />
+                    </svg>
                     <button @click="showProductInformation(gift.product_url)" id="button-see-more">See more</button>
                   </div>
                   <div class="butons-reserve">
