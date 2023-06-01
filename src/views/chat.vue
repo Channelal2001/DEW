@@ -245,7 +245,7 @@ export default {
             <section class="chat-open">
                 <div class="chat-box">
                   <div id="name-user-chat">
-                      <p id="user-name">Alessandro Sadany</p>
+                      <p id="user-name"></p>
                   </div>
                   <div class="messages">
                     <div v-for="message in messages" :key="message.id">
