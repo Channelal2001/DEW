@@ -160,6 +160,12 @@ export default {
       document.getElementById('information-wishlist-numbers-box').innerHTML = wishlistData.end_date.substring(0, 10);
       this.gifts = wishlistData.gifts;
     })
+  },
+  computed: {
+    sortedGifts() {
+      // Utiliza la función sort para ordenar los objetos según el campo "priority"
+      return this.gifts.sort((a, b) => a.priority + b.priority);
+    }
   }
 }
 </script>
@@ -193,7 +199,7 @@ export default {
         </section>
         <section class="chats-dashboard">
             <div id="wishlist-product-list">
-                <div v-for="gift in gifts" :key="gift.id" class="chat-user">
+                <div v-for="gift in sortedGifts" :key="gift.id" class="chat-user">
                   <div id="box-message-gift">
                     <p id="user-chat">Priority: {{ gift.priority }}</p>
                     <p id="message-text">{{ gift.product_url }}</p>

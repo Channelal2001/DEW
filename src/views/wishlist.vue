@@ -366,6 +366,12 @@ export default {
     .then((wishlistsData) => {
       this.wishlists = wishlistsData;
     })
+  },
+  computed: {
+    sortedGifts() {
+      // Utiliza la función sort para ordenar los objetos según el campo "priority"
+      return this.gifts.sort((a, b) => a.priority + b.priority);
+    }
   }
 }
 </script>
@@ -402,7 +408,7 @@ export default {
                     <p @click= "hideWhislistInfo" id="button-add-gift">Add gift</p>
                 </div>
 
-                <button @click="loadProduct(gift)" v-for="gift in gifts" :key="gift.id" class="chat-user-moving">
+                <button @click="loadProduct(gift)" v-for="gift in sortedGifts" :key="gift.id" class="chat-user-moving">
                   <div class="gift-position">
                     <div id="box-message-gift">
                       <p id="user-chat">Priority: {{ gift.priority }}</p>
