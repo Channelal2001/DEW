@@ -67,7 +67,6 @@ export default {
               content: message.content,
             });
           }
-          // TODO: Crida a la funció per obtenir el nom de l'usuari amb qui es parla i substituir-ho el valor de l'id user-name
           const username = await this.getUsername(userID);
           document.getElementById('user-name').innerHTML = username;
           this.messages = mensaje;

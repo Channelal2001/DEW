@@ -6,7 +6,6 @@ import home from '../views/home.vue'
 import accountManager from '../views/accountManager.vue'
 import chat from '../views/chat.vue'
 import wishlist from '../views/wishlist.vue'
-import viewProfile from '../views/viewProfile.vue'
 import newWishlist from '../views/newWishlist.vue'
 import wishlistGift from '../views/wishlistGift.vue'
 import chatMobileMessages from '../views/chatMobileMessages.vue'
@@ -50,12 +49,6 @@ const router = createRouter({
             path: '/wishlist',
             name: 'wishlist',
             component: wishlist
-        },
-
-        {
-            path: '/viewProfile',
-            name: 'viewProfile',
-            component: viewProfile
         },
         {
             path: '/newWishlist',
