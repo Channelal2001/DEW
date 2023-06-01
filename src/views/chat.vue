@@ -128,6 +128,7 @@ export default {
           }
         }
       })
+      document.getElementById("text-input-chat").value = "";
     },
     searchUsers() {
       const searchTerm = document.getElementById("search-input").value;
