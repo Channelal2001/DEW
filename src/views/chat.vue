@@ -148,6 +148,12 @@ export default {
           }
         }
       })
+      const accessToken = {
+        "accessToken": token
+      };
+      console.log(accessToken);
+      this.socket.emit("login", JSON.stringify(accessToken));
+      this.socket.emit("new_msg", message);
       document.getElementById("text-input-chat").value = "";
     },
     searchUsers() {
