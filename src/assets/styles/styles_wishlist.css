@@ -5,6 +5,12 @@
     font-family: Inter, medium;
 }
 
+.present {
+    margin-left: 5px;
+    margin-right: 5px;
+    fill: rgb(144, 144, 144);
+}
+
 .newGift {
     display: flex;
     flex-direction: column;
