@@ -181,6 +181,7 @@ export default {
   computed: {
     /**
      * @description This method sorts the gifts by its priority
+     * @returns {Array}
      */
     sortedGifts() {
       return this.gifts.sort((a, b) => a.priority + b.priority);
