@@ -76,16 +76,27 @@ export default {
             Authorization: `Bearer ${token}`,
           },
         });
-
+        
         if (response.status === 200) {
           const mensaje = [];
           const messagesData = await response.json();
           var x = document.getElementById("hide-messages");
-
-          if (x.style.display === "block") {
-            x.style.display = "none";
-          } else {
-            x.style.display = "block";
+          var y = document.getElementById("hide-user-mesages");
+          
+          if (window.innerWidth > 768) {
+            if (x.style.display === "block") {
+              x.style.display = "none";
+            } else {
+              x.style.display = "block";
+            }
+          }else{
+            if (x.style.display === "block") {
+              x.style.display = "none";
+              y.style.display = "block";
+            } else {
+              x.style.display = "block";
+              y.style.display = "none";
+            }
           }
           for (const message of messagesData) {
             const username = await this.getUsername(message.user_id_send);
@@ -130,36 +141,9 @@ export default {
         user_id_send: userSenderID,
         user_id_recived: userReceiverID,
       }
-      /*fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/messages', {
-        method: 'POST',
-        headers: {
-          'accept': 'application/json',
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(message),
-      })
-      .then((response) => {
-        if (response.status === 201) {
-          alert('Message sent');
-          return response.json();
-        } else {
-          switch (response.status) {
-            case 401:
-              alert('Unauthorized');
-              break;
-            case 500:
-              alert('Error sending message');
-              break;
-            case 502:
-              alert('Internal Server Error');
-              break;
-          }
-        }
-      })*/
+     
       this.socket.emit("query_user", JSON.stringify(message));
       this.socket.emit("send_msg", JSON.stringify(message));
-      //document.getElementById("text-input-chat").value = "";
     },
     searchUsers() {
       const searchTerm = document.getElementById("search-input").value;
@@ -330,6 +314,7 @@ export default {
             <p id="messages-text">Messages</p>
         </section>
         <section class="chats-dashboard">
+          <div id="hide-user-mesages">
             <div id="chat-open">
                 <div id="search-bar">
                   <input id="search-input" type="text" name="search" placeholder="Search..." @keydown.enter="searchUsers">
@@ -344,6 +329,7 @@ export default {
                     </button>
                 </div>
             </div>
+          </div>
             <div id="hide-messages">
               <section class="chat-open">
                   <div class="chat-box">
