@@ -15,6 +15,30 @@
     flex-direction: column;
 }
 
+.button_wishlist {
+    background-color: NONE;
+    color: white;
+    font-family: inter, medium;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 45px;
+    width: fit-content;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    justify-self: center;
+    align-self: center;
+}
+
+.button_wishlist:hover {
+    background-color: #515151;
+}
+
 #button-close {
     text-align: end;
     margin-right: 10%;
@@ -50,8 +74,8 @@
     align-self: center;
 }
 
-.button_follow :hover {
-    background-color: #1762a9;
+.button_follow:hover {
+    background-color: #0385ff;
 }
 
 #show-search {
@@ -129,6 +153,8 @@
     height: 15px;
     cursor: pointer;
 }
+
+
 /*arreglar posicoó corss*/
 
 #svg-icon-cross-friends {
@@ -547,6 +573,8 @@
         align-items: center;
     }
 }
+
+
 /*Pantalles d'ordinador*/
 
 @media screen and (min-width: 426px) {

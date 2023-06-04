@@ -616,7 +616,7 @@ export default {
                     <p>{{ user.name }}</p>
                   </div>
                   <button @click="sendFriendRequest(user.id)" class="button_follow">Follow</button>
-                  <button @click="loadUserWishlists(user.id)" class="button_follow">View Wishlists</button>
+                  <button @click="loadUserWishlists(user.id)" class="button_wishlist">View Wishlists</button>
                 </div>
               </div>
             </article>
