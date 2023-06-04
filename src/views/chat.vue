@@ -120,7 +120,7 @@ export default {
         user_id_send: userSenderID,
         user_id_recived: userReceiverID,
       }
-      fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/messages', {
+      /*fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/messages', {
         method: 'POST',
         headers: {
           'accept': 'application/json',
@@ -146,7 +146,7 @@ export default {
               break;
           }
         }
-      })
+      })*/
       this.socket.emit("query_user", JSON.stringify(message));
       this.socket.emit("send_msg", JSON.stringify(message));
       document.getElementById("text-input-chat").value = "";
@@ -198,7 +198,7 @@ export default {
       this.socket.on('connect', () => {
         console.log("Connected to server");
         console.log(this.socket.id);
-        this.socket.emit("login", `${tokenEmit}`);
+        //this.socket.emit("login", `${tokenEmit}`);
         //this.socket.emit("login", JSON.stringify({"accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIxLCJlbWFpbCI6ImFkbWluc0BnbWFpbC5jb20iLCJpYXQiOjE2ODU2OTc3Mzl9.34S-_iU06GeaObnPqCJkugi2czCeMXquj05XgIqnwXY"}));
       });
 
@@ -224,6 +224,7 @@ export default {
       });
 
       this.socket.on("new_msg", (newMsg) => {
+        document.getElementById("new-message").innerHTML = newMsg.split('"')[3];
         console.log("newMsg => " + newMsg )
       });
 
@@ -328,6 +329,7 @@ export default {
                     <div v-for="message in messages" :key="message.id">
                       <p id="message-text">{{ message.username }}: {{ message.content }}</p>
                     </div>
+                    <p id="new-message"></p>
                   </div>
                 </div>
                 <div id="text-input">
