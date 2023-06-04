@@ -315,6 +315,8 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 800px;
+    overflow-y: auto;
 }
 
 @media screen and (min-width:1900px) {
@@ -348,7 +350,9 @@ footer {
         display: flex;
         flex-direction: column;
         align-items: center;
+        height: 700px;
         margin-top: 20px;
+        overflow-y: auto;
     }
     .chat-open {
         display: flex;
