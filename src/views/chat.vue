@@ -213,13 +213,11 @@ export default {
         //this.socket.emit("login", JSON.stringify({"accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIxLCJlbWFpbCI6ImFkbWluc0BnbWFpbC5jb20iLCJpYXQiOjE2ODU2OTc3Mzl9.34S-_iU06GeaObnPqCJkugi2czCeMXquj05XgIqnwXY"}));
       });
 
-      this.socket.on("save_msg", (saveMsg) => {
-        const messageParts = saveMsg.split('"');
-        console.log(messageParts[4]);
+      this.socket.on("save_msg", async (saveMsg) => {
         const message = {
-          username: this.getUsername(messageParts[5]),
-          content: messageParts[3]
-        };
+          content: document.getElementById('text-input-chat').value,
+          username: await this.getUsername(divideTokenVue.methods.divideToken(token))
+        }
         this.messages.push(message);
         //Obtener el cotenido del mensaje
 
