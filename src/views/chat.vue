@@ -8,7 +8,63 @@ export default {
       messages: [],
     };
   },
+  sockets: {
+    connect() {
+      // Fired when the socket connects.
+      this.isConnected = true;
+    },
+
+    disconnect() {
+      this.isConnected = false;
+    },
+
+    // Fired when the server sends something on the "messageChannel" channel.
+    messageChannel(data) {
+      this.socketMessage = data
+    }
+  },
   methods: {
+    pingServer() {
+      // Send the "pingServer" event to the server.
+      this.$socket.emit('pingServer', 'PING!')
+    },
+    async getUsername(userID) {
+      const token = localStorage.getItem('token');
+      try {
+        const response = await fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${userID}`, {
+          method: 'GET',
+          headers: {
+            'accept': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (response.status === 200) {
+          const data = await response.json();
+          return data.name;
+        } else {
+          switch (response.status) {
+            case 204:
+              alert('User not found');
+              break;
+            case 400:
+              alert('Bad request');
+              break;
+            case 401:
+              alert('Unauthorized');
+              break;
+            case 406:
+              alert('Missing parameters');
+              break;
+            case 502:
+              alert('Internal Server Error');
+              break;
+          }
+        }
+      } catch (error) {
+        throw new Error('Error occurred while fetching username');
+      }
+    },
     async showMessages(userID) {
       const token = localStorage.getItem('token');
       localStorage.setItem('userID', userID);
@@ -61,6 +117,9 @@ export default {
         throw new Error('Error occurred while fetching messages');
       }
     },
+    async constructMessage() {
+
+    },
     sendMessage() {
       const token = localStorage.getItem('token');
       const content = document.getElementById('text-input-chat').value;
@@ -71,8 +130,36 @@ export default {
         user_id_send: userSenderID,
         user_id_recived: userReceiverID,
       }
+      /*fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/messages', {
+        method: 'POST',
+        headers: {
+          'accept': 'application/json',
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(message),
+      })
+      .then((response) => {
+        if (response.status === 201) {
+          alert('Message sent');
+          return response.json();
+        } else {
+          switch (response.status) {
+            case 401:
+              alert('Unauthorized');
+              break;
+            case 500:
+              alert('Error sending message');
+              break;
+            case 502:
+              alert('Internal Server Error');
+              break;
+          }
+        }
+      })*/
       this.socket.emit("query_user", JSON.stringify(message));
       this.socket.emit("send_msg", JSON.stringify(message));
+      //document.getElementById("text-input-chat").value = "";
     },
     searchUsers() {
       const searchTerm = document.getElementById("search-input").value;
@@ -123,6 +210,7 @@ export default {
         console.log("Connected to server");
         console.log(this.socket.id);
         this.socket.emit("login", `${token}`);
+        //this.socket.emit("login", JSON.stringify({"accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIxLCJlbWFpbCI6ImFkbWluc0BnbWFpbC5jb20iLCJpYXQiOjE2ODU2OTc3Mzl9.34S-_iU06GeaObnPqCJkugi2czCeMXquj05XgIqnwXY"}));
       });
 
       this.socket.on("save_msg", async (saveMsg) => {
@@ -251,6 +339,7 @@ export default {
                         <img id="image-user" :src="user.image" alt="image-chat-user ">
                         <div id="box-message-chat">
                             <p id="user-chat">{{ user.name }}</p>
+                            <!--<p id="message-text">Hi! I’m some grateful for your present!!!!</p>-->
                         </div>
                     </button>
                 </div>
@@ -270,6 +359,7 @@ export default {
                   </div>
                   <div id="text-input">
                       <input id="text-input-chat" type="text" name="search" placeholder="Type your message here...">
+                      
                       <div @click="sendMessage" id="icon-send-back">
                           <svg id="icon-send " xmlns="http://www.w3.org/2000/svg" width="16 " height="16 " fill="currentColor " class="bi bi-send " viewBox="0 0 16 16 "> <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643
                           7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z " fill="white "></path> </svg>
