@@ -8,8 +8,7 @@ import chat from '../views/chat.vue'
 import wishlist from '../views/wishlist.vue'
 import newWishlist from '../views/newWishlist.vue'
 import wishlistGift from '../views/wishlistGift.vue'
-import chatMobileMessages from '../views/chatMobileMessages.vue'
-import chatMobileChatOpen from '../views/chatMobileChatOpen.vue'
+
 
 const router = createRouter({
     history: createWebHistory(
@@ -59,16 +58,7 @@ const router = createRouter({
             name: 'wishlistGift',
             component: wishlistGift
         },
-        {
-            path: '/chatMobileMessages',
-            name: 'chatMobileMessages',
-            component: chatMobileMessages
-        },
-        {
-            path: '/chatMobileChatOpen',
-            name: 'chatMobileChatOpen',
-            component: chatMobileChatOpen
-        }
+
     ]
 })
 

@@ -82,7 +82,7 @@ export default {
               x.style.display = "block";
             }
           }else{
-            if (x.style.display === "block") {
+            if (y.style.display === "block") {
               x.style.display = "none";
               y.style.display = "block";
             } else {
