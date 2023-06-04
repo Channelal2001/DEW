@@ -117,7 +117,9 @@ export default {
         throw new Error('Error occurred while fetching messages');
       }
     },
-    
+    async constructMessage() {
+
+    },
     sendMessage() {
       const token = localStorage.getItem('token');
       const content = document.getElementById('text-input-chat').value;
@@ -199,6 +201,7 @@ export default {
     },
   },
   mounted() {
+    const token = localStorage.getItem('token');
     this.socket = io("https://balandrau.salle.url.edu", {path: "/i3/socialgift/socket.io"});
 
     if (this.socket) {
@@ -206,14 +209,14 @@ export default {
       this.socket.on('connect', () => {
         console.log("Connected to server");
         console.log(this.socket.id);
-        //this.socket.emit("login", `${tokenEmit}`);
+        this.socket.emit("login", `${token}`);
         //this.socket.emit("login", JSON.stringify({"accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIxLCJlbWFpbCI6ImFkbWluc0BnbWFpbC5jb20iLCJpYXQiOjE2ODU2OTc3Mzl9.34S-_iU06GeaObnPqCJkugi2czCeMXquj05XgIqnwXY"}));
       });
 
       this.socket.on("save_msg", (saveMsg) => {
         const messageParts = saveMsg.split('"');
         const message = {
-          username: messageParts[1],
+          username: this.getUsername(messageParts[5]),
           content: messageParts[3]
         };
         this.messages.push(message);
@@ -239,6 +242,12 @@ export default {
       });
 
       this.socket.on("new_msg", (newMsg) => {
+        const messageParts = newMsg.split('"');
+        const message = {
+          username: newMsg.username,
+          content: messageParts[3]
+        };
+        this.messages.push(message);
         console.log("newMsg => " + newMsg )
       });
 
@@ -260,8 +269,6 @@ export default {
       console.error("mySocket is null or undefined");
     }
 
-
-    const token = localStorage.getItem('token');
     fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/messages/users', {
       method: 'GET',
       headers: {
