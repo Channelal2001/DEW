@@ -5,6 +5,10 @@ export default {
     };
   },
   methods: {
+    /**
+     * @description This method signs in the user
+     * @returns {Promise<void>}
+     */
     async signin() {
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;

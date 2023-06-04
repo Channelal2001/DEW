@@ -6,6 +6,10 @@
         };
     },
     methods: {
+      /**
+       * @description This method creates a new wishlist
+       * @returns {Promise<void>}
+       */
         async createWishlist() {
             const name = document.getElementById('name-wishlist').innerHTML;
             const description = document.getElementById('description-wishlist').innerHTML;
