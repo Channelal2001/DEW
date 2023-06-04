@@ -73,23 +73,13 @@ export default {
           const mensaje = [];
           const messagesData = await response.json();
           var x = document.getElementById("hide-messages");
-          var y = document.getElementById("hide-user-mesages");
-          
-          if (window.innerWidth > 768) {
+  
             if (x.style.display === "block") {
               x.style.display = "none";
             } else {
               x.style.display = "block";
             }
-          }else{
-            if (y.style.display === "block") {
-              x.style.display = "block";
-              y.style.display = "none";
-            } else {
-              x.style.display = "none";
-              y.style.display = "block";
-            }
-          }
+         
           for (const message of messagesData) {
             const username = await this.getUsername(message.user_id_send);
             mensaje.push({
@@ -306,7 +296,7 @@ export default {
             <p id="messages-text">Messages</p>
         </section>
         <section class="chats-dashboard">
-          <div id="hide-user-mesages">
+          
             <div id="chat-open">
                 <div id="search-bar">
                   <input id="search-input" type="text" name="search" placeholder="Search..." @keydown.enter="searchUsers">
@@ -319,7 +309,7 @@ export default {
                         </div>
                     </button>
                 </div>
-            </div>
+         
           </div>
             <div id="hide-messages">
               <section class="chat-open">
