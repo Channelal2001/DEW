@@ -611,19 +611,17 @@ export default {
           </div>
         </section>
         <section id="list">
-          
             <article v-for="user in users" :key="user.id" >
               <div class="present-cover">
-                <button class="text-present" @click="loadUserWishlists(user.id)">
-                 
+                <div class="text-present">
                   <div class="text-title-present">
                     <p>{{ user.name }}</p>
                   </div>
                   <button @click="sendFriendRequest(user.id)" class="button_follow">Follow</button>
-                </button>
+                  <button @click="loadUserWishlists(user.id)" class="button_follow">View Wishlists</button>
+                </div>
               </div>
             </article>
-          
         </section>
         <section>
           <div id="title-slider">
