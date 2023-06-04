@@ -9,6 +9,10 @@ export default {
     };
   },
   methods: {
+    /**
+     * @description: This method edits the wishlist
+     * @returns {Promise<void>}
+     */
     async editWishlist() {
         const wishlistID = localStorage.getItem('wishlistID');
         const token = localStorage.getItem('token');
@@ -57,6 +61,10 @@ export default {
             }
         })
     },
+    /**
+     * @description: This method deletes the wishlist
+     * @returns {Promise<void>}
+     */
     async deleteWishlist() {
         const token = localStorage.getItem('token');
         const wishlistID = localStorage.getItem('wishlistID');
@@ -87,6 +95,10 @@ export default {
             }
         })
     },
+    /**
+     * @description: This method deletes the gift
+     * @returns {Promise<void>}
+     */
     async deleteGift() {
         const token = localStorage.getItem('token');
         const giftID = localStorage.getItem('giftID');
@@ -117,6 +129,9 @@ export default {
             }
         })
     },
+    /**
+     * @description: This method hides the wishlist information
+     */
     hideWhislistInfo() {
         var x = document.getElementById("wishlist-data-information");
         var y = document.getElementById("hide-wishlist-data");
@@ -129,6 +144,9 @@ export default {
             y.style.display = "block";
         }
     },
+    /**
+     * @description: This method shows the wishlist information
+     */
     showWhislistInfo() {
         var x = document.getElementById("wishlist-data-information");
         var y = document.getElementById("hide-wishlist-data");
@@ -141,6 +159,9 @@ export default {
             y.style.display = "none";
         }
     },
+    /**
+     * This method shows the links
+     */
     showLinks(){
         var x = document.getElementById("hide-links");
         if (x.style.display === "block") {
@@ -151,6 +172,9 @@ export default {
           
       }
     },
+    /**
+     * This method shows the moving panel
+     */
     showMovingPanel(){
         var x = document.getElementById("hide-moving");
         var y = document.getElementById("hide-info");
@@ -163,6 +187,10 @@ export default {
           y.style.display = "none";
       }
     },
+    /**
+     * This method loads the product information from a gift
+     * @param gift
+     */
     loadProduct(gift) {
       localStorage.setItem('giftID', gift.id);
       fetch(gift.product_url, {
@@ -201,6 +229,10 @@ export default {
         this.showMovingPanel();
       })
     },
+    /**
+     * This method moves the gift to another wishlist
+     * @param wishlist
+     */
     moveGift(wishlist) {
       const token = localStorage.getItem('token');
       const giftID = localStorage.getItem('giftID');
@@ -246,6 +278,9 @@ export default {
         }
       })
     },
+    /**
+     * This method adds a gift to the wishlist
+     */
     addGift() {
       const token = localStorage.getItem('token');
       const wishlistID = localStorage.getItem('wishlistID');
@@ -299,6 +334,9 @@ export default {
     },
   },
   mounted() {
+    /**
+     * This method loads the wishlist information
+     */
     const token = localStorage.getItem('token');
     const wishlistID = localStorage.getItem('wishlistID');
     fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/wishlists/${wishlistID}`, {
@@ -341,6 +379,9 @@ export default {
         this.gifts = wishlistData.gifts;
     })
 
+    /**
+     * This method loads the wishlists of the user
+     */
     const userID = divideTokenVue.methods.divideToken(token);
     fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${userID}/wishlists`, {
       method: 'GET',
@@ -368,6 +409,9 @@ export default {
     })
   },
   computed: {
+    /**
+     * This method sorts the gifts by its priority
+     */
     sortedGifts() {
       // Utiliza la función sort para ordenar los objetos según el campo "priority"
       return this.gifts.sort((a, b) => a.priority + b.priority);
