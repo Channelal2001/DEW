@@ -511,7 +511,6 @@ export default {
               <div id="name-surname-friend">
                 <p id="text-firend-info">{{ friend.name }}</p>
                 <p id="text-firend-info">{{ friend.last_name }}</p>
-
                 <div>
                   <a @click="deleteFriend(friend.id)">
                     <svg id="svg-icon-cross-friends" viewBox="0 0 20 20">
@@ -550,7 +549,6 @@ export default {
               </svg>
             </button>
           </div>
-          
         </div>
       </div>
 
@@ -629,7 +627,6 @@ export default {
           </div>
         </section>
         <section id="list">
-          
             <article v-for="wishlist in usersWishlists" :key="wishlist.id">
               <div class="present-cover">
                 <a @click="showWishlist(wishlist.id)" class="text-present">
@@ -643,7 +640,6 @@ export default {
                 </a>
               </div>
             </article>
-          
         </section>
         <div id="show-wishlist-user">
         <p id="button-close" @click="showWishlists">Close</p>
