@@ -8,22 +8,12 @@ export default {
       messages: [],
     };
   },
-  sockets: {
-    connect() {
-      // Fired when the socket connects.
-      this.isConnected = true;
-    },
-
-    disconnect() {
-      this.isConnected = false;
-    },
-
-    // Fired when the server sends something on the "messageChannel" channel.
-    messageChannel(data) {
-      this.socketMessage = data
-    }
-  },
   methods: {
+    /**
+     * Get the username of the user with the given ID
+     * @param userID
+     * @returns {Promise<*>}
+     */
     async getUsername(userID) {
       const token = localStorage.getItem('token');
       try {
@@ -61,6 +51,12 @@ export default {
         throw new Error('Error occurred while fetching username');
       }
     },
+
+    /**
+     * Get the messages between the authenticated user and the user with the given ID
+     * @param userID
+     * @returns {Promise<void>}
+     */
     async showMessages(userID) {
       const token = localStorage.getItem('token');
       localStorage.setItem('userID', userID);
@@ -113,9 +109,10 @@ export default {
         throw new Error('Error occurred while fetching messages');
       }
     },
-    async constructMessage() {
 
-    },
+    /**
+     * Send a message to the user with the given ID
+     */
     sendMessage() {
       const token = localStorage.getItem('token');
       const content = document.getElementById('text-input-chat').value;
@@ -126,37 +123,13 @@ export default {
         user_id_send: userSenderID,
         user_id_recived: userReceiverID,
       }
-      /*fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/messages', {
-        method: 'POST',
-        headers: {
-          'accept': 'application/json',
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(message),
-      })
-      .then((response) => {
-        if (response.status === 201) {
-          alert('Message sent');
-          return response.json();
-        } else {
-          switch (response.status) {
-            case 401:
-              alert('Unauthorized');
-              break;
-            case 500:
-              alert('Error sending message');
-              break;
-            case 502:
-              alert('Internal Server Error');
-              break;
-          }
-        }
-      })*/
       this.socket.emit("query_user", JSON.stringify(message));
       this.socket.emit("send_msg", JSON.stringify(message));
-      //document.getElementById("text-input-chat").value = "";
     },
+
+    /**
+     * Search users by name
+     */
     searchUsers() {
       const searchTerm = document.getElementById("search-input").value;
       const token = localStorage.getItem('token');
@@ -197,6 +170,7 @@ export default {
     },
   },
   mounted() {
+    // All socket.io code
     const token = localStorage.getItem('token');
     this.socket = io("https://balandrau.salle.url.edu", {path: "/i3/socialgift/socket.io"});
 
@@ -216,24 +190,19 @@ export default {
         }
         this.messages.push(message);
         document.getElementById("text-input-chat").value = "";
-        //Obtener el cotenido del mensaje
-
         console.log("Mensaje recibido: " + saveMsg);
       });
 
       this.socket.on("send_msg", (sendMsg) => {
-        //Obtener el cotenido del mensaje
         console.log("sendMsg => " + sendMsg )
       });
 
       this.socket.on("query_user", (queryUser) => {
-        //Obtener el cotenido del mensaje
         console.log("queryUser => " + queryUser )
 
       });
 
       this.socket.on("historic_msg", (historicMsg) => {
-        //Obtener el cotenido del mensaje
         console.log("historicMsg => " + historicMsg )
       });
 
@@ -268,6 +237,7 @@ export default {
       console.error("mySocket is null or undefined");
     }
 
+    // Get all users with whom the user has chatted
     fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/messages/users', {
       method: 'GET',
       headers: {
@@ -314,7 +284,6 @@ export default {
                 </div>
             </a>
             <div id="menu">
-               
                 <a href="/accountManager">
                     <svg herf="" class="button-account" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                         <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
@@ -335,7 +304,6 @@ export default {
                         <img id="image-user" :src="user.image" alt="image-chat-user ">
                         <div id="box-message-chat">
                             <p id="user-chat">{{ user.name }}</p>
-                            <!--<p id="message-text">Hi! I’m some grateful for your present!!!!</p>-->
                         </div>
                     </button>
                 </div>
@@ -355,7 +323,6 @@ export default {
                   </div>
                   <div id="text-input">
                       <input id="text-input-chat" type="text" name="search" placeholder="Type your message here...">
-                      
                       <div @click="sendMessage" id="icon-send-back">
                           <svg id="icon-send " xmlns="http://www.w3.org/2000/svg" width="16 " height="16 " fill="currentColor " class="bi bi-send " viewBox="0 0 16 16 "> <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643
                           7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z " fill="white "></path> </svg>
