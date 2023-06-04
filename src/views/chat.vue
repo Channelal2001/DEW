@@ -215,6 +215,7 @@ export default {
 
       this.socket.on("save_msg", (saveMsg) => {
         const messageParts = saveMsg.split('"');
+        console.log(messageParts[4]);
         const message = {
           username: this.getUsername(messageParts[5]),
           content: messageParts[3]
@@ -241,10 +242,14 @@ export default {
         console.log("historicMsg => " + historicMsg )
       });
 
-      this.socket.on("new_msg", (newMsg) => {
+      this.socket.on("new_msg", async (newMsg) => {
         const messageParts = newMsg.split('"');
+        const idParts = messageParts[6].split(':');
+        const idParts2 = idParts[1].split(',');
+        const id = idParts2[0];
+        console.log(id);
         const message = {
-          username: newMsg.username,
+          username: await this.getUsername(id),
           content: messageParts[3]
         };
         this.messages.push(message);
