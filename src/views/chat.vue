@@ -68,16 +68,27 @@ export default {
             Authorization: `Bearer ${token}`,
           },
         });
-
+        
         if (response.status === 200) {
           const mensaje = [];
           const messagesData = await response.json();
           var x = document.getElementById("hide-messages");
-
-          if (x.style.display === "block") {
-            x.style.display = "none";
-          } else {
-            x.style.display = "block";
+          var y = document.getElementById("hide-user-mesages");
+          
+          if (window.innerWidth > 768) {
+            if (x.style.display === "block") {
+              x.style.display = "none";
+            } else {
+              x.style.display = "block";
+            }
+          }else{
+            if (x.style.display === "block") {
+              x.style.display = "none";
+              y.style.display = "block";
+            } else {
+              x.style.display = "block";
+              y.style.display = "none";
+            }
           }
           for (const message of messagesData) {
             const username = await this.getUsername(message.user_id_send);
@@ -295,6 +306,7 @@ export default {
             <p id="messages-text">Messages</p>
         </section>
         <section class="chats-dashboard">
+          <div id="hide-user-mesages">
             <div id="chat-open">
                 <div id="search-bar">
                   <input id="search-input" type="text" name="search" placeholder="Search..." @keydown.enter="searchUsers">
@@ -308,6 +320,7 @@ export default {
                     </button>
                 </div>
             </div>
+          </div>
             <div id="hide-messages">
               <section class="chat-open">
                   <div class="chat-box">
