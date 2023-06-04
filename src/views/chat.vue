@@ -210,9 +210,15 @@ export default {
       });
 
       this.socket.on("save_msg", (saveMsg) => {
+        const messageParts = saveMsg.split('"');
+        const message = {
+          username: messageParts[1],
+          content: messageParts[3]
+        };
+        this.messages.push(message);
         //Obtener el cotenido del mensaje
-        console.log("Mensaje recibido: " + saveMsg);
 
+        console.log("Mensaje recibido: " + saveMsg);
       });
 
       this.socket.on("send_msg", (sendMsg) => {
@@ -223,6 +229,7 @@ export default {
       this.socket.on("query_user", (queryUser) => {
         //Obtener el cotenido del mensaje
         console.log("queryUser => " + queryUser )
+
       });
 
       this.socket.on("historic_msg", (historicMsg) => {
@@ -231,7 +238,6 @@ export default {
       });
 
       this.socket.on("new_msg", (newMsg) => {
-        document.getElementById("new-message").innerHTML = newMsg.split('"')[3];
         console.log("newMsg => " + newMsg )
       });
 
@@ -338,7 +344,6 @@ export default {
                         <p id="message-text">{{ message.username }}: {{ message.content }}</p>
                       </div>
                     </div>
-                    <p id="new-message"></p>
                   </div>
                   <div id="text-input">
                       <input id="text-input-chat" type="text" name="search" placeholder="Type your message here...">
