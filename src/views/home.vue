@@ -13,7 +13,10 @@ export default {
     };
   },
   methods: {
-    // TODO: Canviar la forma d'obtenir el token. Utilitzar el patro singelton fent servir APP.vue. És més eficient
+    /**
+     * @description This method loads the friends wishlists
+     * @param idsFriends
+     */
     loadFriendsWishlists(idsFriends) {
       const token = localStorage.getItem('token');
       idsFriends.forEach((friendId) => {
@@ -32,6 +35,9 @@ export default {
         })
       })
     },
+    /**
+     * @description This method loads the friend's ids for the function loadFriendsWishlists
+     */
     loadFriends() {
       let idsFriends = [];
       const token = localStorage.getItem('token');
@@ -66,6 +72,9 @@ export default {
         this.loadFriendsWishlists(idsFriends)
       })
     },
+    /**
+     * @description This method shows the user's wishlists when the button is clicked
+     */
     showWishlists() {
       var x = document.getElementById("show-wishlist-user");
 
@@ -75,6 +84,10 @@ export default {
         x.style.display = "block";
       }
     },
+    /**
+     * @description This method sends a friend request to the user matching the id
+     * @param userID
+     */
     sendFriendRequest(userID) {
       const token = localStorage.getItem('token');
       fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends/${userID}`, {
@@ -115,6 +128,11 @@ export default {
         }
       })
     },
+    /**
+     * @description This method accepts a friend request
+     * @param userID
+     * @returns {Promise<void>}
+     */
     async acceptRequest(userID) {
       const token = localStorage.getItem('token');
       fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends/${userID}`, {
@@ -153,6 +171,11 @@ export default {
         }
       })
     },
+    /**
+     * @description This method removes a friend request
+     * @param userID
+     * @returns {Promise<void>}
+     */
     async removeRequest(userID) {
       const token = localStorage.getItem('token');
       fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends/${userID}`, {
@@ -188,6 +211,10 @@ export default {
         }
       })
     },
+    /**
+     * @description This method deletes a friend
+     * @param userID
+     */
     deleteFriend(userID) {
       const token = localStorage.getItem('token');
       fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends/${userID}`, {
@@ -223,6 +250,9 @@ export default {
         }
       })
     },
+    /**
+     * @description This method shows the friends window when the button is clicked
+     */
     showfriends() {
       var x = document.getElementById("hide");
 
@@ -232,6 +262,9 @@ export default {
         x.style.display = "block";
       }
     },
+    /**
+     * @description This method shows the notifications window when the button is clicked
+     */
     shownotifications() {
       var x = document.getElementById("hide-notifications");
 
@@ -241,6 +274,9 @@ export default {
         x.style.display = "block";
       }
     },
+    /**
+     * @description This method shows the search results when the user hits enter
+     */
     showSearch() {
       var x = document.getElementById("hide-search");
       var y = document.getElementById("show-search");
@@ -250,13 +286,26 @@ export default {
         y.style.display = "none";
       }
     },
+    /**
+     * @description This method saves the wishlistID in the local storage and redirects to the wishlist page
+     * @param wishlistID
+     */
     editWishlist(wishlistID) {
       localStorage.setItem('wishlistID', wishlistID);
       window.location.href = "/wishlist";
     },
+    /**
+     * @description This method changes the date received to a more readable format
+     * @param date
+     * @returns {string}
+     */
     formatDate(date) {
       return date.substring(0, 10);
     },
+    /**
+     * @description This method loads the wishlists of the user and shows them on the page
+     * @param userId
+     */
     loadUserWishlists(userId) {
       const token = localStorage.getItem('token');
       fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${userId}/wishlists`, {
@@ -285,6 +334,10 @@ export default {
         this.showWishlists();
       })
     },
+    /**
+     * @description This method loads the user's wishlists
+     * @param userId
+     */
     loadWishlists(userId) {
       const token = localStorage.getItem('token');
       fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${userId}/wishlists`, {
@@ -314,6 +367,9 @@ export default {
         });
       })
     },
+    /**
+     * @description This method searches for users
+     */
     search() {
       const searchTerm = document.getElementById("search-bar").value;
       const token = localStorage.getItem('token');
@@ -357,12 +413,19 @@ export default {
       })
       document.getElementById("search-bar").value = "";
     },
+    /**
+     * @description This method saves the wishlistID in the local storage and redirects to the wishlistGift page
+     * @param wishlistID
+     */
     showWishlist(wishlistID) {
       localStorage.setItem('wishlistID', wishlistID);
       window.location.href = "/wishlistGift";
     },
   },
   mounted() {
+    /**
+     * @description This method loads the friend's data
+     */
     const token = localStorage.getItem('token');
     fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends', {
       method: 'GET',
@@ -392,6 +455,9 @@ export default {
       this.friends = friendsData;
     })
 
+    /**
+     * @description This method loads the wishlist's of the authenticated user
+     */
     const idUser = divideTokenVue.methods.divideToken(token);
     fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/users/${idUser}/wishlists`, {
       method: 'GET',
@@ -421,6 +487,9 @@ export default {
 
     this.loadFriends();
 
+    /**
+     * @description This method loads the friend requests
+     */
     fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/friends/requests', {
       method: 'GET',
       headers: {
