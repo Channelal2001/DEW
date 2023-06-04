@@ -24,10 +24,6 @@ export default {
     }
   },
   methods: {
-    pingServer() {
-      // Send the "pingServer" event to the server.
-      this.$socket.emit('pingServer', 'PING!')
-    },
     async getUsername(userID) {
       const token = localStorage.getItem('token');
       try {
