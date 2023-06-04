@@ -83,11 +83,11 @@ export default {
             }
           }else{
             if (y.style.display === "block") {
-              x.style.display = "none";
-              y.style.display = "block";
-            } else {
               x.style.display = "block";
               y.style.display = "none";
+            } else {
+              x.style.display = "none";
+              y.style.display = "block";
             }
           }
           for (const message of messagesData) {
