@@ -120,7 +120,6 @@ export default {
         user_id_send: userSenderID,
         user_id_recived: userReceiverID,
       }
-      this.socket.emit('new_msg', message);
       fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/messages', {
         method: 'POST',
         headers: {
@@ -148,11 +147,8 @@ export default {
           }
         }
       })
-      const accessToken = {
-        "accessToken": token
-      };
-      console.log(accessToken);
-      this.socket.emit("login", JSON.stringify(accessToken));
+      this.socket.emit("query_user", JSON.stringify(message));
+      this.socket.emit("send_msg", JSON.stringify(message));
       document.getElementById("text-input-chat").value = "";
     },
     searchUsers() {
@@ -202,10 +198,29 @@ export default {
       this.socket.on('connect', () => {
         console.log("Connected to server");
         console.log(this.socket.id);
+        this.socket.emit("login", `${tokenEmit}`);
+        //this.socket.emit("login", JSON.stringify({"accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIxLCJlbWFpbCI6ImFkbWluc0BnbWFpbC5jb20iLCJpYXQiOjE2ODU2OTc3Mzl9.34S-_iU06GeaObnPqCJkugi2czCeMXquj05XgIqnwXY"}));
       });
 
       this.socket.on("save_msg", (saveMsg) => {
-        console.log("saveMsg => " + saveMsg )
+        //Obtener el cotenido del mensaje
+        console.log("Mensaje recibido: " + saveMsg);
+
+      });
+
+      this.socket.on("send_msg", (sendMsg) => {
+        //Obtener el cotenido del mensaje
+        console.log("sendMsg => " + sendMsg )
+      });
+
+      this.socket.on("query_user", (queryUser) => {
+        //Obtener el cotenido del mensaje
+        console.log("queryUser => " + queryUser )
+      });
+
+      this.socket.on("historic_msg", (historicMsg) => {
+        //Obtener el cotenido del mensaje
+        console.log("historicMsg => " + historicMsg )
       });
 
       this.socket.on("new_msg", (newMsg) => {
@@ -214,6 +229,10 @@ export default {
 
       this.socket.on("connect_error", (error) => {
         console.log("TransportError:", error);
+      });
+
+      this.socket.on("login", (login) => {
+        console.log("login => " + login )
       });
 
       this.socket.on("disconnect", (reason) => {
