@@ -6,6 +6,10 @@ export default {
     };
   },
   methods: {
+    /**
+     * @description This method loads the product information
+     * @param productURL
+     */
     showProductInformation(productURL) {
       fetch(productURL, {
         method: 'GET',
@@ -43,6 +47,10 @@ export default {
         this.showProductPanel();
       })
     },
+    /**
+     * @description This method deletes a gift booking
+     * @param giftID
+     */
     unreservedGift(giftID) {
         const token = localStorage.getItem('token');
         fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/gifts/${giftID}/book/`, {
@@ -72,6 +80,9 @@ export default {
             }
         })
     },
+    /**
+     * @description This method shows the product panel
+     */
     showProductPanel() {
       var x = document.getElementById("gift-information");
 
@@ -81,6 +92,10 @@ export default {
         x.style.display = "block";
       }
     },
+    /**
+     * @description This method books a gift
+     * @param giftId
+     */
     reserveGift(giftId) {
       const token = localStorage.getItem('token');
       fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/gifts/${giftId}/book`, {
@@ -121,6 +136,9 @@ export default {
     }
   },
   mounted() {
+    /**
+     * @description This method loads the wishlist information
+     */
     const token = localStorage.getItem('token');
     const wishlistID = localStorage.getItem('wishlistID');
     fetch(`https://balandrau.salle.url.edu/i3/socialgift/api/v1/wishlists/${wishlistID}`, {
@@ -161,6 +179,9 @@ export default {
     })
   },
   computed: {
+    /**
+     * @description This method sorts the gifts by its priority
+     */
     sortedGifts() {
       return this.gifts.sort((a, b) => a.priority + b.priority);
     }
