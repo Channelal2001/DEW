@@ -159,7 +159,7 @@ export default {
       })*/
       this.socket.emit("query_user", JSON.stringify(message));
       this.socket.emit("send_msg", JSON.stringify(message));
-      document.getElementById("text-input-chat").value = "";
+      //document.getElementById("text-input-chat").value = "";
     },
     searchUsers() {
       const searchTerm = document.getElementById("search-input").value;
@@ -215,10 +215,11 @@ export default {
 
       this.socket.on("save_msg", async (saveMsg) => {
         const message = {
-          content: document.getElementById('text-input-chat').value,
-          username: await this.getUsername(divideTokenVue.methods.divideToken(token))
+          username: await this.getUsername(divideTokenVue.methods.divideToken(token)),
+          content: document.getElementById('text-input-chat').value
         }
         this.messages.push(message);
+        document.getElementById("text-input-chat").value = "";
         //Obtener el cotenido del mensaje
 
         console.log("Mensaje recibido: " + saveMsg);
@@ -245,7 +246,6 @@ export default {
         const idParts = messageParts[6].split(':');
         const idParts2 = idParts[1].split(',');
         const id = idParts2[0];
-        console.log(id);
         const message = {
           username: await this.getUsername(id),
           content: messageParts[3]
