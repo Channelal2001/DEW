@@ -7,6 +7,10 @@ export default {
     };
   },
   methods: {
+    /**
+     * @description This method edits the user
+     * @returns {Promise<void>}
+     */
     async editUser() {
         const token = localStorage.getItem('token');
         const name = document.getElementById('name').innerHTML;
@@ -55,6 +59,10 @@ export default {
             }
         })
     },
+    /**
+     * @description This method deletes the user
+     * @returns {Promise<void>}
+     */
     async deleteUser() {
         const token = localStorage.getItem('token');
         fetch('https://balandrau.salle.url.edu/i3/socialgift/api/v1/users', {
@@ -85,6 +93,10 @@ export default {
             }
         })
     },
+    /**
+     * @description This method logs out the user
+     * @returns {Promise<void>}
+     */
     async logout() {
         localStorage.clear();
         window.location.href = "/";
