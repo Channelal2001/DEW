@@ -14,6 +14,15 @@
     border: 1px solid rgba(46, 46, 46, 0.33);
 }
 
+#message-name {
+    font-family: Inter, medium;
+    font-size: 10px;
+    color: rgb(110, 110, 110);
+    margin: 0;
+    margin-left: 12px;
+    margin-bottom: 2px;
+}
+
 #hide-messages {
     display: none;
 }
@@ -149,6 +158,7 @@ header {
 
 #name-user-chat {
     font-family: Inter, bold;
+    margin-bottom: 10px;
     color: rgba(139, 139, 139, 1);
     width: 100%;
     height: fit-content;
@@ -272,10 +282,11 @@ footer {
 
 #message-text {
     font-family: Inter, medium;
-    margin: 10px;
-    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-top: 0;
     color: rgb(0, 0, 0);
-    font-size: 12px;
+    font-size: 13px;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 5px;

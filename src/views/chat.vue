@@ -117,6 +117,7 @@ export default {
         throw new Error('Error occurred while fetching messages');
       }
     },
+    
     sendMessage() {
       const token = localStorage.getItem('token');
       const content = document.getElementById('text-input-chat').value;
@@ -340,8 +341,9 @@ export default {
                         <p id="user-name"></p>
                     </div>
                     <div class="messages">
-                      <div v-for="message in messages" :key="message.id">
-                        <p id="message-text">{{ message.username }}: {{ message.content }}</p>
+                      <div  v-for="message in messages" :key="message.id">
+                        <p id="message-name">{{ message.username }}</p>
+                        <p id="message-text">{{ message.content }}</p>
                       </div>
                     </div>
                   </div>
