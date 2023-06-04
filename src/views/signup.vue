@@ -5,6 +5,10 @@ export default {
     };
   },
     methods: {
+      /**
+       * @description This method creates a new user
+       * @returns {Promise<void>}
+       */
         async signup() {
             const name = document.getElementById('name').value;
             const lastname = document.getElementById('lastname').value;
