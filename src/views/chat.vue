@@ -335,7 +335,8 @@ export default {
                     </div>
                     <div class="messages">
                       <div v-for="message in messages" :key="message.id">
-                        <p id="message-text">{{ message.username }}: {{ message.content }}</p>
+                        <p id="message-name">{{ message.username }}</p>
+                        <p id="message-text">{{ message.content }}</p>
                       </div>
                     </div>
                     <p id="new-message"></p>
